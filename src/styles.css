@@ -246,3 +246,24 @@ footer{color:#999}footer b,.footer-cross{color:#ff3545}
 @keyframes sge-ball-pass{from{translate:-20px 0}to{translate:38px -17px}}
 @media(max-width:700px){.sge-training{height:290px}.sge-training.large{height:360px}.training-stand{left:19%;right:19%}.training-player .pixel-player-sprite{width:43px;height:65px}.training-scoreboard{font-size:6px}.training-scene-caption{font-size:5px}}
 @media(prefers-reduced-motion:reduce){.training-player,.training-ball{animation:none}}
+
+/* Mobile drawer: prevent clipped navigation fragments on the left edge */
+@media(max-width:700px){
+  .sidebar{
+    left:0!important;
+    right:auto!important;
+    width:min(250px,86vw)!important;
+    transform:translate3d(-110%,0,0)!important;
+    visibility:hidden!important;
+    pointer-events:none!important;
+    transition:transform .22s ease,visibility .22s ease!important;
+    z-index:50!important;
+  }
+  .sidebar.open{
+    transform:translate3d(0,0,0)!important;
+    visibility:visible!important;
+    pointer-events:auto!important;
+  }
+  .main{margin-left:0!important;min-width:0;overflow-x:clip}
+  .app-shell{width:100%;max-width:100%;overflow-x:clip}
+}

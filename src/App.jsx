@@ -50,25 +50,35 @@ export default function App() {
   const [loadingPlayers, setLoadingPlayers] = useState(false)
   const [apiError, setApiError] = useState('')
   const [search, setSearch] = useState('')
+  const [nextPlayerPage, setNextPlayerPage] = useState(1)
+  const [hasMorePlayers, setHasMorePlayers] = useState(false)
   const apiBase = import.meta.env.VITE_API_BASE || 'https://sge-analytics-api.megazepp.workers.dev'
 
-  async function loadPlayers() {
-    if (!apiBase) { setApiStatus('API noch nicht verbunden'); return }
+  async function loadPlayers({ append = false } = {}) {
+    if (!apiBase || loadingPlayers) return
+    const page = append ? nextPlayerPage : 1
+    const cacheKey = `sge-players-${TEAM_ID}-${SEASON}-${page}`
     setLoadingPlayers(true); setApiError('')
     try {
-      const base = apiBase.replace(/\/$/, '')
-      const first = await fetch(`${base}/api/players?team=${TEAM_ID}&season=${SEASON}&page=1`)
-      if (!first.ok) throw new Error('Spielerdaten konnten nicht geladen werden')
-      const data = await first.json()
-      let all = data.response || []
-      const pages = Math.min(Number(data.paging?.total || 1), 10)
-      for (let page = 2; page <= pages; page++) {
-        const response = await fetch(`${base}/api/players?team=${TEAM_ID}&season=${SEASON}&page=${page}`)
-        if (!response.ok) break
-        const next = await response.json()
-        all = all.concat(next.response || [])
+      const cached = sessionStorage.getItem(cacheKey)
+      let data
+      if (cached) {
+        const saved = JSON.parse(cached)
+        if (Date.now() - saved.savedAt < 15 * 60 * 1000) data = saved.data
       }
-      setPlayers(all.map(item => ({ ...item.player, statistics: item.statistics || [] })))
+      if (!data) {
+        const base = apiBase.replace(/\/$/, '')
+        const response = await fetch(`${base}/api/players?team=${TEAM_ID}&season=${SEASON}&page=${page}`)
+        if (!response.ok) throw new Error('Spielerdaten konnten nicht geladen werden')
+        data = await response.json()
+        sessionStorage.setItem(cacheKey, JSON.stringify({ savedAt: Date.now(), data }))
+      }
+      const incoming = (data.response || []).map(item => ({ ...item.player, statistics: item.statistics || [] }))
+      setPlayers(current => append ? [...current, ...incoming.filter(p => !current.some(old => old.id === p.id))] : incoming)
+      const currentPage = Number(data.paging?.current || page)
+      const totalPages = Number(data.paging?.total || currentPage)
+      setNextPlayerPage(currentPage + 1)
+      setHasMorePlayers(currentPage < totalPages)
       setApiStatus('Echte Kaderdaten geladen')
     } catch (error) { setApiError(error.message); setApiStatus('Daten nicht erreichbar') }
     finally { setLoadingPlayers(false) }
@@ -90,7 +100,7 @@ export default function App() {
       <div className="sidebar-bottom"><div className="club-chip"><div className="club-dot">✕</div><div><strong>Eintracht Frankfurt</strong><span>Bundesliga · Deutschland</span></div></div><span className="version">SGE ANALYTICS <b>v0.2.0</b></span></div>
     </aside>
     <main className="main">
-      <header className="topbar"><button className="mobile-menu icon-button" onClick={()=>setMenuOpen(!menuOpen)}><Menu size={20}/></button><div className="breadcrumb">SGE PIXEL WORLD <span>/</span> {title.toUpperCase()}</div><div className="top-actions"><span className="season-pill">SAISON 2026/27</span><span className="status"><i/> {apiStatus}</span><button className="icon-button" onClick={loadPlayers} title="Spielerdaten aktualisieren"><Activity size={18}/></button></div></header>
+      <header className="topbar"><button className="mobile-menu icon-button" onClick={()=>setMenuOpen(!menuOpen)}><Menu size={20}/></button><div className="breadcrumb">SGE PIXEL WORLD <span>/</span> {title.toUpperCase()}</div><div className="top-actions"><span className="season-pill">SAISON 2026/27</span><span className="status"><i/> {apiStatus}</span>{active==='squad'&&<button className="icon-button" onClick={()=>loadPlayers()} title="Erste Kaderseite aktualisieren"><Activity size={18}/></button>}</div></header>
       <div className="content">
         {selectedPlayer ? <section className="player-profile panel">
           <button className="back-button" onClick={()=>setSelectedPlayer(null)}><ArrowLeft size={16}/> ZURÜCK ZUM KADER</button>
@@ -107,7 +117,7 @@ export default function App() {
             <div className="panel rank-panel flop-rank"><div className="panel-heading"><div><span className="eyebrow">NEEDS A BOOST</span><h3>FLOP 3 FORM</h3></div><Activity/></div>{flop.length?flop.map((p,i)=><button className="rank-row" key={p.id} onClick={()=>setSelectedPlayer(p)}><b>0{i+1}</b><PixelPlayer number={p.number||0} small/><strong>{p.name}</strong><span>★ {Number(p.statistics[0].games.rating).toFixed(2)}</span></button>):<p className="empty-note">Wird angezeigt, sobald echte Spielerdaten geladen sind.</p>}</div></section>
             <section className="panel training-teaser"><div><span className="eyebrow">LIVE FROM THE TRAINING GROUND</span><h3>Die Adler sind auf dem Platz.</h3><p>Schau den Pixel-Spielern beim Training zu.</p><button className="primary-button" onClick={()=>openSection('training')}>Zum Trainingsgelände <ArrowUpRight size={16}/></button></div><TrainingGround/></section>
           </>}
-          {active==='squad' && <section className="panel squad-panel"><div className="panel-heading"><div><span className="eyebrow">FIRST TEAM // SEASON 2026/27</span><h3>Der komplette Profikader</h3></div><span className="demo-tag">{players.length} SPIELER</span></div><div className="squad-toolbar"><input value={search} onChange={e=>setSearch(e.target.value)} placeholder="Spieler suchen …"/><button className="primary-button" onClick={loadPlayers}>{loadingPlayers?'LÄDT …':'KADER AKTUALISIEREN'}</button></div>{apiError&&<p className="error-note">{apiError}</p>}{loadingPlayers&&<p className="empty-note">Kaderdaten werden geladen …</p>}{!loadingPlayers&&!players.length&&<div className="empty-state"><PixelPlayer number={9}/><h3>Der Kader wartet auf die Datenverbindung</h3><p>Wenn der API-Football-Zugang eingerichtet ist, erscheinen hier automatisch alle Spieler inklusive Position, Nummer und Leistungsdaten.</p><button className="primary-button" onClick={loadPlayers}>ERNEUT VERSUCHEN</button></div>}<div className="squad-grid">{filteredPlayers.map(p=><PlayerCard key={p.id} player={p} onClick={()=>setSelectedPlayer(p)}/>)}</div></section>}
+          {active==='squad' && <section className="panel squad-panel"><div className="panel-heading"><div><span className="eyebrow">FIRST TEAM // SEASON 2026/27</span><h3>Der komplette Profikader</h3></div><span className="demo-tag">{players.length} SPIELER</span></div><div className="squad-toolbar"><input value={search} onChange={e=>setSearch(e.target.value)} placeholder="Spieler suchen …"/><button className="primary-button" onClick={loadPlayers}>{loadingPlayers?'LÄDT …':'KADER AKTUALISIEREN'}</button></div>{apiError&&<p className="error-note">{apiError}</p>}{loadingPlayers&&<p className="empty-note">Kaderdaten werden geladen …</p>}{!loadingPlayers&&!players.length&&<div className="empty-state"><PixelPlayer number={9}/><h3>Der Kader wartet auf die Datenverbindung</h3><p>Wenn der API-Football-Zugang eingerichtet ist, erscheinen hier automatisch alle Spieler inklusive Position, Nummer und Leistungsdaten.</p><button className="primary-button" onClick={loadPlayers}>ERNEUT VERSUCHEN</button></div>}<div className="squad-grid">{filteredPlayers.map(p=><PlayerCard key={p.id} player={p} onClick={()=>setSelectedPlayer(p)}/>)}</div>{hasMorePlayers&&<button className="primary-button load-more" disabled={loadingPlayers} onClick={()=>loadPlayers({append:true})}>{loadingPlayers?'LÄDT …':'WEITERE SPIELER LADEN'}</button>}</section>}
           {active==='training'&&<section className="training-page panel"><div className="panel-heading"><div><span className="eyebrow">TRAINING COMPLEX // FRANKFURT</span><h3>Trainingsgelände</h3></div><span className="demo-tag">PIXEL SIMULATION</span></div><p className="training-intro">Die Pixel-Adler arbeiten an Passspiel, Abschluss und Fitness.</p><TrainingGround large/><div className="training-drills"><div><b>01</b><strong>PASS-SPIEL</strong><span>Kurze Pässe im Dreieck</span></div><div><b>02</b><strong>TORABSCHLUSS</strong><span>Abschluss auf das Tor</span></div><div><b>03</b><strong>FITNESS</strong><span>Läufe und Sprinttraining</span></div></div></section>}
           {['lineup','matches','statistics'].includes(active)&&<section className="panel placeholder-panel"><div className="placeholder-icon">{active==='lineup'?<Shield/>:active==='matches'?<CalendarDays/>:<BarChart3/>}</div><span className="eyebrow">NÄCHSTES MODUL</span><h2>{title}</h2><p>Dieses Modul bekommt ebenfalls Pixel-Art-Elemente und echte Eintracht-Daten.</p><button className="primary-button" onClick={()=>openSection('overview')}>Zur Übersicht <ArrowUpRight size={16}/></button></section>}
         </>}

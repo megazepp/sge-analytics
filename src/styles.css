@@ -112,3 +112,49 @@ body{background-color:#090b12;background-image:linear-gradient(rgba(255,255,255,
 .training-drills>div{background:#334b45;border-color:#647b5e}.training-drills strong{color:#f0d28a}
 @keyframes pixel-run{from{translate:0 0}to{translate:24px -5px}}
 @media(max-width:700px){.pixel-player-sprite{width:66px;height:99px}.training-player .pixel-player-sprite{width:44px;height:66px}}
+
+/* Cozy Stardew-inspired SGE world */
+:root{color:#f8f0d5;background:#263b32}
+body{background:#263b32;background-image:linear-gradient(90deg,rgba(218,224,162,.04) 1px,transparent 1px),linear-gradient(rgba(218,224,162,.04) 1px,transparent 1px),radial-gradient(ellipse at 15% 5%,#526b4b,transparent 38%),radial-gradient(ellipse at 90% 85%,#465b42,transparent 36%);background-size:8px 8px,8px 8px,auto,auto}
+.sidebar{background:#31483a;border-right:4px solid #182b25;box-shadow:inset -4px 0 #536b4b}
+.topbar{background:#3c5544;border-bottom:4px solid #1d3028}
+.brand-mark{background:#e6d49a;color:#283b30;border:3px solid #1c3028;box-shadow:3px 3px 0 #182b25}
+.brand strong{color:#fff2d2}.brand span,.club-chip span,.version{color:#c4c49a}
+.side-label,.eyebrow{color:#d4c99f}
+.nav-item{color:#e2dfc4;border:2px solid transparent;border-radius:0;font-family:'VT323',monospace;font-size:21px}
+.nav-item:hover,.nav-item.active{background:#536b4b;color:#fff4d5;border-color:#e6d49a;box-shadow:3px 3px 0 #1d3028}
+.nav-item.active svg{color:#f0d17a}
+.club-chip{border-color:#71805c}.club-dot{background:#e6d49a;color:#31483a;border:2px solid #1d3028;box-shadow:2px 2px 0 #1d3028}
+.club-chip strong{color:#fff2d2}.version b{color:#f0d17a}
+.breadcrumb{color:#f1e8c9}.breadcrumb span{color:#e6d49a}
+.season-pill{border:2px solid #80906a;color:#f4e9c8;background:#31483a}
+.status{color:#d7dfb7}.status i,.live-label i{background:#e6c66f;box-shadow:0 0 0 2px #65784e}
+.content{color:#f8f0d5}.page-heading h1{color:#fff1ce;text-shadow:3px 3px 0 #24372d}.page-heading p{color:#d5d5b2}
+.heading-date span,.heading-date small{color:#d1d0a9}.heading-date strong{color:#f0d17a}
+.hero-card{background:linear-gradient(135deg,#536e4c,#3d5944 58%,#344b3d);border:4px solid #1d3028;box-shadow:5px 5px 0 #1b2c24;outline:2px solid #8c9b68;outline-offset:-9px}
+.hero-card:before{border:2px dashed rgba(245,231,183,.28)}
+.pixel-kicker{color:#f1d98d}.live-label{color:#e4e4bd}
+.hero-copy h2{color:#fff0ca;text-shadow:3px 3px 0 #25392e}.hero-copy h2 em{color:#f0d17a}.hero-copy p{color:#e2e2c3}
+.primary-button{background:#e3c879;color:#293c30;border:3px solid #25392e;box-shadow:3px 3px 0 #1b2c24;font-family:'Press Start 2P',monospace}
+.primary-button:hover{background:#f2df9c;color:#293c30;transform:translate(-1px,-1px);box-shadow:4px 4px 0 #1b2c24}
+.hero-caption{background:#304839;border:2px solid #e6d49a;color:#fff0ca}.hero-caption span{color:#f0d17a}
+.metric-card,.panel{background:#3c5745;border:3px solid #1e342b;box-shadow:4px 4px 0 #1b2c24;border-radius:0}
+.metric-card{outline:1px solid #789064;outline-offset:-7px}.metric-top{color:#d9dfb8}.metric-top svg{color:#f0d17a}
+.metric-value{color:#fff0ca;text-shadow:2px 2px 0 #263b32}.metric-note{color:#d0d8b2}.panel-heading h3{color:#fff0ca}
+.demo-tag,.chart-unit{color:#f2df9c;border:2px solid #7f9066;background:#304839}
+.form-row{border-color:#607758}.form-match strong{color:#fff0ca}.form-match span,.chart-footnote{color:#d0d8b2}.score{color:#f0d17a}
+.placeholder-icon{background:#536b4b;color:#f0d17a;border:3px solid #1d3028;box-shadow:3px 3px 0 #1d3028}
+.placeholder-panel h2{color:#fff0ca}.placeholder-panel p{color:#d9dfb8}
+footer{color:#c5cda9}footer b,.footer-cross{color:#f0d17a}
+.player-card{background:#486448;border:3px solid #20382d;box-shadow:4px 4px 0 #1b2c24;color:#fff0ca}
+.player-card:hover{border-color:#f0d17a;box-shadow:4px 6px 0 #1b2c24}
+.player-card-top{color:#f0d17a}.player-position,.player-mini-stats{color:#d5dfb8}.player-mini-stats b{color:#fff0ca}
+.rank-row{background:#304839;border:2px solid #71845d;color:#fff0ca}.rank-row:hover{border-color:#f0d17a}.rank-row>b,.rank-row>span{color:#f0d17a}
+.training-page,.training-teaser{background:#3c5745;border-color:#1e342b}
+.training-drills>div{background:#304839;border:2px solid #71845d}.training-drills strong{color:#f0d17a}
+.squad-toolbar input{background:#304839;border:2px solid #83936b;color:#fff0ca}.squad-toolbar input::placeholder{color:#c5cda9}
+.back-button{color:#f0d17a}.profile-note{background:#304839}.profile-note h3{color:#f0d17a}
+.profile-note p,.profile-hero p,.profile-nationality{color:#d9dfb8}
+.training-ground{border:5px solid #1e342b;outline:2px solid #81936a;outline-offset:-9px}
+.training-label{background:#304839;border:3px solid #e6d49a;color:#fff0ca;font-family:'VT323',monospace;font-size:17px;letter-spacing:1px}
+@media(max-width:700px){.sidebar{background:#31483a}.hero-card{background:linear-gradient(135deg,#536e4c,#344b3d)}}

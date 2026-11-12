@@ -50,7 +50,7 @@ export default function App() {
   const [loadingPlayers, setLoadingPlayers] = useState(false)
   const [apiError, setApiError] = useState('')
   const [search, setSearch] = useState('')
-  const apiBase = import.meta.env.VITE_API_BASE
+  const apiBase = import.meta.env.VITE_API_BASE || 'https://sge-analytics-api.megazepp.workers.dev'
 
   async function loadPlayers() {
     if (!apiBase) { setApiStatus('API noch nicht verbunden'); return }

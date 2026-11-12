@@ -64,7 +64,7 @@ export default function App() {
       let data
       if (cached) {
         const saved = JSON.parse(cached)
-        if (Date.now() - saved.savedAt < 15 * 60 * 1000) data = saved.data
+        if (Date.now() - saved.savedAt < 6 * 60 * 60 * 1000) data = saved.data
       }
       if (!data) {
         const base = apiBase.replace(/\/$/, '')

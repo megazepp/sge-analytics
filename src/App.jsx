@@ -117,5 +117,14 @@ export default function App() {
   </div>
 }
 function TrainingGround({large=false}) {
-  return <div className={large?'training-ground large':'training-ground'}><div className="training-sky"/><div className="training-fence"/><div className="training-pitch"><div className="pitch-line"/><div className="pitch-circle"/><div className="training-goal"/></div><div className="training-player p1"><PixelPlayer number={7} small/></div><div className="training-player p2"><PixelPlayer number={9} small/></div><div className="training-player p3"><PixelPlayer number={11} small/></div><div className="training-player p4"><PixelPlayer number={8} small/></div><div className="training-ball"/><div className="training-label">SGE TRAINING CAMP</div></div>
+  return <div className={large?'training-ground sge-training large':'training-ground sge-training'} aria-label="Pixel-Art-Trainingsplatz der Eintracht">
+    <div className="training-backdrop"><div className="training-cloud cloud-a"/><div className="training-cloud cloud-b"/><div className="training-stand"><span>EINTRACHT FRANKFURT</span><i/><i/><i/></div><div className="training-tree tree-a"/><div className="training-tree tree-b"/></div>
+    <div className="training-floodlights"><i/><i/><i/><i/></div>
+    <div className="sge-field"><div className="field-half"/><div className="field-circle"/><div className="field-box box-left"/><div className="field-box box-right"/><div className="field-goal goal-left"/><div className="field-goal goal-right"/><div className="field-stripe stripe-a"/><div className="field-stripe stripe-b"/></div>
+    <div className="training-cone cone-a"/><div className="training-cone cone-b"/><div className="training-cone cone-c"/>
+    <div className="training-player p1"><PixelPlayer number={7}/><span>7</span></div><div className="training-player p2"><PixelPlayer number={9}/><span>9</span></div><div className="training-player p3"><PixelPlayer number={11}/><span>11</span></div><div className="training-player p4"><PixelPlayer number={8}/><span>8</span></div>
+    <div className="training-ball ball-one"/><div className="training-ball ball-two"/>
+    <div className="training-scoreboard"><b>SGE</b><span>TRAINING DAY</span><strong>1899</strong></div>
+    <div className="training-scene-caption">DEUTSCHE BANK PARK · TRAININGSPLATZ</div>
+  </div>
 }

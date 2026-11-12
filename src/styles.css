@@ -86,3 +86,29 @@ body{background-color:#090b12;background-image:linear-gradient(rgba(255,255,255,
 @keyframes pixel-run{from{translate:0 0}to{translate:32px -8px}}@keyframes ball-pass{from{translate:-45px 0}to{translate:65px -12px}}
 @media(max-width:800px){.form-rank-grid,.training-teaser{grid-template-columns:1fr}.training-ground{height:210px}.training-ground.large{height:300px}.training-drills{grid-template-columns:1fr}.profile-hero{gap:12px;padding:25px 5px}.profile-hero .pixel-player{transform:scale(1.05);margin:0 5px}.profile-hero h1{font-size:14px}.squad-toolbar{flex-direction:column}.squad-toolbar .primary-button{justify-content:center}}
 @media(prefers-reduced-motion:reduce){.training-player,.training-ball{animation:none}.player-card{transition:none}}
+
+/* Cozy farm-sim pixel-art polish */
+.pixel-player-sprite{display:block;width:76px;height:114px;flex:0 0 auto;image-rendering:pixelated;overflow:visible;filter:drop-shadow(3px 3px 0 rgba(20,18,25,.35))}
+.pixel-player-sprite.small{width:38px;height:57px;transform:none}
+.pixel-player-sprite.blond rect:first-child,.pixel-player-sprite.blond rect:nth-child(2){fill:#d9b75b}
+.pixel-player-sprite.dark rect:nth-child(3){fill:#80543f}
+.pixel-player-sprite.dark rect:nth-child(4),.pixel-player-sprite.dark rect:nth-child(5){fill:#171313}
+.player-card{background:#26394a;border:3px solid #526b65;box-shadow:4px 4px 0 #17252d;border-radius:0}
+.player-card:hover{border-color:#e9bd59;box-shadow:4px 7px 0 #17252d}
+.player-card-top{color:#f4d17a}.player-card>strong{font-family:'VT323',monospace;font-size:23px}
+.training-ground{border:4px solid #637b61;background:#7c9a61;box-shadow:inset 0 0 0 4px #314b3b}
+.training-sky{inset:0 0 56% 0;background:linear-gradient(#526b83 0%,#9aa779 65%,#d5bb79 100%)}
+.training-fence{top:20%;height:28%;opacity:.8;background:repeating-linear-gradient(90deg,transparent 0 34px,#536a58 35px 39px),linear-gradient(transparent 87%,#657b57 88% 94%,transparent 95%)}
+.training-pitch{inset:43% 0 0;background:repeating-linear-gradient(0deg,#6f9852 0 25px,#7da85c 26px 50px)}
+.pitch-line{height:3px;background:#e7e2b7}.pitch-circle{width:96px;height:64px;border:3px solid #e7e2b7}
+.training-goal{border:5px solid #e9e1bd;border-bottom:0;filter:drop-shadow(3px 3px 0 #496447)}
+.training-player{top:34%;filter:drop-shadow(2px 3px 0 rgba(35,48,30,.35))}
+.training-player .pixel-player-sprite{width:54px;height:81px;transform:none}
+.training-player.p1{left:17%}.training-player.p2{left:42%;top:48%}.training-player.p3{left:67%;top:35%}.training-player.p4{left:82%;top:50%}
+.training-ball{width:13px;height:13px;border:3px solid #4d4837;background:#f4edcf;box-shadow:2px 2px 0 #40533a}
+.training-label{background:#314d3c;border:3px solid #e8c66d;color:#fff1c9;font:8px 'VT323',monospace;letter-spacing:1px;padding:6px 9px}
+.training-ground:after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse at 50% 100%,transparent 45%,rgba(33,49,34,.18) 100%);box-shadow:inset 0 -8px 0 rgba(41,65,39,.25)}
+.training-page,.training-teaser{background:#263747;border-color:#536e62}
+.training-drills>div{background:#334b45;border-color:#647b5e}.training-drills strong{color:#f0d28a}
+@keyframes pixel-run{from{translate:0 0}to{translate:24px -5px}}
+@media(max-width:700px){.pixel-player-sprite{width:66px;height:99px}.training-player .pixel-player-sprite{width:44px;height:66px}}

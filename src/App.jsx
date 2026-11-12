@@ -69,8 +69,10 @@ export default function App() {
       if (!data) {
         const base = apiBase.replace(/\/$/, '')
         const response = await fetch(`${base}/api/players?team=${TEAM_ID}&season=${SEASON}&page=${page}`)
-        if (!response.ok) throw new Error('Spielerdaten konnten nicht geladen werden')
         data = await response.json()
+        if (!response.ok) throw new Error(data?.error || data?.message || `API-Fehler ${response.status}`)
+        if (data?.errors && Object.keys(data.errors).length) throw new Error(Object.values(data.errors).join(' · '))
+        if (!Array.isArray(data?.response)) throw new Error('Unerwartete Antwort vom Fußball-Datenanbieter')
         sessionStorage.setItem(cacheKey, JSON.stringify({ savedAt: Date.now(), data }))
       }
       const incoming = (data.response || []).map(item => ({ ...item.player, statistics: item.statistics || [] }))
@@ -80,7 +82,7 @@ export default function App() {
       setNextPlayerPage(currentPage + 1)
       setHasMorePlayers(currentPage < totalPages)
       setApiStatus('Echte Kaderdaten geladen')
-    } catch (error) { setApiError(error.message); setApiStatus('Daten nicht erreichbar') }
+    } catch (error) { setApiError(error.message || 'Unbekannter Verbindungsfehler'); setApiStatus('Daten nicht erreichbar') }
     finally { setLoadingPlayers(false) }
   }
   useEffect(() => { if (active === 'squad' && players.length === 0) loadPlayers() }, [active])

@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 420" shape-rendering="crispEdges">
+<defs>
+ <linearGradient id="sky" x2="0" y2="1"><stop stop-color="#171b31"/><stop offset="1" stop-color="#5a2029"/></linearGradient>
+ <pattern id="seats" width="12" height="10" patternUnits="userSpaceOnUse"><rect width="6" height="4" fill="#d72b3b"/><rect x="6" y="4" width="6" height="4" fill="#7d1c2b"/><rect y="6" width="6" height="4" fill="#242d40"/></pattern>
+</defs>
+<rect width="720" height="420" fill="url(#sky)"/>
+<g fill="#f6f0d5"><rect x="78" y="28" width="8" height="42"/><rect x="70" y="24" width="24" height="8"/><rect x="634" y="28" width="8" height="42"/><rect x="626" y="24" width="24" height="8"/></g>
+<g fill="#fff2bd" opacity=".5"><rect x="60" y="16" width="40" height="5"/><rect x="616" y="16" width="40" height="5"/></g>
+<!-- roof -->
+<path d="M38 168 L105 91 L615 91 L682 168 L646 190 L592 132 L128 132 L74 190Z" fill="#b7bec8"/>
+<path d="M64 164 L118 105 L602 105 L656 164 L624 177 L579 139 L141 139 L96 177Z" fill="#e4e7e8"/>
+<path d="M116 110H604V132H116Z" fill="#707d8e"/>
+<path d="M120 116H600V124H120Z" fill="#f3f0e6"/>
+<!-- upper stands -->
+<path d="M83 169 L637 169 L600 258 L120 258Z" fill="#303b53"/>
+<path d="M96 179 L624 179 L592 248 L128 248Z" fill="url(#seats)"/>
+<path d="M120 250H600L576 304H144Z" fill="#b4bbc2"/>
+<!-- lower stands -->
+<path d="M125 260H595L570 329H150Z" fill="#202b3c"/>
+<path d="M143 267H577L556 318H164Z" fill="url(#seats)"/>
+<!-- pitch -->
+<path d="M165 325H555L640 420H80Z" fill="#34764a"/>
+<path d="M190 335H530L590 420H130Z" fill="#3f8954"/>
+<path d="M190 335H530L545 356H175Z" fill="#367b4b"/>
+<path d="M175 356H545L560 378H160Z" fill="#3f8954"/>
+<path d="M160 378H560L575 400H145Z" fill="#367b4b"/>
+<path d="M145 400H575L590 420H130Z" fill="#3f8954"/>
+<path d="M360 335V420" stroke="#d8e9d6" stroke-width="3"/>
+<path d="M260 335L245 420M460 335L475 420" stroke="#d8e9d6" stroke-width="2" opacity=".6"/>
+<path d="M260 335H460L475 420H245Z" fill="none" stroke="#d8e9d6" stroke-width="2"/>
+<path d="M320 335H400L407 366H313Z" fill="none" stroke="#d8e9d6" stroke-width="2"/>
+<path d="M320 420L326 398H394L400 420" fill="none" stroke="#d8e9d6" stroke-width="2"/>
+<!-- center circle -->
+<ellipse cx="360" cy="380" rx="28" ry="12" fill="none" stroke="#d8e9d6" stroke-width="2"/>
+<!-- SGE banner -->
+<path d="M265 188H455V218H265Z" fill="#e12632"/><path d="M275 195H445V211H275Z" fill="#f5f0e7"/>
+<text x="360" y="207" font-family="monospace" font-size="15" font-weight="bold" text-anchor="middle" fill="#171717">EINTRACHT</text>
+<g fill="#f4f1e8"><rect x="130" y="154" width="12" height="5"/><rect x="578" y="154" width="12" height="5"/></g>
+<g fill="#111827"><rect x="0" y="410" width="720" height="10"/></g>
+</svg>

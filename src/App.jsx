@@ -19,8 +19,8 @@ function PixelPlayer({ number = 9, tone = 'light', small = false }) {
     <rect x="10" y="6" width="12" height="8" fill="#d99b70"/><rect x="8" y="8" width="2" height="5" fill="#493329"/><rect x="22" y="8" width="2" height="5" fill="#493329"/>
     <rect x="12" y="10" width="2" height="2" fill="#29212a"/><rect x="19" y="10" width="2" height="2" fill="#29212a"/><rect x="14" y="13" width="5" height="1" fill="#9b574b"/>
     <rect x="14" y="14" width="4" height="3" fill="#d99b70"/>
-    <rect x="8" y="17" width="16" height="14" fill="#e12632"/><rect x="11" y="17" width="3" height="14" fill="#f7f0df"/><rect x="18" y="17" width="3" height="14" fill="#f7f0df"/>
-    <rect x="6" y="18" width="3" height="11" fill="#e12632"/><rect x="23" y="18" width="3" height="11" fill="#e12632"/>
+    <rect x="8" y="17" width="16" height="14" fill="#17191d"/><rect x="11" y="17" width="3" height="14" fill="#f7f0df"/><rect x="18" y="17" width="3" height="14" fill="#f7f0df"/>
+    <rect x="6" y="18" width="3" height="11" fill="#17191d"/><rect x="23" y="18" width="3" height="11" fill="#17191d"/>
     <rect x="6" y="27" width="3" height="4" fill="#d99b70"/><rect x="23" y="27" width="3" height="4" fill="#d99b70"/>
     <rect x="9" y="31" width="14" height="7" fill="#171c2b"/><rect x="10" y="38" width="4" height="7" fill="#d99b70"/><rect x="18" y="38" width="4" height="7" fill="#d99b70"/>
     <rect x="8" y="44" width="7" height="3" fill="#ece8dc"/><rect x="17" y="44" width="7" height="3" fill="#ece8dc"/>

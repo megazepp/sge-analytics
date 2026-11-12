@@ -5,10 +5,10 @@ const ALLOWED_ENDPOINTS = new Set([
   'transfers', 'trophies', 'sidelined', 'coachs'
 ])
 
-function json(data, status = 200) {
+function json(data, status = 200, extraHeaders = {}) {
   return new Response(JSON.stringify(data), {
     status,
-    headers: { 'Content-Type': 'application/json; charset=utf-8', 'Cache-Control': 'no-store' }
+    headers: { 'Content-Type': 'application/json; charset=utf-8', 'Cache-Control': 'no-store', ...extraHeaders }
   })
 }
 
@@ -25,11 +25,11 @@ export default {
 
     if (request.method === 'OPTIONS') return new Response(null, { headers: cors })
     if (url.pathname === '/api/health') return new Response(JSON.stringify({ ok: true, service: 'sge-analytics-api' }), { headers: { ...cors, 'Content-Type': 'application/json' } })
-    if (request.method !== 'GET' || !url.pathname.startsWith('/api/')) return json({ error: 'Not found' }, 404)
+    if (request.method !== 'GET' || !url.pathname.startsWith('/api/')) return json({ error: 'Not found' }, 404, cors)
 
     const endpoint = url.pathname.slice('/api/'.length)
-    if (!ALLOWED_ENDPOINTS.has(endpoint)) return json({ error: 'Endpoint not allowed' }, 400)
-    if (!env.API_FOOTBALL_KEY) return json({ error: 'API key not configured. Add API_FOOTBALL_KEY as a Worker secret.' }, 503)
+    if (!ALLOWED_ENDPOINTS.has(endpoint)) return json({ error: 'Endpoint not allowed' }, 400, cors)
+    if (!env.API_FOOTBALL_KEY) return json({ error: 'API key not configured. Add API_FOOTBALL_KEY as a Worker secret.' }, 503, cors)
 
     const target = new URL(API_HOST + '/' + endpoint)
     for (const [key, value] of url.searchParams) target.searchParams.set(key, value)
@@ -48,7 +48,7 @@ export default {
         }
       })
     } catch {
-      return json({ error: 'Football data provider could not be reached' }, 502)
+      return json({ error: 'Football data provider could not be reached' }, 502, cors)
     }
   }
 }

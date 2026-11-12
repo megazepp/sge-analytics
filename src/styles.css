@@ -34,3 +34,55 @@ body{background-color:#090b12;background-image:linear-gradient(rgba(255,255,255,
 .placeholder-panel h2{font-size:17px;line-height:1.7}footer{font-size:6px;line-height:1.8}
 @media(max-width:1050px){.hero-art{right:0;opacity:.9}}
 @media(max-width:700px){.hero-card{min-height:300px;padding:22px}.hero-art{right:-28%;width:76%;opacity:.38}.hero-copy{z-index:2}.hero-copy h2{font-size:24px}.pixel-kicker{font-size:7px}.page-heading h1{font-size:21px}.metric-top{font-size:6px}.metric-value{font-size:15px}.panel{padding:14px}.hero-caption{font-size:6px}}
+
+/* SQUAD, PLAYER PROFILES AND TRAINING FIELD */
+.player-card{position:relative;min-height:250px;background:#151d2c;border:2px solid #39445b;box-shadow:4px 4px 0 #080a10;color:#f8f3e8;padding:13px 10px 12px;display:flex;align-items:center;flex-direction:column;gap:7px;cursor:pointer;font-family:'VT323',monospace;font-size:19px}
+.player-card:hover{border-color:#e12632;transform:translateY(-3px);box-shadow:4px 7px 0 #641a29}
+.player-card-top{width:100%;display:flex;justify-content:space-between;color:#f3c85b;font:8px 'Press Start 2P',monospace}
+.player-card-top b{color:#e12632}.player-card>strong{font-size:21px;text-align:center}.player-position{font-size:16px;color:#aeb7c9}
+.player-mini-stats{display:flex;gap:13px;font:7px 'Press Start 2P',monospace;color:#8f9ab0;margin-top:5px}.player-mini-stats b{color:#fff}
+.player-rating{color:#f3c85b;font:8px 'Press Start 2P',monospace}
+.squad-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(145px,1fr));gap:13px;margin-top:18px}
+.squad-toolbar{display:flex;gap:12px;margin-top:18px}.squad-toolbar input{flex:1;min-width:0;background:#0c1220;border:2px solid #39445b;color:white;padding:10px;font:18px 'VT323',monospace}
+.empty-state{min-height:260px;display:flex;align-items:center;justify-content:center;flex-direction:column;text-align:center;padding:25px}.empty-state h3{font:12px 'Press Start 2P',monospace;line-height:1.8;max-width:500px}.empty-state p,.empty-note,.error-note{font:18px 'VT323',monospace;color:#aeb7c9;max-width:520px;line-height:1.3}.error-note{color:#ff8088}
+.pixel-player{width:76px;height:112px;position:relative;image-rendering:pixelated;flex:0 0 auto}
+.pixel-player.small{width:38px;height:56px;transform:scale(.85);transform-origin:center}
+.pixel-player>div{position:absolute;image-rendering:pixelated}
+.pixel-head{width:22px;height:22px;left:27px;top:9px;background:#d99b70;box-shadow:0 0 0 4px #9c5d47}
+.pixel-hair{width:24px;height:8px;left:26px;top:5px;background:#4b3028;box-shadow:0 5px #4b3028}
+.pixel-neck{width:10px;height:8px;left:33px;top:29px;background:#c98562}
+.pixel-shirt{width:38px;height:39px;left:19px;top:36px;background:repeating-linear-gradient(90deg,#e12632 0 7px,#f2eee5 7px 13px);border:3px solid #171c2b;box-shadow:0 3px #9d1d2a}
+.pixel-shirt span{position:absolute;top:10px;left:12px;font:8px 'Press Start 2P',monospace;color:#111;text-shadow:1px 1px white}
+.pixel-arm{width:10px;height:34px;top:39px;background:#d99b70;border:2px solid #171c2b}
+.pixel-arm.left{left:10px;transform:rotate(8deg)}.pixel-arm.right{right:10px;transform:rotate(-8deg)}
+.pixel-shorts{width:36px;height:18px;left:20px;top:74px;background:#171c2b;border:2px solid #0a0e17}
+.pixel-leg{width:10px;height:24px;top:90px;background:#d99b70;border:2px solid #171c2b}
+.pixel-leg.left{left:24px}.pixel-leg.right{right:24px}
+.pixel-boot{width:15px;height:7px;top:109px;background:#e8e7df;border:2px solid #111}
+.pixel-boot.left{left:18px}.pixel-boot.right{right:18px}
+.pixel-player.dark .pixel-head{background:#80543f}.pixel-player.dark .pixel-hair{background:#151515}
+.pixel-player.blond .pixel-hair{background:#d9b75b}
+.player-profile{padding:22px}.back-button{display:flex;align-items:center;gap:8px;background:none;border:0;color:#f3c85b;font:8px 'Press Start 2P',monospace;cursor:pointer}
+.profile-hero{display:flex;align-items:center;gap:28px;padding:35px 15px}.profile-hero .pixel-player{transform:scale(1.45);margin:0 18px}.profile-hero h1{font:clamp(17px,3vw,28px) 'Press Start 2P',monospace;line-height:1.6;margin:10px 0}.profile-hero p,.profile-nationality{font:20px 'VT323',monospace;color:#aeb7c9}
+.profile-note{margin-top:20px}.profile-note h3{font:10px 'Press Start 2P',monospace}.profile-note p{font:18px 'VT323',monospace;color:#aeb7c9}
+.form-rank-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:15px 0}.rank-panel{padding:18px}.rank-panel .panel-heading h3{font:12px 'Press Start 2P',monospace;margin-top:8px}.rank-panel.top-rank .panel-heading>svg{color:#f3c85b}.rank-panel.flop-rank .panel-heading>svg{color:#e12632}
+.rank-row{width:100%;display:flex;align-items:center;gap:10px;background:#0d1421;border:1px solid #35415a;color:#f8f3e8;padding:8px;margin-top:9px;text-align:left;cursor:pointer;font:17px 'VT323',monospace}
+.rank-row:hover{border-color:#e12632}.rank-row>b{font:9px 'Press Start 2P',monospace;color:#f3c85b}.rank-row strong{flex:1}.rank-row>span{font:8px 'Press Start 2P',monospace;color:#f3c85b}
+.training-teaser{display:grid;grid-template-columns:.8fr 1.2fr;gap:18px;align-items:center;margin-top:15px}.training-teaser h3,.training-page h3{font:12px 'Press Start 2P',monospace;line-height:1.8}.training-teaser p,.training-intro{font:19px 'VT323',monospace;color:#aeb7c9}
+.training-ground{height:220px;position:relative;overflow:hidden;border:3px solid #566078;background:#19243a;image-rendering:pixelated}
+.training-ground.large{height:440px;margin-top:20px}
+.training-sky{position:absolute;inset:0 0 52% 0;background:linear-gradient(#18243b,#4b384a)}
+.training-fence{position:absolute;left:0;right:0;top:15%;height:32%;background:repeating-linear-gradient(90deg,transparent 0 28px,#6b7180 29px 31px),linear-gradient(transparent 85%,#737b8b 86% 90%,transparent 91%);opacity:.65}
+.training-pitch{position:absolute;inset:40% 0 0;background:repeating-linear-gradient(0deg,#32754a 0 28px,#3a8551 29px 56px)}
+.pitch-line{position:absolute;left:0;right:0;top:50%;height:2px;background:#d9e5cf}
+.pitch-circle{position:absolute;left:50%;top:50%;width:90px;height:50px;border:2px solid #d9e5cf;border-radius:50%;transform:translate(-50%,-50%)}
+.training-goal{position:absolute;right:4%;top:17%;width:42px;height:70px;border:4px solid #e7e5d8;border-bottom:0}
+.training-player{position:absolute;top:37%;animation:pixel-run 3s steps(5,end) infinite alternate}
+.training-player .pixel-player{transform:scale(.72);transform-origin:top left}
+.training-player.p1{left:18%;animation-delay:-.5s}.training-player.p2{left:43%;top:51%;animation-delay:-1.4s}.training-player.p3{left:68%;top:40%;animation-delay:-2s}.training-player.p4{left:82%;top:55%;animation-delay:-.9s}
+.training-ball{position:absolute;width:12px;height:12px;background:#fff;border:3px solid #111;left:50%;top:69%;animation:ball-pass 2.6s steps(6,end) infinite alternate}
+.training-label{position:absolute;left:10px;top:10px;background:#101522;border:2px solid #e12632;padding:7px;font:7px 'Press Start 2P',monospace}
+.training-drills{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:15px}.training-drills>div{display:grid;gap:7px;background:#0d1421;border:1px solid #35415a;padding:12px}.training-drills b{color:#f3c85b;font:9px 'Press Start 2P',monospace}.training-drills strong{font:8px 'Press Start 2P',monospace}.training-drills span{font:17px 'VT323',monospace;color:#aeb7c9}
+@keyframes pixel-run{from{translate:0 0}to{translate:32px -8px}}@keyframes ball-pass{from{translate:-45px 0}to{translate:65px -12px}}
+@media(max-width:800px){.form-rank-grid,.training-teaser{grid-template-columns:1fr}.training-ground{height:210px}.training-ground.large{height:300px}.training-drills{grid-template-columns:1fr}.profile-hero{gap:12px;padding:25px 5px}.profile-hero .pixel-player{transform:scale(1.05);margin:0 5px}.profile-hero h1{font-size:14px}.squad-toolbar{flex-direction:column}.squad-toolbar .primary-button{justify-content:center}}
+@media(prefers-reduced-motion:reduce){.training-player,.training-ball{animation:none}.player-card{transition:none}}

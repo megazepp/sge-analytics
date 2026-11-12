@@ -1,76 +1,113 @@
-import { useState } from 'react'
-import { Activity, ArrowUpRight, BarChart3, CalendarDays, ChevronRight, CircleDot, Clock3, Crosshair, LayoutDashboard, Menu, Shield, Users, Zap } from 'lucide-react'
+import { useEffect, useMemo, useState } from 'react'
+import { Activity, ArrowUpRight, BarChart3, CalendarDays, ChevronRight, Crosshair, Dumbbell, LayoutDashboard, Menu, Shield, Users, Zap, ArrowLeft, Star, Trophy } from 'lucide-react'
 import { Area, AreaChart, CartesianGrid, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts'
-
-const form = [
-  { match: 'Eintracht Frankfurt – SC Freiburg', date: 'Letztes Spiel', result: '2 : 1', outcome: 'win' },
-  { match: 'Bayer 04 Leverkusen – Eintracht Frankfurt', date: 'Vorheriges Spiel', result: '3 : 1', outcome: 'loss' },
-  { match: 'Eintracht Frankfurt – 1. FC Köln', date: 'Vorheriges Spiel', result: '2 : 0', outcome: 'win' },
-  { match: 'VfB Stuttgart – Eintracht Frankfurt', date: 'Vorheriges Spiel', result: '1 : 1', outcome: 'draw' },
-  { match: 'Eintracht Frankfurt – Mainz 05', date: 'Vorheriges Spiel', result: '3 : 2', outcome: 'win' },
-]
-
-const trend = [
-  { game: 'S1', points: 1.8 }, { game: 'S2', points: 2.1 }, { game: 'S3', points: 1.7 },
-  { game: 'S4', points: 2.5 }, { game: 'S5', points: 2.9 }, { game: 'S6', points: 2.6 },
-  { game: 'S7', points: 3.2 }, { game: 'S8', points: 3.5 },
-]
 
 const nav = [
   { id: 'overview', label: 'Übersicht', icon: LayoutDashboard },
-  { id: 'squad', label: 'Kader & Spieler', icon: Users },
+  { id: 'squad', label: 'Kompletter Kader', icon: Users },
+  { id: 'training', label: 'Trainingsgelände', icon: Dumbbell },
   { id: 'lineup', label: 'Starting XI', icon: Shield },
   { id: 'matches', label: 'Match Center', icon: CalendarDays },
   { id: 'statistics', label: 'Statistiken', icon: BarChart3 },
 ]
+const TEAM_ID = 169
+const SEASON = 2026
 
-function Metric({ label, value, note, icon: Icon }) {
-  return <div className="metric-card"><div className="metric-top"><span>{label}</span><Icon size={17} /></div><div className="metric-value">{value}</div><div className="metric-note">{note}</div></div>
+function PixelPlayer({ number = 9, tone = 'light', small = false }) {
+  return <div className={`pixel-player ${tone} ${small ? 'small' : ''}`} aria-label="Pixel-Art-Spieler">
+    <div className="pixel-hair"/><div className="pixel-head"/><div className="pixel-neck"/><div className="pixel-shirt"><span>{number}</span></div>
+    <div className="pixel-arm left"/><div className="pixel-arm right"/><div className="pixel-shorts"/><div className="pixel-leg left"/><div className="pixel-leg right"/><div className="pixel-boot left"/><div className="pixel-boot right"/>
+  </div>
 }
-
+function Metric({ label, value, note, icon: Icon }) {
+  return <div className="metric-card"><div className="metric-top"><span>{label}</span><Icon size={17}/></div><div className="metric-value">{value}</div><div className="metric-note">{note}</div></div>
+}
+function PlayerCard({ player, onClick, rank }) {
+  const stats = player.statistics?.[0] || {}
+  const rating = Number(stats.games?.rating || 0)
+  return <button className="player-card" onClick={onClick}>
+    <div className="player-card-top"><span>#{player.number ?? '—'}</span>{rank && <b>{rank}</b>}</div>
+    <PixelPlayer number={player.number || 0}/>
+    <strong>{player.name}</strong><span className="player-position">{stats.games?.position || 'Kader'}</span>
+    <div className="player-mini-stats"><span>TORE <b>{stats.goals?.total ?? 0}</b></span><span>ASSISTS <b>{stats.goals?.assists ?? 0}</b></span></div>
+    {rating > 0 && <span className="player-rating">★ {rating.toFixed(2)}</span>}
+  </button>
+}
 export default function App() {
   const [active, setActive] = useState('overview')
   const [menuOpen, setMenuOpen] = useState(false)
-  const [refreshing, setRefreshing] = useState(false)
-  const [apiStatus, setApiStatus] = useState('Demo-Modus')
+  const [apiStatus, setApiStatus] = useState('API noch nicht verbunden')
+  const [players, setPlayers] = useState([])
+  const [selectedPlayer, setSelectedPlayer] = useState(null)
+  const [loadingPlayers, setLoadingPlayers] = useState(false)
+  const [apiError, setApiError] = useState('')
+  const [search, setSearch] = useState('')
+  const apiBase = import.meta.env.VITE_API_BASE
 
-  async function checkApi() {
-    const base = import.meta.env.VITE_API_BASE
-    if (!base) { setApiStatus('API noch nicht verbunden'); return }
-    setRefreshing(true)
+  async function loadPlayers() {
+    if (!apiBase) { setApiStatus('API noch nicht verbunden'); return }
+    setLoadingPlayers(true); setApiError('')
     try {
-      const response = await fetch(base.replace(/\/$/, '') + '/api/health')
-      if (!response.ok) throw new Error('API nicht erreichbar')
-      setApiStatus('Backend verbunden')
-    } catch { setApiStatus('Backend nicht erreichbar') }
-    finally { setRefreshing(false) }
+      const base = apiBase.replace(/\/$/, '')
+      const first = await fetch(`${base}/api/players?team=${TEAM_ID}&season=${SEASON}&page=1`)
+      if (!first.ok) throw new Error('Spielerdaten konnten nicht geladen werden')
+      const data = await first.json()
+      let all = data.response || []
+      const pages = Math.min(Number(data.paging?.total || 1), 10)
+      for (let page = 2; page <= pages; page++) {
+        const response = await fetch(`${base}/api/players?team=${TEAM_ID}&season=${SEASON}&page=${page}`)
+        if (!response.ok) break
+        const next = await response.json()
+        all = all.concat(next.response || [])
+      }
+      setPlayers(all.map(item => ({ ...item.player, statistics: item.statistics || [] })))
+      setApiStatus('Echte Kaderdaten geladen')
+    } catch (error) { setApiError(error.message); setApiStatus('Daten nicht erreichbar') }
+    finally { setLoadingPlayers(false) }
   }
+  useEffect(() => { if (active === 'squad' && players.length === 0) loadPlayers() }, [active])
+  const ranked = useMemo(() => [...players].filter(p => Number(p.statistics?.[0]?.games?.rating) > 0).sort((a,b) => Number(b.statistics[0].games.rating)-Number(a.statistics[0].games.rating)), [players])
+  const top = ranked.slice(0,3)
+  const flop = [...ranked].reverse().slice(0,3)
+  const filteredPlayers = players.filter(p => p.name?.toLowerCase().includes(search.toLowerCase()))
+  const title = selectedPlayer ? selectedPlayer.name : nav.find(item => item.id === active)?.label ?? 'Übersicht'
 
-  const title = nav.find(item => item.id === active)?.label ?? 'Übersicht'
+  function openSection(id) { setActive(id); setSelectedPlayer(null); setMenuOpen(false) }
 
   return <div className="app-shell">
     <aside className={menuOpen ? 'sidebar open' : 'sidebar'}>
-      <div className="brand"><div className="brand-mark">SGE</div><div><strong>SGE ANALYTICS</strong><span>PERFORMANCE HUB</span></div></div>
-      <div className="side-label">WORKSPACE</div>
-      <nav>{nav.map(({ id, label, icon: Icon }) => <button key={id} className={active === id ? 'nav-item active' : 'nav-item'} onClick={() => { setActive(id); setMenuOpen(false) }}><Icon size={18}/><span>{label}</span>{active === id && <ChevronRight size={15} className="nav-arrow"/>}</button>)}</nav>
-      <div className="sidebar-bottom"><div className="club-chip"><div className="club-dot">✕</div><div><strong>Eintracht Frankfurt</strong><span>Bundesliga · Deutschland</span></div></div><span className="version">SGE ANALYTICS <b>v0.1.0</b></span></div>
+      <div className="brand"><div className="brand-mark">SGE</div><div><strong>SGE ANALYTICS</strong><span>PIXEL FOOTBALL MANAGER</span></div></div>
+      <div className="side-label">SPIELWELT</div>
+      <nav>{nav.map(({id,label,icon:Icon}) => <button key={id} className={active===id?'nav-item active':'nav-item'} onClick={()=>openSection(id)}><Icon size={18}/><span>{label}</span>{active===id&&<ChevronRight size={15} className="nav-arrow"/>}</button>)}</nav>
+      <div className="sidebar-bottom"><div className="club-chip"><div className="club-dot">✕</div><div><strong>Eintracht Frankfurt</strong><span>Bundesliga · Deutschland</span></div></div><span className="version">SGE ANALYTICS <b>v0.2.0</b></span></div>
     </aside>
-
     <main className="main">
-      <header className="topbar"><button className="mobile-menu icon-button" onClick={() => setMenuOpen(!menuOpen)}><Menu size={20}/></button><div className="breadcrumb">SGE ANALYTICS <span>/</span> {title.toUpperCase()}</div><div className="top-actions"><span className="season-pill">SAISON 2026/27</span><span className="status"><i/> {apiStatus}</span><button className="icon-button" onClick={checkApi} title="Backend-Verbindung prüfen"><Activity size={18}/></button></div></header>
+      <header className="topbar"><button className="mobile-menu icon-button" onClick={()=>setMenuOpen(!menuOpen)}><Menu size={20}/></button><div className="breadcrumb">SGE PIXEL WORLD <span>/</span> {title.toUpperCase()}</div><div className="top-actions"><span className="season-pill">SAISON 2026/27</span><span className="status"><i/> {apiStatus}</span><button className="icon-button" onClick={loadPlayers} title="Spielerdaten aktualisieren"><Activity size={18}/></button></div></header>
       <div className="content">
-        <section className="page-heading"><div><div className="eyebrow"><span className="red-line"/> THE EAGLES PERFORMANCE HUB</div><h1>{active === 'overview' ? 'Adler im Fokus.' : title + '.'}</h1><p>Alle wichtigen Leistungsdaten der Eintracht. Ein Blick. Volle Analyse.</p></div><div className="heading-date"><span>DATENSTATUS</span><strong>DEMO-DATEN</strong><small>API-Anbindung folgt</small></div></section>
+        {selectedPlayer ? <section className="player-profile panel">
+          <button className="back-button" onClick={()=>setSelectedPlayer(null)}><ArrowLeft size={16}/> ZURÜCK ZUM KADER</button>
+          <div className="profile-hero"><PixelPlayer number={selectedPlayer.number || 0}/><div><span className="eyebrow">EINTRACHT FRANKFURT // SPIELERPROFIL</span><h1>{selectedPlayer.name}</h1><p>{selectedPlayer.statistics?.[0]?.games?.position || 'Position offen'} · Rückennummer {selectedPlayer.number ?? '—'}</p><span className="profile-nationality">{selectedPlayer.nationality || '—'} · {selectedPlayer.age ? selectedPlayer.age + ' Jahre' : 'Alter —'}</span></div></div>
+          <div className="metric-grid"><Metric label="EINSÄTZE" value={selectedPlayer.statistics?.[0]?.games?.appearences ?? '—'} note="Saison" icon={Activity}/><Metric label="TORE" value={selectedPlayer.statistics?.[0]?.goals?.total ?? '—'} note="Erzielte Tore" icon={Crosshair}/><Metric label="VORLAGEN" value={selectedPlayer.statistics?.[0]?.goals?.assists ?? '—'} note="Assists" icon={Zap}/><Metric label="FORMWERT" value={Number(selectedPlayer.statistics?.[0]?.games?.rating || 0).toFixed(2)} note="Anbieterbewertung" icon={Star}/></div>
+          <div className="panel profile-note"><h3>SPIELER-DOSSIER</h3><p>Die Spielerkarte wird mit offiziellen Saisonwerten befüllt, sobald die Fußball-API verbunden ist. Pixel-Porträts sind stilisierte Fan-Art und keine originalen Spielerfotos.</p></div>
+        </section> : <>
+          <section className="page-heading"><div><div className="eyebrow"><span className="red-line"/> THE EAGLES PIXEL WORLD</div><h1>{active==='overview'?'Adler im Fokus.':title+'.'}</h1><p>Eintracht Frankfurt als spielbare Pixel-Art-Fußballwelt.</p></div><div className="heading-date"><span>DATENSTATUS</span><strong>{players.length?'KADER GELADEN':'API BEREITSTELLEN'}</strong><small>{players.length+' Spieler im Speicher'}</small></div></section>
 
-        {active === 'overview' && <>
-          <section className="hero-card"><div className="hero-copy"><div className="pixel-kicker">PIXEL ART EDITION // SGE 1899</div><div className="live-label"><i/> CLUB OVERVIEW</div><h2>Eintracht.<br/><em>Alles im Blick.</em></h2><p>Das zentrale Analyse-Dashboard für Kader, Performance und Spieltagsdaten der SGE.</p><button className="primary-button" onClick={() => setActive('lineup')}>Startelf ansehen <ArrowUpRight size={16}/></button></div><div className="hero-art"><img className="stadium-art" src={`${import.meta.env.BASE_URL}stadium-pixel.svg`} alt="Pixel-Art-Illustration des Deutsche Bank Park in Frankfurt"/><div className="hero-caption">DEUTSCHE BANK PARK <span>·</span> FRANKFURT</div></div><div className="hero-index">01 <span>/ 05</span></div></section>
-          <section className="metric-grid"><Metric label="TABELLENPLATZ" value="—" note="Wird mit API-Daten geladen" icon={BarChart3}/><Metric label="PUNKTE" value="—" note="Aktuelle Saison" icon={Zap}/><Metric label="TORE" value="—" note="Erzielte Saisontore" icon={Crosshair}/><Metric label="FORM (LETZTE 5)" value="—" note="Noch keine Live-Daten" icon={Activity}/></section>
-          <section className="dashboard-grid"><div className="panel form-panel"><div className="panel-heading"><div><span className="eyebrow">RECENT PERFORMANCE</span><h3>Letzte Ergebnisse</h3></div><span className="demo-tag">BEISPIELDATEN</span></div><div className="form-list">{form.map((item, index) => <div className="form-row" key={index}><div className={'result-dot ' + item.outcome}/><div className="form-match"><strong>{item.match}</strong><span>{item.date}</span></div><b className="score">{item.result}</b></div>)}</div></div>
-          <div className="panel chart-panel"><div className="panel-heading"><div><span className="eyebrow">PERFORMANCE TREND</span><h3>Form-Entwicklung</h3></div><span className="chart-unit">INDEX</span></div><div className="chart-wrap"><ResponsiveContainer width="100%" height="100%"><AreaChart data={trend}><defs><linearGradient id="redFill" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stopColor="#e12632" stopOpacity={0.3}/><stop offset="100%" stopColor="#e12632" stopOpacity={0}/></linearGradient></defs><CartesianGrid stroke="#292929" vertical={false}/><XAxis dataKey="game" stroke="#666" tickLine={false} axisLine={false}/><YAxis hide domain={[0,4]}/><Tooltip contentStyle={{background:'#171717',border:'1px solid #333',borderRadius:8}}/><Area type="monotone" dataKey="points" stroke="#e12632" strokeWidth={2.5} fill="url(#redFill)"/></AreaChart></ResponsiveContainer></div><p className="chart-footnote">Illustrativer Index – keine offiziellen Spieldaten.</p></div></section>
+          {active==='overview' && <>
+            <section className="hero-card"><div className="hero-copy"><div className="pixel-kicker">PIXEL ART EDITION // SGE 1899</div><div className="live-label"><i/> CLUB OVERVIEW</div><h2>Eintracht.<br/><em>Alles im Blick.</em></h2><p>Dein Pixel-Art-Fußballmanager rund um die Eintracht.</p><button className="primary-button" onClick={()=>openSection('squad')}>Kader entdecken <ArrowUpRight size={16}/></button></div><div className="hero-art"><img className="stadium-art" src={`${import.meta.env.BASE_URL}stadium-pixel.svg`} alt="Pixel-Art-Stadion in Frankfurt"/><div className="hero-caption">DEUTSCHE BANK PARK <span>·</span> FRANKFURT</div></div></section>
+            <section className="metric-grid"><Metric label="KADERGRÖSSE" value={players.length||'—'} note="Spieler im Kader" icon={Users}/><Metric label="TOP-FORM" value={top[0]?.name?.split(' ').slice(-1)[0]||'—'} note="Bester Formwert" icon={Trophy}/><Metric label="FLOP-FORM" value={flop[0]?.name?.split(' ').slice(-1)[0]||'—'} note="Niedrigster Formwert" icon={Activity}/><Metric label="SAISON" value="26/27" note="Bundesliga" icon={Zap}/></section>
+            <section className="form-rank-grid"><div className="panel rank-panel top-rank"><div className="panel-heading"><div><span className="eyebrow">HOT STREAK</span><h3>TOP 3 FORM</h3></div><Trophy/></div>{top.length?top.map((p,i)=><button className="rank-row" key={p.id} onClick={()=>setSelectedPlayer(p)}><b>0{i+1}</b><PixelPlayer number={p.number||0} small/><strong>{p.name}</strong><span>★ {Number(p.statistics[0].games.rating).toFixed(2)}</span></button>):<p className="empty-note">Wird angezeigt, sobald echte Spielerdaten geladen sind.</p>}</div>
+            <div className="panel rank-panel flop-rank"><div className="panel-heading"><div><span className="eyebrow">NEEDS A BOOST</span><h3>FLOP 3 FORM</h3></div><Activity/></div>{flop.length?flop.map((p,i)=><button className="rank-row" key={p.id} onClick={()=>setSelectedPlayer(p)}><b>0{i+1}</b><PixelPlayer number={p.number||0} small/><strong>{p.name}</strong><span>★ {Number(p.statistics[0].games.rating).toFixed(2)}</span></button>):<p className="empty-note">Wird angezeigt, sobald echte Spielerdaten geladen sind.</p>}</div></section>
+            <section className="panel training-teaser"><div><span className="eyebrow">LIVE FROM THE TRAINING GROUND</span><h3>Die Adler sind auf dem Platz.</h3><p>Schau den Pixel-Spielern beim Training zu.</p><button className="primary-button" onClick={()=>openSection('training')}>Zum Trainingsgelände <ArrowUpRight size={16}/></button></div><TrainingGround/></section>
+          </>}
+          {active==='squad' && <section className="panel squad-panel"><div className="panel-heading"><div><span className="eyebrow">FIRST TEAM // SEASON 2026/27</span><h3>Der komplette Profikader</h3></div><span className="demo-tag">{players.length} SPIELER</span></div><div className="squad-toolbar"><input value={search} onChange={e=>setSearch(e.target.value)} placeholder="Spieler suchen …"/><button className="primary-button" onClick={loadPlayers}>{loadingPlayers?'LÄDT …':'KADER AKTUALISIEREN'}</button></div>{apiError&&<p className="error-note">{apiError}</p>}{loadingPlayers&&<p className="empty-note">Kaderdaten werden geladen …</p>}{!loadingPlayers&&!players.length&&<div className="empty-state"><PixelPlayer number={9}/><h3>Der Kader wartet auf die Datenverbindung</h3><p>Wenn der API-Football-Zugang eingerichtet ist, erscheinen hier automatisch alle Spieler inklusive Position, Nummer und Leistungsdaten.</p><button className="primary-button" onClick={loadPlayers}>ERNEUT VERSUCHEN</button></div>}<div className="squad-grid">{filteredPlayers.map(p=><PlayerCard key={p.id} player={p} onClick={()=>setSelectedPlayer(p)}/>)}</div></section>}
+          {active==='training'&&<section className="training-page panel"><div className="panel-heading"><div><span className="eyebrow">TRAINING COMPLEX // FRANKFURT</span><h3>Trainingsgelände</h3></div><span className="demo-tag">PIXEL SIMULATION</span></div><p className="training-intro">Die Pixel-Adler arbeiten an Passspiel, Abschluss und Fitness.</p><TrainingGround large/><div className="training-drills"><div><b>01</b><strong>PASS-SPIEL</strong><span>Kurze Pässe im Dreieck</span></div><div><b>02</b><strong>TORABSCHLUSS</strong><span>Abschluss auf das Tor</span></div><div><b>03</b><strong>FITNESS</strong><span>Läufe und Sprinttraining</span></div></div></section>}
+          {['lineup','matches','statistics'].includes(active)&&<section className="panel placeholder-panel"><div className="placeholder-icon">{active==='lineup'?<Shield/>:active==='matches'?<CalendarDays/>:<BarChart3/>}</div><span className="eyebrow">NÄCHSTES MODUL</span><h2>{title}</h2><p>Dieses Modul bekommt ebenfalls Pixel-Art-Elemente und echte Eintracht-Daten.</p><button className="primary-button" onClick={()=>openSection('overview')}>Zur Übersicht <ArrowUpRight size={16}/></button></section>}
         </>}
-
-        {active !== 'overview' && <section className="panel placeholder-panel"><div className="placeholder-icon">{active === 'squad' ? <Users/> : active === 'lineup' ? <Shield/> : active === 'matches' ? <CalendarDays/> : <BarChart3/>}</div><span className="eyebrow">MODULE IN VORBEREITUNG</span><h2>{title}</h2><p>Dieses Modul wird im nächsten Entwicklungsschritt mit echten Eintracht-Daten aus der Fußball-API verbunden.</p><button className="primary-button" onClick={() => setActive('overview')}>Zur Übersicht <ArrowUpRight size={16}/></button></section>}
-        <footer><span>SGE ANALYTICS <b>·</b> INOFFIZIELLES FAN-PROJEKT</span><span>MADE FOR THE EAGLES <span className="footer-cross">✕</span></span></footer>
+        <footer><span>SGE PIXEL WORLD <b>·</b> INOFFIZIELLES FAN-PROJEKT</span><span>MADE FOR THE EAGLES <span className="footer-cross">✕</span></span></footer>
       </div>
     </main>
   </div>
+}
+function TrainingGround({large=false}) {
+  return <div className={large?'training-ground large':'training-ground'}><div className="training-sky"/><div className="training-fence"/><div className="training-pitch"><div className="pitch-line"/><div className="pitch-circle"/><div className="training-goal"/></div><div className="training-player p1"><PixelPlayer number={7} small/></div><div className="training-player p2"><PixelPlayer number={9} small/></div><div className="training-player p3"><PixelPlayer number={11} small/></div><div className="training-player p4"><PixelPlayer number={8} small/></div><div className="training-ball"/><div className="training-label">SGE TRAINING CAMP</div></div>
 }

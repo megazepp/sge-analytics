@@ -3,7 +3,7 @@
     "club": "Eintracht Frankfurt",
     "league": "Bundesliga",
     "season": 2026,
-    "generatedAt": "2026-11-14T14:45:11.625163+00:00",
+    "generatedAt": "2026-11-14T14:46:30.463401+00:00",
     "agent": "sge-public-data-agent",
     "sources": {
       "matches": "https://api.openligadb.de/getmatchdata/bl1/2026",
@@ -11,7 +11,7 @@
       "scorers": "https://api.openligadb.de/getgoalgetters/bl1/2026",
       "teams": "https://api.openligadb.de/getavailableteams/bl1/2026",
       "squad": "https://profis.eintracht.de/kader/",
-      "fbref": "https://fbref.com/en/squads/f0ac8ee6/2026-2027/all_comps/Eintracht-Frankfurt-Stats-All-Competitions"
+      "fbref": "https://fbref.com/en/squads/f0ac8ee6/2026-2027/c20/Eintracht-Frankfurt-Stats-Bundesliga"
     },
     "notice": "Community and official public sources; starting lineups are only available when officially published."
   },
@@ -339,8 +339,8 @@
   },
   "performance": {
     "status": "unavailable",
-    "source": "https://fbref.com/en/squads/f0ac8ee6/2026-2027/all_comps/Eintracht-Frankfurt-Stats-All-Competitions",
-    "updatedAt": "2026-11-14T14:45:11.598545+00:00",
+    "source": "https://fbref.com/en/squads/f0ac8ee6/2026-2027/c20/Eintracht-Frankfurt-Stats-Bundesliga",
+    "updatedAt": "2026-11-14T14:46:30.347978+00:00",
     "playersMatched": 0,
     "error": "HTTP Error 403: Forbidden"
   },

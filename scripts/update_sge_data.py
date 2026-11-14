@@ -66,7 +66,7 @@ class SquadLinksParser(HTMLParser):
             href = attrs.get("href", "")
             if re.match(r"^/kader/[^/]+/?$", href) and self.heading in self.POSITIONS:
                 self.anchor = {"profileUrl": "https://profis.eintracht.de" + href, "text": "", "position": self.heading, "images": []}
-        if tag.lower() == "img" and self.anchor:
+        if tag.lower() in ("img", "source") and self.anchor:
             for key in ("src", "data-src", "data-lazy-src", "data-original"):
                 value = attrs.get(key)
                 if value and value.startswith("http"):

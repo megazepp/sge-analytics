@@ -114,7 +114,7 @@ def get_squad():
                 number_match = re.search(r"#\s*(\d{1,2})", body)
                 if number_match:
                     player["number"] = int(number_match.group(1))
-                nationality = re.search(r"Nationalität:\s*([A-Za-zÀ-ÿ -]+)", body)
+                nationality = re.search(r"Nationalität:\s*([A-Za-zÀ-ÿ -]+?)\s+Geburtstag:", body)
                 if nationality:
                     player["nationality"] = nationality.group(1).strip()
                 height = re.search(r"Größe:\s*(\d[.,]\d{2})\s*m", body)

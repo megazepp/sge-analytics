@@ -98,7 +98,7 @@ def get_squad():
         for item in unique:
             name = re.sub(r"\s+", " ", item["text"]).strip()
             name = re.sub(r"\b\d{1,2}\b", "", name).strip()
-            name = re.sub(r"(\b[A-ZÀ-Ý][a-zà-ÿ'’.-]+)(?:\s+\1){1,}", r"\\1", name)
+            name = re.sub(r"(\b[A-ZÀ-Ý][a-zà-ÿ'’.-]+)(?:\s+\1){1,}", r"\1", name)
             slug_name = item["profileUrl"].rstrip("/").split("/")[-1].replace("-", " ").title()
             player = {"name": name or slug_name, "position": item["position"], "profileUrl": item["profileUrl"]}
             try:

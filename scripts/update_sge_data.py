@@ -161,28 +161,28 @@ def get_squad():
                     player["photoUrl"] = image
             # Club profile layout: shirt number is rendered directly before the player name.
             escaped_name = re.escape(canonical_name)
-            number_match = re.search(r"(?<!\\d)(\\d{1,2})\\s+" + escaped_name + r"\\b", body, re.IGNORECASE)
+            number_match = re.search(r"(?<!\d)(\d{1,2})\s+" + escaped_name + r"\b", body, re.IGNORECASE)
             if number_match:
                 number = int(number_match.group(1))
                 if 1 <= number <= 99:
                     player["number"] = number
 
-            nationality = re.search(r"Nationalität:\\s*([A-Za-zÀ-ÿ-]+)", body, re.IGNORECASE)
+            nationality = re.search(r"Nationalität:\s*([A-Za-zÀ-ÿ-]+)", body, re.IGNORECASE)
             if nationality:
                 player["nationality"] = nationality.group(1).strip()
 
-            birthday = re.search(r"Geburtstag:\\s*(\\d{2})\\.(\\d{2})\\.(\\d{4})", body)
+            birthday = re.search(r"Geburtstag:\s*(\d{2})\.(\d{2})\.(\d{4})", body)
             if birthday:
                 day, month, year = map(int, birthday.groups())
                 player["birthDate"] = f"{year:04d}-{month:02d}-{day:02d}"
                 today = date.today()
                 player["age"] = today.year - year - ((today.month, today.day) < (month, day))
 
-            height = re.search(r"Größe:\\s*(\\d[.,]\\d{2})\\s*m", body, re.IGNORECASE)
+            height = re.search(r"Größe:\s*(\d[.,]\d{2})\s*m", body, re.IGNORECASE)
             if height:
                 player["height"] = height.group(1).replace(",", ".") + " m"
 
-            since = re.search(r"Adlerträger seit:\\s*(\\d{2}\\.\\d{2}\\.\\d{4})", body)
+            since = re.search(r"Adlerträger seit:\s*(\d{2}\.\d{2}\.\d{4})", body)
             if since:
                 player["since"] = since.group(1)
         except Exception as profile_error:

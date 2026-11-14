@@ -217,16 +217,16 @@ def get_fbref_player_stats():
     with urlopen(req, timeout=30) as response:
         html = response.read().decode("utf-8", "replace")
     # FBref sometimes wraps data tables in HTML comments; the table markup is still public.
-    match = re.search(r'<table[^>]+id=["\\']stats_standard_' + str(SEASON) + r'-' + str(SEASON + 1) + r'["\\'][\\s\\S]*?</table>', html, re.IGNORECASE)
+    match = re.search(r"""<table[^>]+id=["\']stats_standard_""" + str(SEASON) + r"-" + str(SEASON + 1) + r"""["\'][\s\S]*?</table>""", html, re.IGNORECASE)
     if not match:
         raise RuntimeError("FBref standard stats table not found")
     table = match.group(0)
     stats = {}
-    for row in re.findall(r"<tr\\b[^>]*>([\\s\\S]*?)</tr>", table, re.IGNORECASE):
+    for row in re.findall(r"<tr\b[^>]*>([\s\S]*?)</tr>", table, re.IGNORECASE):
         cells = {}
-        for cell in re.findall(r"<t[dh]\\b([^>]*)>([\\s\\S]*?)</t[dh]>", row, re.IGNORECASE):
+        for cell in re.findall(r"<t[dh]\b([^>]*)>([\s\S]*?)</t[dh]>", row, re.IGNORECASE):
             attrs, inner = cell
-            key_match = re.search(r'data-stat=["\\']([^"\\']+)["\\']', attrs, re.IGNORECASE)
+            key_match = re.search(r"""data-stat=["\']([^"\']+)["\']""", attrs, re.IGNORECASE)
             if not key_match:
                 continue
             value = unescape(re.sub(r"<[^>]+>", " ", inner))

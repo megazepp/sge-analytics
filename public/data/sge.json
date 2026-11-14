@@ -3,7 +3,7 @@
     "club": "Eintracht Frankfurt",
     "league": "Bundesliga",
     "season": 2026,
-    "generatedAt": "2026-11-14T13:53:39.090021+00:00",
+    "generatedAt": "2026-11-14T13:54:17.836183+00:00",
     "agent": "sge-public-data-agent",
     "sources": {
       "matches": "https://api.openligadb.de/getmatchdata/bl1/2026",
@@ -130,10 +130,6 @@
         "name": "Niklas Scheller"
       },
       {
-        "number": 41,
-        "name": "Paul Wünsch"
-      },
-      {
         "number": 42,
         "name": "Can Uzun"
       },
@@ -154,112 +150,8 @@
         "name": "Julian Etse"
       },
       {
-        "number": 53,
-        "name": "Julian Etse Jessic Ngankam"
-      },
-      {
-        "number": 1,
-        "name": "Noah Atubolu Jens Jens"
-      },
-      {
-        "number": 33,
-        "name": "Jens Grahl Amil Amil"
-      },
-      {
-        "number": 39,
-        "name": "Amil Siljevic Kaua Kaua"
-      },
-      {
-        "number": 40,
-        "name": "Kaua Santos Abwehr Elias"
-      },
-      {
-        "number": 2,
-        "name": "Elias Baum Lilian Lilian"
-      },
-      {
-        "number": 3,
-        "name": "Lilian Brassier Robin Robin"
-      },
-      {
-        "number": 4,
-        "name": "Robin Koch Otávio Otávio"
-      },
-      {
         "number": 5,
         "name": "Otávio Timothy Timothy Timothy"
-      },
-      {
-        "number": 22,
-        "name": "Timothy Chandler Keita Keita"
-      },
-      {
-        "number": 26,
-        "name": "Keita Kosugi Nnamdi Nnamdi"
-      },
-      {
-        "number": 34,
-        "name": "Nnamdi Collins Jeremiaha Jeremiaha"
-      },
-      {
-        "number": 37,
-        "name": "Jeremiaha Maluze Mittelfeld Oscar"
-      },
-      {
-        "number": 6,
-        "name": "Oscar Højlund Farès Farès"
-      },
-      {
-        "number": 8,
-        "name": "Farès Chaïbi Noel Noel"
-      },
-      {
-        "number": 15,
-        "name": "Noel Aseko Ritsu Ritsu"
-      },
-      {
-        "number": 20,
-        "name": "Ritsu Doan Niko Niko"
-      },
-      {
-        "number": 23,
-        "name": "Niko Ilicevic Raphael Raphael"
-      },
-      {
-        "number": 25,
-        "name": "Raphael Onyedika Mario Mario"
-      },
-      {
-        "number": 27,
-        "name": "Mario Götze Love Love"
-      },
-      {
-        "number": 31,
-        "name": "Love Arrhov Can Can"
-      },
-      {
-        "number": 42,
-        "name": "Can Uzun Sturm Ansgar"
-      },
-      {
-        "number": 7,
-        "name": "Ansgar Knauff Jonathan Jonathan"
-      },
-      {
-        "number": 9,
-        "name": "Jonathan Burkardt Younes Younes"
-      },
-      {
-        "number": 11,
-        "name": "Younes Ebnoutalib Ayoube Ayoube"
-      },
-      {
-        "number": 29,
-        "name": "Ayoube Amaimouni Malik Malik"
-      },
-      {
-        "number": 35,
-        "name": "Malik Pimpong Jessic Jessic"
       }
     ],
     "source": "https://profis.eintracht.de/kader/"

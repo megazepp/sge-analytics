@@ -51,10 +51,11 @@ class ProfileParser(HTMLParser):
             self.parts.append(value)
 
 class SquadLinksParser(HTMLParser):
+    POSITIONS = {"Tor", "Abwehr", "Mittelfeld", "Sturm"}
     def __init__(self):
         super().__init__()
+        self.heading = ""
         self.in_heading = False
-        self.section = ""
         self.anchor = None
         self.players = []
     def handle_starttag(self, tag, attrs):
@@ -63,72 +64,103 @@ class SquadLinksParser(HTMLParser):
             self.in_heading = True
         if tag.lower() == "a":
             href = attrs.get("href", "")
-            if re.match(r"^/kader/[^/]+/?$", href):
-                self.anchor = {"profileUrl": "https://profis.eintracht.de" + href, "text": ""}
+            if re.match(r"^/kader/[^/]+/?$", href) and self.heading in self.POSITIONS:
+                self.anchor = {"profileUrl": "https://profis.eintracht.de" + href, "text": "", "position": self.heading, "images": []}
+        if tag.lower() == "img" and self.anchor:
+            for key in ("src", "data-src", "data-lazy-src", "data-original"):
+                value = attrs.get(key)
+                if value and value.startswith("http"):
+                    self.anchor["images"].append(value)
+            srcset = attrs.get("srcset", "")
+            for entry in srcset.split(","):
+                value = entry.strip().split(" ")[0]
+                if value.startswith("http"):
+                    self.anchor["images"].append(value)
     def handle_endtag(self, tag):
         if tag.lower() in ("h2", "h3"):
             self.in_heading = False
         if tag.lower() == "a" and self.anchor:
-            self.players.append({**self.anchor, "position": self.section})
+            self.players.append(self.anchor)
             self.anchor = None
     def handle_data(self, data):
         value = " ".join(data.split())
         if not value:
             return
         if self.in_heading:
-            self.section = value
+            self.heading = value
         if self.anchor is not None:
             self.anchor["text"] += " " + value
 
+def clean_player_name(raw, profile_url):
+    tokens = re.sub(r"\\s+", " ", raw).strip().split()
+    cleaned = []
+    for token in tokens:
+        if not cleaned or token.casefold() != cleaned[-1].casefold():
+            cleaned.append(token)
+    name = " ".join(cleaned)
+    if len(name) < 3:
+        slug = profile_url.rstrip("/").split("/")[-1]
+        name = " ".join(part.capitalize() for part in slug.split("-"))
+    return name
+
+def valid_player_image(url):
+    lower = url.lower()
+    return (
+        url.startswith("https://")
+        and not any(word in lower for word in ("logo", "wappen", "placeholder", "default", "avatar"))
+        and any(ext in lower for ext in (".jpg", ".jpeg", ".png", ".webp", "image/upload"))
+    )
+
 def get_squad():
-    """Read only player links from the official squad page, then enrich from official profiles."""
-    try:
-        req = Request(SOURCES["squad"], headers={"User-Agent": "Mozilla/5.0 (compatible; SGE-Analytics/1.0)"})
-        with urlopen(req, timeout=30) as response:
-            html = response.read().decode("utf-8", "replace")
-        links = SquadLinksParser()
-        links.feed(html)
-        unique, seen = [], set()
-        for item in links.players:
-            key = item["profileUrl"].rstrip("/")
-            if key not in seen:
-                seen.add(key)
-                unique.append(item)
-        players = []
-        for item in unique:
-            name = re.sub(r"\s+", " ", item["text"]).strip()
-            name = re.sub(r"\b\d{1,2}\b", "", name).strip()
-            name = re.sub(r"(\b[A-ZÀ-Ý][a-zà-ÿ'’.-]+)(?:\s+\1){1,}", r"\1", name)
-            slug_name = item["profileUrl"].rstrip("/").split("/")[-1].replace("-", " ").title()
-            player = {"name": name or slug_name, "position": item["position"], "profileUrl": item["profileUrl"]}
-            try:
-                profile_req = Request(item["profileUrl"], headers={"User-Agent": "Mozilla/5.0 (compatible; SGE-Analytics/1.0)"})
-                with urlopen(profile_req, timeout=20) as response:
-                    profile_html = response.read().decode("utf-8", "replace")
-                profile = ProfileParser()
-                profile.feed(profile_html)
-                body = " ".join(profile.parts)
-                image = profile.meta.get("og:image") or profile.meta.get("twitter:image")
-                if image and "sge_standard_logo" not in image.lower() and "logo" not in image.lower():
+    """Extract only first-team player cards and their actual embedded portraits from Eintracht's official roster."""
+    req = Request(SOURCES["squad"], headers={"User-Agent": "Mozilla/5.0 (compatible; SGE-Analytics/1.0)"})
+    with urlopen(req, timeout=30) as response:
+        html = response.read().decode("utf-8", "replace")
+    links = SquadLinksParser()
+    links.feed(html)
+    unique, seen = [], set()
+    for item in links.players:
+        key = item["profileUrl"].rstrip("/")
+        if key not in seen:
+            seen.add(key)
+            unique.append(item)
+    players = []
+    for item in unique:
+        player = {
+            "name": clean_player_name(item["text"], item["profileUrl"]),
+            "position": item["position"],
+            "profileUrl": item["profileUrl"]
+        }
+        images = [url for url in item["images"] if valid_player_image(url)]
+        if images:
+            player["photoUrl"] = images[0]
+        try:
+            profile_req = Request(item["profileUrl"], headers={"User-Agent": "Mozilla/5.0 (compatible; SGE-Analytics/1.0)"})
+            with urlopen(profile_req, timeout=20) as response:
+                profile_html = response.read().decode("utf-8", "replace")
+            profile = ProfileParser()
+            profile.feed(profile_html)
+            body = " ".join(profile.parts)
+            if "photoUrl" not in player:
+                profile_images = re.findall(r'<img[^>]+(?:src|data-src)="(https://[^"]+)"', profile_html, re.IGNORECASE)
+                image = next((url for url in profile_images if valid_player_image(url)), None)
+                if image:
                     player["photoUrl"] = image
-                number_match = re.search(r"(?:Rückennummer|Trikotnummer|#)\s*(\d{1,2})", body, re.IGNORECASE)
-                if number_match:
-                    player["number"] = int(number_match.group(1))
-                nationality = re.search(r"Nationalität:\s*([A-Za-zÀ-ÿ -]+?)\s+Geburtstag:", body)
-                if nationality:
-                    player["nationality"] = nationality.group(1).strip()
-                height = re.search(r"Größe:\s*(\d[.,]\d{2})\s*m", body)
-                if height:
-                    player["height"] = height.group(1).replace(",", ".") + " m"
-            except Exception as profile_error:
-                player["profileNote"] = str(profile_error)
-            if player["name"]:
-                players.append(player)
-        if not players:
-            raise RuntimeError("Keine Spielerprofile auf der offiziellen Kaderseite gefunden")
-        return {"status": "ok", "count": len(players), "players": players, "source": SOURCES["squad"]}
-    except Exception as exc:
-        return {"status": "unavailable", "count": 0, "players": [], "source": SOURCES["squad"], "note": str(exc)}
+            number_match = re.search(r"(?:Rückennummer|Trikotnummer|Trikot-Nr\\.?|#)\\s*(\\d{1,2})", body, re.IGNORECASE)
+            if number_match:
+                player["number"] = int(number_match.group(1))
+            nationality = re.search(r"Nationalität:\\s*([A-Za-zÀ-ÿ -]+?)\\s+Geburtstag:", body)
+            if nationality:
+                player["nationality"] = nationality.group(1).strip()
+            height = re.search(r"Größe:\\s*(\\d[.,]\\d{2})\\s*m", body)
+            if height:
+                player["height"] = height.group(1).replace(",", ".") + " m"
+        except Exception as profile_error:
+            player["profileNote"] = str(profile_error)
+        players.append(player)
+    if not players:
+        raise RuntimeError("Keine Spielerprofile aus den vier offiziellen Kadergruppen gefunden")
+    return {"status": "ok", "count": len(players), "players": players, "source": SOURCES["squad"]}
 
 def main():
     matches = get_json(SOURCES["matches"])

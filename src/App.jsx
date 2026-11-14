@@ -35,7 +35,7 @@ function normalizeSquad(data) {
     unique.set(key, {
       id: key, name: player.name, number: Number.isInteger(player.number) && player.number > 0 ? player.number : null,
       position: player.position || '', nationality: player.nationality || '', age: player.age || null,
-      height: player.height || '', photoUrl: player.photoUrl || '', profileUrl: player.profileUrl || '', statistics: []
+      height: player.height || '', birthDate: player.birthDate || '', since: player.since || '', photoUrl: player.photoUrl || '', profileUrl: player.profileUrl || '', statistics: []
     })
   }
   return [...unique.values()]
@@ -130,7 +130,7 @@ export default function App() {
               <span className="eyebrow">EINTRACHT FRANKFURT // PROFIKADER</span>
               <h1>{selectedPlayer.name}</h1>
               <div className="profile-tags"><span>{selectedPlayer.position || 'Position offen'}</span><span>{selectedPlayer.number > 0 ? '№ ' + selectedPlayer.number : 'Nummer nicht verfügbar'}</span></div>
-              <p>{[selectedPlayer.nationality, selectedPlayer.age ? selectedPlayer.age + ' Jahre' : null, selectedPlayer.height].filter(Boolean).join(' · ') || 'Weitere Stammdaten werden noch ergänzt.'}</p>
+              <p>{[selectedPlayer.nationality, selectedPlayer.birthDate ? 'Geb. ' + selectedPlayer.birthDate.split('-').reverse().join('.') : null, selectedPlayer.age ? selectedPlayer.age + ' Jahre' : null, selectedPlayer.height, selectedPlayer.since ? 'Adlerträger seit ' + selectedPlayer.since : null].filter(Boolean).join(' · ') || 'Weitere Stammdaten werden noch ergänzt.'}</p>
               {selectedPlayer.profileUrl && <a className="profile-source-link" href={selectedPlayer.profileUrl} target="_blank" rel="noreferrer">Offizielles Spielerprofil ↗</a>}
             </div>
           </div>

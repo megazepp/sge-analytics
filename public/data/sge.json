@@ -3,7 +3,7 @@
     "club": "Eintracht Frankfurt",
     "league": "Bundesliga",
     "season": 2026,
-    "generatedAt": "2026-11-14T14:11:47.608381+00:00",
+    "generatedAt": "2026-11-14T14:12:57.514357+00:00",
     "agent": "sge-public-data-agent",
     "sources": {
       "matches": "https://api.openligadb.de/getmatchdata/bl1/2026",
@@ -22,50 +22,50 @@
         "name": "Noah Atubolu",
         "position": "Tor",
         "profileUrl": "https://profis.eintracht.de/kader/noah-atubolu/",
-        "number": 0,
-        "photoUrl": "https://media.eintracht.de/image/upload/ar_3:4,c_fill,dpr_1.0,f_auto,g_xy_center,q_60,w_auto,x_w_mul_0.5,y_h_mul_0/20260827_freisteller_noa_atubolu_thumbnail-5b30.png"
+        "photoUrl": "https://media.eintracht.de/image/upload/ar_3:4,c_fill,dpr_1.0,f_auto,g_xy_center,q_60,w_auto,x_w_mul_0.5,y_h_mul_0/20260827_freisteller_noa_atubolu_thumbnail-5b30.png",
+        "number": 0
       },
       {
         "name": "Jens Grahl",
         "position": "Tor",
         "profileUrl": "https://profis.eintracht.de/kader/jens-grahl/",
-        "number": 0,
-        "photoUrl": "https://media.eintracht.de/image/upload/ar_3:4,c_fill,dpr_1.0,f_auto,g_xy_center,q_60,w_auto,x_w_mul_0.5,y_h_mul_0/thumbnail_spieler_jens-grahl-40f1.png"
+        "photoUrl": "https://media.eintracht.de/image/upload/ar_3:4,c_fill,dpr_1.0,f_auto,g_xy_center,q_60,w_auto,x_w_mul_0.5,y_h_mul_0/thumbnail_spieler_jens-grahl-40f1.png",
+        "number": 0
       },
       {
         "name": "Amil Siljevic",
         "position": "Tor",
         "profileUrl": "https://profis.eintracht.de/kader/amil-siljevic/",
-        "number": 0,
-        "photoUrl": "https://media.eintracht.de/image/upload/ar_3:4,c_fill,dpr_1.0,f_auto,g_xy_center,q_60,w_auto,x_w_mul_0.5,y_h_mul_0/thumbnail_spieler_amil-siljevic-9167.png"
+        "photoUrl": "https://media.eintracht.de/image/upload/ar_3:4,c_fill,dpr_1.0,f_auto,g_xy_center,q_60,w_auto,x_w_mul_0.5,y_h_mul_0/thumbnail_spieler_amil-siljevic-9167.png",
+        "number": 0
       },
       {
         "name": "Kaua Santos",
         "position": "Tor",
         "profileUrl": "https://profis.eintracht.de/kader/kaua-santos/",
-        "number": 0,
-        "photoUrl": "https://media.eintracht.de/image/upload/ar_3:4,c_fill,dpr_1.0,f_auto,g_xy_center,q_60,w_auto,x_w_mul_0.5,y_h_mul_0/thumbnail_spieler_kaua-santos-fb8c.png"
+        "photoUrl": "https://media.eintracht.de/image/upload/ar_3:4,c_fill,dpr_1.0,f_auto,g_xy_center,q_60,w_auto,x_w_mul_0.5,y_h_mul_0/thumbnail_spieler_kaua-santos-fb8c.png",
+        "number": 0
       },
       {
         "name": "Elias Baum",
         "position": "Abwehr",
         "profileUrl": "https://profis.eintracht.de/kader/elias-baum/",
-        "number": 0,
-        "photoUrl": "https://media.eintracht.de/image/upload/ar_3:4,c_fill,dpr_1.0,f_auto,g_xy_center,q_60,w_auto,x_w_mul_0.5,y_h_mul_0/thumbnail_spieler_elias-baum-a62b.png"
+        "photoUrl": "https://media.eintracht.de/image/upload/ar_3:4,c_fill,dpr_1.0,f_auto,g_xy_center,q_60,w_auto,x_w_mul_0.5,y_h_mul_0/thumbnail_spieler_elias-baum-a62b.png",
+        "number": 0
       },
       {
         "name": "Lilian Brassier",
         "position": "Abwehr",
         "profileUrl": "https://profis.eintracht.de/kader/lilian-brassier/",
-        "number": 0,
-        "photoUrl": "https://media.eintracht.de/image/upload/ar_3:4,c_fill,dpr_1.0,f_auto,g_xy_center,q_60,w_auto,x_w_mul_0.5,y_h_mul_0/thumbnail_spieler_lilian_brassier-c0ce.png"
+        "photoUrl": "https://media.eintracht.de/image/upload/ar_3:4,c_fill,dpr_1.0,f_auto,g_xy_center,q_60,w_auto,x_w_mul_0.5,y_h_mul_0/thumbnail_spieler_lilian_brassier-c0ce.png",
+        "number": 0
       },
       {
         "name": "Robin Koch",
         "position": "Abwehr",
         "profileUrl": "https://profis.eintracht.de/kader/robin-koch/",
-        "number": 0,
-        "photoUrl": "https://media.eintracht.de/image/upload/ar_3:4,c_fill,dpr_1.0,f_auto,g_xy_center,q_60,w_auto,x_w_mul_0.5,y_h_mul_0/thumbnail_spieler_robin-koch-f0da.png"
+        "photoUrl": "https://media.eintracht.de/image/upload/ar_3:4,c_fill,dpr_1.0,f_auto,g_xy_center,q_60,w_auto,x_w_mul_0.5,y_h_mul_0/thumbnail_spieler_robin-koch-f0da.png",
+        "number": 0
       },
       {
         "name": "Otavio",
@@ -78,29 +78,29 @@
         "name": "Timothy Chandler",
         "position": "Abwehr",
         "profileUrl": "https://profis.eintracht.de/kader/timothy-chandler/",
-        "number": 0,
-        "photoUrl": "https://media.eintracht.de/image/upload/ar_3:4,c_fill,dpr_1.0,f_auto,g_xy_center,q_60,w_auto,x_w_mul_0.5,y_h_mul_0/thumbnail_spieler_timothy-chandler-8a86.png"
+        "photoUrl": "https://media.eintracht.de/image/upload/ar_3:4,c_fill,dpr_1.0,f_auto,g_xy_center,q_60,w_auto,x_w_mul_0.5,y_h_mul_0/thumbnail_spieler_timothy-chandler-8a86.png",
+        "number": 0
       },
       {
         "name": "Keita Kosugi",
         "position": "Abwehr",
         "profileUrl": "https://profis.eintracht.de/kader/keita-kosugi/",
-        "number": 0,
-        "photoUrl": "https://media.eintracht.de/image/upload/ar_3:4,c_fill,dpr_1.0,f_auto,g_xy_center,q_60,w_auto,x_w_mul_0.5,y_h_mul_0/kosugi_spieler_hero-fcf8.png"
+        "photoUrl": "https://media.eintracht.de/image/upload/ar_3:4,c_fill,dpr_1.0,f_auto,g_xy_center,q_60,w_auto,x_w_mul_0.5,y_h_mul_0/kosugi_spieler_hero-fcf8.png",
+        "number": 0
       },
       {
         "name": "Nnamdi Collins",
         "position": "Abwehr",
         "profileUrl": "https://profis.eintracht.de/kader/nnamdi-collins/",
-        "number": 0,
-        "photoUrl": "https://media.eintracht.de/image/upload/ar_3:4,c_fill,dpr_1.0,f_auto,g_xy_center,q_60,w_auto,x_w_mul_0.5,y_h_mul_0/thumbnail_spieler_nnamdi-collins-c85c.png"
+        "photoUrl": "https://media.eintracht.de/image/upload/ar_3:4,c_fill,dpr_1.0,f_auto,g_xy_center,q_60,w_auto,x_w_mul_0.5,y_h_mul_0/thumbnail_spieler_nnamdi-collins-c85c.png",
+        "number": 0
       },
       {
         "name": "Jeremiaha Maluze",
         "position": "Abwehr",
         "profileUrl": "https://profis.eintracht.de/kader/jeremiaha-maluze/",
-        "number": 0,
-        "photoUrl": "https://media.eintracht.de/image/upload/ar_3:4,c_fill,dpr_1.0,f_auto,g_xy_center,q_60,w_auto,x_w_mul_0.5,y_h_mul_0/maluze_spieler_thumbnail-31c7.png"
+        "photoUrl": "https://media.eintracht.de/image/upload/ar_3:4,c_fill,dpr_1.0,f_auto,g_xy_center,q_60,w_auto,x_w_mul_0.5,y_h_mul_0/maluze_spieler_thumbnail-31c7.png",
+        "number": 0
       },
       {
         "name": "Oscar Hojlund",
@@ -120,29 +120,29 @@
         "name": "Noel Aseko",
         "position": "Mittelfeld",
         "profileUrl": "https://profis.eintracht.de/kader/noel-aseko/",
-        "number": 0,
-        "photoUrl": "https://media.eintracht.de/image/upload/ar_3:4,c_fill,dpr_1.0,f_auto,g_xy_center,q_60,w_auto,x_w_mul_0.5,y_h_mul_0/thumbnail_spieler_noel-aseko-12f0.png"
+        "photoUrl": "https://media.eintracht.de/image/upload/ar_3:4,c_fill,dpr_1.0,f_auto,g_xy_center,q_60,w_auto,x_w_mul_0.5,y_h_mul_0/thumbnail_spieler_noel-aseko-12f0.png",
+        "number": 0
       },
       {
         "name": "Ritsu Doan",
         "position": "Mittelfeld",
         "profileUrl": "https://profis.eintracht.de/kader/ritsu-doan/",
-        "number": 0,
-        "photoUrl": "https://media.eintracht.de/image/upload/ar_3:4,c_fill,dpr_1.0,f_auto,g_xy_center,q_60,w_auto,x_w_mul_0.5,y_h_mul_0/thumbnail_spieler_ritsu-doan-92e5.png"
+        "photoUrl": "https://media.eintracht.de/image/upload/ar_3:4,c_fill,dpr_1.0,f_auto,g_xy_center,q_60,w_auto,x_w_mul_0.5,y_h_mul_0/thumbnail_spieler_ritsu-doan-92e5.png",
+        "number": 0
       },
       {
         "name": "Niko Ilicevic",
         "position": "Mittelfeld",
         "profileUrl": "https://profis.eintracht.de/kader/niko-ilicevic/",
-        "number": 0,
-        "photoUrl": "https://media.eintracht.de/image/upload/ar_3:4,c_fill,dpr_1.0,f_auto,g_xy_center,q_60,w_auto,x_w_mul_0.5,y_h_mul_0/thumbnail_spieler_niko-ilicevic-5f53.png"
+        "photoUrl": "https://media.eintracht.de/image/upload/ar_3:4,c_fill,dpr_1.0,f_auto,g_xy_center,q_60,w_auto,x_w_mul_0.5,y_h_mul_0/thumbnail_spieler_niko-ilicevic-5f53.png",
+        "number": 0
       },
       {
         "name": "Raphael Onyedika",
         "position": "Mittelfeld",
         "profileUrl": "https://profis.eintracht.de/kader/raphael-onyedika/",
-        "number": 0,
-        "photoUrl": "https://media.eintracht.de/image/upload/ar_3:4,c_fill,dpr_1.0,f_auto,g_xy_center,q_60,w_auto,x_w_mul_0.5,y_h_mul_0/thumbnail_spieler_raphael-onyedika-5639.png"
+        "photoUrl": "https://media.eintracht.de/image/upload/ar_3:4,c_fill,dpr_1.0,f_auto,g_xy_center,q_60,w_auto,x_w_mul_0.5,y_h_mul_0/thumbnail_spieler_raphael-onyedika-5639.png",
+        "number": 0
       },
       {
         "name": "Mario Goetze",
@@ -155,50 +155,50 @@
         "name": "Love Arrhov",
         "position": "Mittelfeld",
         "profileUrl": "https://profis.eintracht.de/kader/love-arrhov/",
-        "number": 0,
-        "photoUrl": "https://media.eintracht.de/image/upload/ar_3:4,c_fill,dpr_1.0,f_auto,g_xy_center,q_60,w_auto,x_w_mul_0.5,y_h_mul_0/thumbnail_spieler_love-arrhov-bf6e.png"
+        "photoUrl": "https://media.eintracht.de/image/upload/ar_3:4,c_fill,dpr_1.0,f_auto,g_xy_center,q_60,w_auto,x_w_mul_0.5,y_h_mul_0/thumbnail_spieler_love-arrhov-bf6e.png",
+        "number": 0
       },
       {
         "name": "Can Uzun",
         "position": "Mittelfeld",
         "profileUrl": "https://profis.eintracht.de/kader/can-uzun/",
-        "number": 0,
-        "photoUrl": "https://media.eintracht.de/image/upload/ar_3:4,c_fill,dpr_1.0,f_auto,g_xy_center,q_60,w_auto,x_w_mul_0.5,y_h_mul_0/thumbnail_spieler_can-uzun-5b3f.png"
+        "photoUrl": "https://media.eintracht.de/image/upload/ar_3:4,c_fill,dpr_1.0,f_auto,g_xy_center,q_60,w_auto,x_w_mul_0.5,y_h_mul_0/thumbnail_spieler_can-uzun-5b3f.png",
+        "number": 0
       },
       {
         "name": "Ansgar Knauff",
         "position": "Sturm",
         "profileUrl": "https://profis.eintracht.de/kader/ansgar-knauff/",
-        "number": 0,
-        "photoUrl": "https://media.eintracht.de/image/upload/ar_3:4,c_fill,dpr_1.0,f_auto,g_xy_center,q_60,w_auto,x_w_mul_0.5,y_h_mul_0/thumbnail_spieler_ansgar-knauff-74fb.png"
+        "photoUrl": "https://media.eintracht.de/image/upload/ar_3:4,c_fill,dpr_1.0,f_auto,g_xy_center,q_60,w_auto,x_w_mul_0.5,y_h_mul_0/thumbnail_spieler_ansgar-knauff-74fb.png",
+        "number": 0
       },
       {
         "name": "Jonathan Burkardt",
         "position": "Sturm",
         "profileUrl": "https://profis.eintracht.de/kader/jonathan-burkardt/",
-        "number": 0,
-        "photoUrl": "https://media.eintracht.de/image/upload/ar_3:4,c_fill,dpr_1.0,f_auto,g_xy_center,q_60,w_auto,x_w_mul_0.5,y_h_mul_0/thumbnail_spieler_jonathan-burkardt-a84e.png"
+        "photoUrl": "https://media.eintracht.de/image/upload/ar_3:4,c_fill,dpr_1.0,f_auto,g_xy_center,q_60,w_auto,x_w_mul_0.5,y_h_mul_0/thumbnail_spieler_jonathan-burkardt-a84e.png",
+        "number": 0
       },
       {
         "name": "Younes Ebnoutalib",
         "position": "Sturm",
         "profileUrl": "https://profis.eintracht.de/kader/younes-ebnoutalib/",
-        "number": 0,
-        "photoUrl": "https://media.eintracht.de/image/upload/ar_3:4,c_fill,dpr_1.0,f_auto,g_xy_center,q_60,w_auto,x_w_mul_0.5,y_h_mul_0/thumbnail_spieler_younes-ebnoutalib-5625.png"
+        "photoUrl": "https://media.eintracht.de/image/upload/ar_3:4,c_fill,dpr_1.0,f_auto,g_xy_center,q_60,w_auto,x_w_mul_0.5,y_h_mul_0/thumbnail_spieler_younes-ebnoutalib-5625.png",
+        "number": 0
       },
       {
         "name": "Ayoube Amaimouni",
         "position": "Sturm",
         "profileUrl": "https://profis.eintracht.de/kader/ayoube-amaimouni/",
-        "number": 0,
-        "photoUrl": "https://media.eintracht.de/image/upload/ar_3:4,c_fill,dpr_1.0,f_auto,g_xy_center,q_60,w_auto,x_w_mul_0.5,y_h_mul_0/thumbnail_spieler_ayoube-amaiomouni-a9b9.png"
+        "photoUrl": "https://media.eintracht.de/image/upload/ar_3:4,c_fill,dpr_1.0,f_auto,g_xy_center,q_60,w_auto,x_w_mul_0.5,y_h_mul_0/thumbnail_spieler_ayoube-amaiomouni-a9b9.png",
+        "number": 0
       },
       {
         "name": "Malik Pimpong",
         "position": "Sturm",
         "profileUrl": "https://profis.eintracht.de/kader/malik-pimpong/",
-        "number": 0,
-        "photoUrl": "https://media.eintracht.de/image/upload/ar_3:4,c_fill,dpr_1.0,f_auto,g_xy_center,q_60,w_auto,x_w_mul_0.5,y_h_mul_0/thumbnail_spieler_malik-pimpong-010e.png"
+        "photoUrl": "https://media.eintracht.de/image/upload/ar_3:4,c_fill,dpr_1.0,f_auto,g_xy_center,q_60,w_auto,x_w_mul_0.5,y_h_mul_0/thumbnail_spieler_malik-pimpong-010e.png",
+        "number": 0
       },
       {
         "name": "Jessic Ngankam",

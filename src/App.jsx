@@ -41,7 +41,7 @@ function normalizeSquad(data) {
   return [...unique.values()]
 }
 function PortraitFallback({name}) {
-  const initials = (name || '?').split(/\\s+/).slice(0,2).map(part => part[0]).join('').toUpperCase()
+  const initials = (name || '?').split(/\s+/).slice(0,2).map(part => part[0]).join('').toUpperCase()
   return <div className="portrait-fallback"><span>{initials}</span><small>PORTRÄT NICHT VERFÜGBAR</small></div>
 }
 function Metric({ label, value, note, icon: Icon }) {

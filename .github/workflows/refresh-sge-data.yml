@@ -34,7 +34,19 @@ jobs:
           git add public/data/sge.json
           if ! git diff --cached --quiet; then
             git commit -m "chore(data): refresh SGE football snapshot"
-            git push
+            # Other workflows may update main while the data is being fetched.
+            # Rebase the generated snapshot on the newest main before pushing.
+            for attempt in 1 2 3; do
+              git pull --rebase origin main
+              if git push; then
+                break
+              fi
+              if [ "$attempt" -eq 3 ]; then
+                echo "Could not push snapshot after 3 attempts."
+                exit 1
+              fi
+              sleep 2
+            done
           else
             echo "No data changes."
           fi

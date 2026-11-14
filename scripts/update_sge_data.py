@@ -92,7 +92,7 @@ class SquadLinksParser(HTMLParser):
             self.anchor["text"] += " " + value
 
 def clean_player_name(raw, profile_url):
-    tokens = re.sub(r"\\s+", " ", raw).strip().split()
+    tokens = re.sub(r"\s+", " ", raw).strip().split()
     cleaned = []
     for token in tokens:
         if not cleaned or token.casefold() != cleaned[-1].casefold():
@@ -146,13 +146,13 @@ def get_squad():
                 image = next((url for url in profile_images if valid_player_image(url)), None)
                 if image:
                     player["photoUrl"] = image
-            number_match = re.search(r"(?:Rückennummer|Trikotnummer|Trikot-Nr\\.?|#)\\s*(\\d{1,2})", body, re.IGNORECASE)
+            number_match = re.search(r"(?:Rückennummer|Trikotnummer|Trikot-Nr\.?|#)\s*(\d{1,2})", body, re.IGNORECASE)
             if number_match:
                 player["number"] = int(number_match.group(1))
-            nationality = re.search(r"Nationalität:\\s*([A-Za-zÀ-ÿ -]+?)\\s+Geburtstag:", body)
+            nationality = re.search(r"Nationalität:\s*([A-Za-zÀ-ÿ -]+?)\s+Geburtstag:", body)
             if nationality:
                 player["nationality"] = nationality.group(1).strip()
-            height = re.search(r"Größe:\\s*(\\d[.,]\\d{2})\\s*m", body)
+            height = re.search(r"Größe:\s*(\d[.,]\d{2})\s*m", body)
             if height:
                 player["height"] = height.group(1).replace(",", ".") + " m"
         except Exception as profile_error:

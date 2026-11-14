@@ -49,42 +49,44 @@ export default function App() {
   const [selectedPlayer, setSelectedPlayer] = useState(null)
   const [loadingPlayers, setLoadingPlayers] = useState(false)
   const [apiError, setApiError] = useState('')
+  const [sgeData, setSgeData] = useState(null)
   const [search, setSearch] = useState('')
   const [nextPlayerPage, setNextPlayerPage] = useState(1)
   const [hasMorePlayers, setHasMorePlayers] = useState(false)
   const apiBase = import.meta.env.VITE_API_BASE || 'https://sge-analytics-api.megazepp.workers.dev'
 
-  async function loadPlayers({ append = false } = {}) {
-    if (!apiBase || loadingPlayers) return
-    const page = append ? nextPlayerPage : 1
-    const cacheKey = `sge-players-${TEAM_ID}-${SEASON}-${page}`
+  async function loadPlayers() {
+    if (loadingPlayers) return
     setLoadingPlayers(true); setApiError('')
     try {
-      const cached = sessionStorage.getItem(cacheKey)
-      let data
-      if (cached) {
-        const saved = JSON.parse(cached)
-        if (Date.now() - saved.savedAt < 6 * 60 * 60 * 1000) data = saved.data
-      }
-      if (!data) {
-        const base = apiBase.replace(/\/$/, '')
-        const response = await fetch(`${base}/api/players?team=${TEAM_ID}&season=${SEASON}&page=${page}`)
-        data = await response.json()
-        if (!response.ok) throw new Error(data?.error || data?.message || `API-Fehler ${response.status}`)
-        if (data?.errors && Object.keys(data.errors).length) throw new Error(Object.values(data.errors).join(' · '))
-        if (!Array.isArray(data?.response)) throw new Error('Unerwartete Antwort vom Fußball-Datenanbieter')
-        sessionStorage.setItem(cacheKey, JSON.stringify({ savedAt: Date.now(), data }))
-      }
-      const incoming = (data.response || []).map(item => ({ ...item.player, statistics: item.statistics || [] }))
-      setPlayers(current => append ? [...current, ...incoming.filter(p => !current.some(old => old.id === p.id))] : incoming)
-      const currentPage = Number(data.paging?.current || page)
-      const totalPages = Number(data.paging?.total || currentPage)
-      setNextPlayerPage(currentPage + 1)
-      setHasMorePlayers(currentPage < totalPages)
-      setApiStatus('Echte Kaderdaten geladen')
-    } catch (error) { setApiError(error.message || 'Unbekannter Verbindungsfehler'); setApiStatus('Daten nicht erreichbar') }
-    finally { setLoadingPlayers(false) }
+      const response = await fetch(`${import.meta.env.BASE_URL}data/sge.json?ts=${Date.now()}`)
+      if (!response.ok) throw new Error(`Datendokument nicht erreichbar (${response.status})`)
+      const data = await response.json()
+      setSgeData(data)
+      const incoming = (data.squad?.players || []).map((p, i) => ({
+        id: `${p.number}-${i}`, name: p.name, number: p.number,
+        nationality: p.nationality || '', age: p.age || null, statistics: []
+      }))
+      setPlayers(incoming)
+      setApiStatus('Lokale Datendatei geladen')
+    } catch (error) {
+      setApiError(error.message || 'Datendokument konnte nicht geladen werden')
+      setApiStatus('Daten nicht erreichbar')
+    } finally { setLoadingPlayers(false) }
   }
+  useEffect(() => {
+    fetch(`${import.meta.env.BASE_URL}data/sge.json`)
+      .then(r => r.ok ? r.json() : Promise.reject(new Error('Snapshot fehlt')))
+      .then(data => {
+        setSgeData(data)
+        setPlayers((data.squad?.players || []).map((p, i) => ({
+          id: `${p.number}-${i}`, name: p.name, number: p.number,
+          nationality: p.nationality || '', age: p.age || null, statistics: []
+        })))
+        setApiStatus('Lokale Datendatei geladen')
+      })
+      .catch(() => setApiStatus('Warte auf ersten Datenimport'))
+  }, [])
   useEffect(() => { if (active === 'squad' && players.length === 0) loadPlayers() }, [active])
   const ranked = useMemo(() => [...players].filter(p => Number(p.statistics?.[0]?.games?.rating) > 0).sort((a,b) => Number(b.statistics[0].games.rating)-Number(a.statistics[0].games.rating)), [players])
   const top = ranked.slice(0,3)
@@ -121,7 +123,9 @@ export default function App() {
           </>}
           {active==='squad' && <section className="panel squad-panel"><div className="panel-heading"><div><span className="eyebrow">FIRST TEAM // SEASON 2026/27</span><h3>Der komplette Profikader</h3></div><span className="demo-tag">{players.length} SPIELER</span></div><div className="squad-toolbar"><input value={search} onChange={e=>setSearch(e.target.value)} placeholder="Spieler suchen …"/><button className="primary-button" onClick={loadPlayers}>{loadingPlayers?'LÄDT …':'KADER AKTUALISIEREN'}</button></div>{apiError&&<p className="error-note">{apiError}</p>}{loadingPlayers&&<p className="empty-note">Kaderdaten werden geladen …</p>}{!loadingPlayers&&!players.length&&<div className="empty-state"><PixelPlayer number={9}/><h3>Der Kader wartet auf die Datenverbindung</h3><p>Wenn der API-Football-Zugang eingerichtet ist, erscheinen hier automatisch alle Spieler inklusive Position, Nummer und Leistungsdaten.</p><button className="primary-button" onClick={loadPlayers}>ERNEUT VERSUCHEN</button></div>}<div className="squad-grid">{filteredPlayers.map(p=><PlayerCard key={p.id} player={p} onClick={()=>setSelectedPlayer(p)}/>)}</div>{hasMorePlayers&&<button className="primary-button load-more" disabled={loadingPlayers} onClick={()=>loadPlayers({append:true})}>{loadingPlayers?'LÄDT …':'WEITERE SPIELER LADEN'}</button>}</section>}
           {active==='training'&&<section className="training-page panel"><div className="panel-heading"><div><span className="eyebrow">TRAINING COMPLEX // FRANKFURT</span><h3>Trainingsgelände</h3></div><span className="demo-tag">PIXEL SIMULATION</span></div><p className="training-intro">Die Pixel-Adler arbeiten an Passspiel, Abschluss und Fitness.</p><TrainingGround large/><div className="training-drills"><div><b>01</b><strong>PASS-SPIEL</strong><span>Kurze Pässe im Dreieck</span></div><div><b>02</b><strong>TORABSCHLUSS</strong><span>Abschluss auf das Tor</span></div><div><b>03</b><strong>FITNESS</strong><span>Läufe und Sprinttraining</span></div></div></section>}
-          {['lineup','matches','statistics'].includes(active)&&<section className="panel placeholder-panel"><div className="placeholder-icon">{active==='lineup'?<Shield/>:active==='matches'?<CalendarDays/>:<BarChart3/>}</div><span className="eyebrow">NÄCHSTES MODUL</span><h2>{title}</h2><p>Dieses Modul bekommt ebenfalls Pixel-Art-Elemente und echte Eintracht-Daten.</p><button className="primary-button" onClick={()=>openSection('overview')}>Zur Übersicht <ArrowUpRight size={16}/></button></section>}
+          {active==='lineup'&&<section className="panel placeholder-panel"><div className="placeholder-icon"><Shield/></div><span className="eyebrow">STARTING XI</span><h2>Offizielle Aufstellung</h2><p>{sgeData?.lineup?.note || 'Die Aufstellung erscheint hier, sobald sie offiziell veröffentlicht wurde.'}</p><span className="demo-tag">{sgeData?.lineup?.status === 'not_published' ? 'NOCH NICHT VERÖFFENTLICHT' : 'DATENSTATUS OFFEN'}</span></section>}
+          {active==='matches'&&<section className="panel squad-panel"><div className="panel-heading"><div><span className="eyebrow">BUNDESLIGA // SAISON 2026/27</span><h3>Eintracht-Spielplan & Ergebnisse</h3></div><span className="demo-tag">{sgeData?.matches?.length || 0} SPIELE</span></div><div className="match-list">{(sgeData?.matches || []).slice().sort((a,b)=>new Date(a.matchDateTime)-new Date(b.matchDateTime)).map(m=>{const home=m.team1?.teamName||'—';const away=m.team2?.teamName||'—';const final=(m.matchResults||[]).filter(x=>x.resultTypeID===2).slice(-1)[0];return <div className="rank-row" key={m.matchID}><b>{m.group?.groupName || 'BL'}</b><strong>{home} – {away}</strong><span>{final ? `${final.pointsTeam1} : ${final.pointsTeam2}` : new Date(m.matchDateTime).toLocaleString('de-DE',{dateStyle:'medium',timeStyle:'short'})}</span></div>})}</div></section>}
+          {active==='statistics'&&<section className="panel squad-panel"><div className="panel-heading"><div><span className="eyebrow">SAISON 2026/27 // DATENBASIERT</span><h3>Eintracht-Statistiken</h3></div><span className="demo-tag">OPENLIGADB</span></div><div className="metric-grid"><Metric label="SPIELE" value={sgeData?.statistics?.matchesPlayed ?? '—'} note="Abgeschlossen" icon={Activity}/><Metric label="SIEGE" value={sgeData?.statistics?.wins ?? '—'} note="Bundesliga" icon={Trophy}/><Metric label="UNENTSCHIEDEN" value={sgeData?.statistics?.draws ?? '—'} note="Bundesliga" icon={BarChart3}/><Metric label="NIEDERLAGEN" value={sgeData?.statistics?.losses ?? '—'} note="Bundesliga" icon={Activity}/><Metric label="TORE" value={sgeData?.statistics?.goalsFor ?? '—'} note="Erzielt" icon={Crosshair}/><Metric label="GEGENTORE" value={sgeData?.statistics?.goalsAgainst ?? '—'} note="Kassiert" icon={Shield}/></div><h3>Bundesliga-Tabelle</h3><div className="match-list">{(sgeData?.table || []).map((t,i)=><div className="rank-row" key={t.team?.teamId || i}><b>{t.team?.teamName || t.teamName || i+1}</b><strong>{t.points ?? t.pointsTeam ?? '—'} Punkte</strong><span>{t.matches ?? t.matchesPlayed ?? ''} Spiele</span></div>)}</div><h3>Torschützen</h3><div className="match-list">{(sgeData?.scorers || []).slice(0,10).map((p,i)=><div className="rank-row" key={p.goalGetterId || i}><b>{p.goalGetterName || p.playerName || 'Spieler'}</b><strong>{p.goalCount ?? p.goals ?? '—'} Tore</strong><span>{p.teamName || ''}</span></div>)}</div></section>}
         </>}
         <footer><span>SGE PIXEL WORLD <b>·</b> INOFFIZIELLES FAN-PROJEKT</span><span>MADE FOR THE EAGLES <span className="footer-cross">✕</span></span></footer>
       </div>

@@ -11,6 +11,7 @@ from pathlib import Path
 from urllib.request import Request, urlopen
 from html.parser import HTMLParser
 from html import unescape
+import unicodedata
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "public" / "data" / "sge.json"
@@ -22,6 +23,7 @@ SOURCES = {
     "scorers": f"{BASE}/getgoalgetters/bl1/{SEASON}",
     "teams": f"{BASE}/getavailableteams/bl1/{SEASON}",
     "squad": "https://profis.eintracht.de/kader/",
+    "fbref": f"https://fbref.com/en/squads/f0ac8ee6/{SEASON}-{SEASON+1}/all_comps/Eintracht-Frankfurt-Stats-All-Competitions",
 }
 
 def get_json(url):
@@ -203,6 +205,55 @@ def get_squad():
         raise RuntimeError("Keine Spielerprofile aus den vier offiziellen Kadergruppen gefunden")
     return {"status": "ok", "count": len(players), "players": players, "source": SOURCES["squad"]}
 
+
+def normalize_name(value):
+    value = unicodedata.normalize("NFKD", value or "")
+    value = "".join(ch for ch in value if not unicodedata.combining(ch))
+    return re.sub(r"[^a-z0-9]+", " ", value.casefold()).strip()
+
+def get_fbref_player_stats():
+    """Read public FBref standard-season table; fail closed if its structure changes."""
+    req = Request(SOURCES["fbref"], headers={"User-Agent": "Mozilla/5.0 (compatible; SGE-Analytics/1.0; contact: public project)"})
+    with urlopen(req, timeout=30) as response:
+        html = response.read().decode("utf-8", "replace")
+    # FBref sometimes wraps data tables in HTML comments; the table markup is still public.
+    match = re.search(r'<table[^>]+id=["\\']stats_standard_' + str(SEASON) + r'-' + str(SEASON + 1) + r'["\\'][\\s\\S]*?</table>', html, re.IGNORECASE)
+    if not match:
+        raise RuntimeError("FBref standard stats table not found")
+    table = match.group(0)
+    stats = {}
+    for row in re.findall(r"<tr\\b[^>]*>([\\s\\S]*?)</tr>", table, re.IGNORECASE):
+        cells = {}
+        for cell in re.findall(r"<t[dh]\\b([^>]*)>([\\s\\S]*?)</t[dh]>", row, re.IGNORECASE):
+            attrs, inner = cell
+            key_match = re.search(r'data-stat=["\\']([^"\\']+)["\\']', attrs, re.IGNORECASE)
+            if not key_match:
+                continue
+            value = unescape(re.sub(r"<[^>]+>", " ", inner))
+            cells[key_match.group(1)] = " ".join(value.split()).strip()
+        name = cells.get("player")
+        if not name or name in ("Player", "Squad Total", "Opponent Total"):
+            continue
+        def number(key):
+            value = cells.get(key, "")
+            try:
+                return int(float(value.replace(",", ""))) if value else None
+            except ValueError:
+                return None
+        stats[normalize_name(name)] = {
+            "appearances": number("games"),
+            "starts": number("games_starts"),
+            "minutes": number("minutes"),
+            "goals": number("goals"),
+            "assists": number("assists"),
+            "yellowCards": number("cards_yellow"),
+            "redCards": number("cards_red"),
+            "source": SOURCES["fbref"],
+        }
+    if not stats:
+        raise RuntimeError("FBref table contained no player rows")
+    return stats
+
 def main():
     matches = get_json(SOURCES["matches"])
     table = get_json(SOURCES["table"])
@@ -217,6 +268,22 @@ def main():
              (m.get("team2") or {}).get("teamName", "")).casefold()
         )
     ]
+    squad = get_squad()
+    performance_source = {"status": "unavailable", "source": SOURCES["fbref"], "updatedAt": datetime.now(timezone.utc).isoformat(), "playersMatched": 0}
+    try:
+        performance = get_fbref_player_stats()
+        matched = 0
+        for player in squad.get("players", []):
+            values = performance.get(normalize_name(player.get("name", "")))
+            if values:
+                player["performance"] = values
+                matched += 1
+        performance_source = {"status": "ok", "source": SOURCES["fbref"], "updatedAt": datetime.now(timezone.utc).isoformat(), "playersMatched": matched}
+        if matched == 0:
+            raise RuntimeError("No FBref players matched the official squad")
+    except Exception as error:
+        print(f"FBref performance import unavailable: {error}")
+        performance_source["error"] = str(error)
     payload = {
         "meta": {
             "club": "Eintracht Frankfurt",
@@ -227,7 +294,8 @@ def main():
             "sources": SOURCES,
             "notice": "Community and official public sources; starting lineups are only available when officially published."
         },
-        "squad": get_squad(),
+        "squad": squad,
+        "performance": performance_source,
         "matches": sge_matches,
         "allMatches": matches,
         "table": table,

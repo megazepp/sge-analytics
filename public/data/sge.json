@@ -3,7 +3,7 @@
     "club": "Eintracht Frankfurt",
     "league": "Bundesliga",
     "season": 2026,
-    "generatedAt": "2026-11-14T13:54:17.836183+00:00",
+    "generatedAt": "2026-11-14T14:02:47.145758+00:00",
     "agent": "sge-public-data-agent",
     "sources": {
       "matches": "https://api.openligadb.de/getmatchdata/bl1/2026",
@@ -16,142 +16,238 @@
   },
   "squad": {
     "status": "ok",
+    "count": 33,
     "players": [
       {
-        "number": 1,
-        "name": "Noah Atubolu"
+        "name": "\\1 \\1  Noah Atubolu",
+        "position": "Tor",
+        "profileUrl": "https://profis.eintracht.de/kader/noah-atubolu/",
+        "photoUrl": "https://media.eintracht.de/image/upload/ar_3:2,c_fill,dpr_1.0,f_auto,g_xy_center,q_40,w_1100/sge_standard_logo_rgb-f66c.png",
+        "number": 0
       },
       {
-        "number": 2,
-        "name": "Elias Baum"
+        "name": "\\1 \\1  Jens Grahl",
+        "position": "Tor",
+        "profileUrl": "https://profis.eintracht.de/kader/jens-grahl/",
+        "photoUrl": "https://media.eintracht.de/image/upload/ar_3:2,c_fill,dpr_1.0,f_auto,g_xy_center,q_40,w_1100/sge_standard_logo_rgb-f66c.png",
+        "number": 0
       },
       {
-        "number": 3,
-        "name": "Lilian Brassier"
+        "name": "\\1 \\1  Amil Siljevic",
+        "position": "Tor",
+        "profileUrl": "https://profis.eintracht.de/kader/amil-siljevic/",
+        "photoUrl": "https://media.eintracht.de/image/upload/ar_3:2,c_fill,dpr_1.0,f_auto,g_xy_center,q_40,w_1100/sge_standard_logo_rgb-f66c.png",
+        "number": 0
       },
       {
-        "number": 4,
-        "name": "Robin Koch"
+        "name": "\\1 \\1  Kaua Santos",
+        "position": "Tor",
+        "profileUrl": "https://profis.eintracht.de/kader/kaua-santos/",
+        "photoUrl": "https://media.eintracht.de/image/upload/ar_3:2,c_fill,dpr_1.0,f_auto,g_xy_center,q_40,w_1100/sge_standard_logo_rgb-f66c.png",
+        "number": 0
       },
       {
-        "number": 6,
-        "name": "Oscar Højlund"
+        "name": "\\1 \\1  Elias Baum",
+        "position": "Abwehr",
+        "profileUrl": "https://profis.eintracht.de/kader/elias-baum/",
+        "photoUrl": "https://media.eintracht.de/image/upload/ar_3:2,c_fill,dpr_1.0,f_auto,g_xy_center,q_40,w_1100/sge_standard_logo_rgb-f66c.png",
+        "number": 0
       },
       {
-        "number": 7,
-        "name": "Ansgar Knauff"
+        "name": "\\1 \\1  Lilian Brassier",
+        "position": "Abwehr",
+        "profileUrl": "https://profis.eintracht.de/kader/lilian-brassier/",
+        "photoUrl": "https://media.eintracht.de/image/upload/ar_3:2,c_fill,dpr_1.0,f_auto,g_xy_center,q_40,w_1100/sge_standard_logo_rgb-f66c.png",
+        "number": 0
       },
       {
-        "number": 8,
-        "name": "Farès Chaïbi"
+        "name": "\\1 \\1  Robin Koch",
+        "position": "Abwehr",
+        "profileUrl": "https://profis.eintracht.de/kader/robin-koch/",
+        "photoUrl": "https://media.eintracht.de/image/upload/ar_3:2,c_fill,dpr_1.0,f_auto,g_xy_center,q_40,w_1100/sge_standard_logo_rgb-f66c.png",
+        "number": 0
       },
       {
-        "number": 9,
-        "name": "Jonathan Burkardt"
+        "name": "\\1",
+        "position": "Abwehr",
+        "profileUrl": "https://profis.eintracht.de/kader/otavio/",
+        "photoUrl": "https://media.eintracht.de/image/upload/ar_3:2,c_fill,dpr_1.0,f_auto,g_xy_center,q_40,w_1100/sge_standard_logo_rgb-f66c.png",
+        "number": 0
       },
       {
-        "number": 11,
-        "name": "Younes Ebnoutalib"
+        "name": "\\1 \\1  Timothy Chandler",
+        "position": "Abwehr",
+        "profileUrl": "https://profis.eintracht.de/kader/timothy-chandler/",
+        "photoUrl": "https://media.eintracht.de/image/upload/ar_3:2,c_fill,dpr_1.0,f_auto,g_xy_center,q_40,w_1100/sge_standard_logo_rgb-f66c.png",
+        "number": 0
       },
       {
-        "number": 15,
-        "name": "Noel Aseko"
+        "name": "\\1 \\1  Keita Kosugi",
+        "position": "Abwehr",
+        "profileUrl": "https://profis.eintracht.de/kader/keita-kosugi/",
+        "photoUrl": "https://media.eintracht.de/image/upload/ar_3:2,c_fill,dpr_1.0,f_auto,g_xy_center,q_40,w_1100/sge_standard_logo_rgb-f66c.png",
+        "number": 0
       },
       {
-        "number": 20,
-        "name": "Ritsu Doan"
+        "name": "\\1 \\1  Nnamdi Collins",
+        "position": "Abwehr",
+        "profileUrl": "https://profis.eintracht.de/kader/nnamdi-collins/",
+        "photoUrl": "https://media.eintracht.de/image/upload/ar_3:2,c_fill,dpr_1.0,f_auto,g_xy_center,q_40,w_1100/sge_standard_logo_rgb-f66c.png",
+        "number": 0
       },
       {
-        "number": 22,
-        "name": "Timothy Chandler"
+        "name": "\\1 \\1  Jeremiaha Maluze",
+        "position": "Abwehr",
+        "profileUrl": "https://profis.eintracht.de/kader/jeremiaha-maluze/",
+        "photoUrl": "https://media.eintracht.de/image/upload/ar_3:2,c_fill,dpr_1.0,f_auto,g_xy_center,q_40,w_1100/sge_standard_logo_rgb-f66c.png",
+        "number": 0
       },
       {
-        "number": 23,
-        "name": "Niko Ilicevic"
+        "name": "\\1 \\1  Oscar Højlund",
+        "position": "Mittelfeld",
+        "profileUrl": "https://profis.eintracht.de/kader/oscar-hojlund/",
+        "photoUrl": "https://media.eintracht.de/image/upload/ar_3:2,c_fill,dpr_1.0,f_auto,g_xy_center,q_40,w_1100/sge_standard_logo_rgb-f66c.png",
+        "number": 0
       },
       {
-        "number": 25,
-        "name": "Raphael Onyedika"
+        "name": "\\1 \\1  Farès Chaïbi",
+        "position": "Mittelfeld",
+        "profileUrl": "https://profis.eintracht.de/kader/fares-chaibi/",
+        "photoUrl": "https://media.eintracht.de/image/upload/ar_3:2,c_fill,dpr_1.0,f_auto,g_xy_center,q_40,w_1100/sge_standard_logo_rgb-f66c.png",
+        "number": 0
       },
       {
-        "number": 26,
-        "name": "Keita Kosugi"
+        "name": "\\1 \\1  Noel Aseko",
+        "position": "Mittelfeld",
+        "profileUrl": "https://profis.eintracht.de/kader/noel-aseko/",
+        "photoUrl": "https://media.eintracht.de/image/upload/ar_3:2,c_fill,dpr_1.0,f_auto,g_xy_center,q_40,w_1100/sge_standard_logo_rgb-f66c.png",
+        "number": 0
       },
       {
-        "number": 27,
-        "name": "Mario Götze"
+        "name": "\\1 \\1  Ritsu Doan",
+        "position": "Mittelfeld",
+        "profileUrl": "https://profis.eintracht.de/kader/ritsu-doan/",
+        "photoUrl": "https://media.eintracht.de/image/upload/ar_3:2,c_fill,dpr_1.0,f_auto,g_xy_center,q_40,w_1100/sge_standard_logo_rgb-f66c.png",
+        "number": 0
       },
       {
-        "number": 29,
-        "name": "Ayoube Amaimouni"
+        "name": "\\1 \\1  Niko Ilicevic",
+        "position": "Mittelfeld",
+        "profileUrl": "https://profis.eintracht.de/kader/niko-ilicevic/",
+        "photoUrl": "https://media.eintracht.de/image/upload/ar_3:2,c_fill,dpr_1.0,f_auto,g_xy_center,q_40,w_1100/sge_standard_logo_rgb-f66c.png",
+        "number": 0
       },
       {
-        "number": 30,
-        "name": "Collin Owusu Etse"
+        "name": "\\1 \\1  Raphael Onyedika",
+        "position": "Mittelfeld",
+        "profileUrl": "https://profis.eintracht.de/kader/raphael-onyedika/",
+        "photoUrl": "https://media.eintracht.de/image/upload/ar_3:2,c_fill,dpr_1.0,f_auto,g_xy_center,q_40,w_1100/sge_standard_logo_rgb-f66c.png",
+        "number": 0
       },
       {
-        "number": 31,
-        "name": "Love Arrhov"
+        "name": "\\1 \\1  Mario Götze",
+        "position": "Mittelfeld",
+        "profileUrl": "https://profis.eintracht.de/kader/mario-goetze/",
+        "photoUrl": "https://media.eintracht.de/image/upload/ar_3:2,c_fill,dpr_1.0,f_auto,g_xy_center,q_40,w_1100/sge_standard_logo_rgb-f66c.png",
+        "number": 0
       },
       {
-        "number": 33,
-        "name": "Jens Grahl"
+        "name": "\\1 \\1  Love Arrhov",
+        "position": "Mittelfeld",
+        "profileUrl": "https://profis.eintracht.de/kader/love-arrhov/",
+        "photoUrl": "https://media.eintracht.de/image/upload/ar_3:2,c_fill,dpr_1.0,f_auto,g_xy_center,q_40,w_1100/sge_standard_logo_rgb-f66c.png",
+        "number": 0
       },
       {
-        "number": 34,
-        "name": "Nnamdi Collins"
+        "name": "\\1 \\1  Can Uzun",
+        "position": "Mittelfeld",
+        "profileUrl": "https://profis.eintracht.de/kader/can-uzun/",
+        "photoUrl": "https://media.eintracht.de/image/upload/ar_3:2,c_fill,dpr_1.0,f_auto,g_xy_center,q_40,w_1100/sge_standard_logo_rgb-f66c.png",
+        "number": 0
       },
       {
-        "number": 35,
-        "name": "Malik Pimpong"
+        "name": "\\1 \\1  Ansgar Knauff",
+        "position": "Sturm",
+        "profileUrl": "https://profis.eintracht.de/kader/ansgar-knauff/",
+        "photoUrl": "https://media.eintracht.de/image/upload/ar_3:2,c_fill,dpr_1.0,f_auto,g_xy_center,q_40,w_1100/sge_standard_logo_rgb-f66c.png",
+        "number": 0
       },
       {
-        "number": 36,
-        "name": "Keito Kumashiro"
+        "name": "\\1 \\1  Jonathan Burkardt",
+        "position": "Sturm",
+        "profileUrl": "https://profis.eintracht.de/kader/jonathan-burkardt/",
+        "photoUrl": "https://media.eintracht.de/image/upload/ar_3:2,c_fill,dpr_1.0,f_auto,g_xy_center,q_40,w_1100/sge_standard_logo_rgb-f66c.png",
+        "number": 0
       },
       {
-        "number": 37,
-        "name": "Jeremiaha Maluze"
+        "name": "\\1 \\1  Younes Ebnoutalib",
+        "position": "Sturm",
+        "profileUrl": "https://profis.eintracht.de/kader/younes-ebnoutalib/",
+        "photoUrl": "https://media.eintracht.de/image/upload/ar_3:2,c_fill,dpr_1.0,f_auto,g_xy_center,q_40,w_1100/sge_standard_logo_rgb-f66c.png",
+        "number": 0
       },
       {
-        "number": 38,
-        "name": "Bekir Is"
+        "name": "\\1 \\1  Ayoube Amaimouni",
+        "position": "Sturm",
+        "profileUrl": "https://profis.eintracht.de/kader/ayoube-amaimouni/",
+        "photoUrl": "https://media.eintracht.de/image/upload/ar_3:2,c_fill,dpr_1.0,f_auto,g_xy_center,q_40,w_1100/sge_standard_logo_rgb-f66c.png",
+        "number": 0
       },
       {
-        "number": 39,
-        "name": "Amil Siljevic"
+        "name": "\\1 \\1  Malik Pimpong",
+        "position": "Sturm",
+        "profileUrl": "https://profis.eintracht.de/kader/malik-pimpong/",
+        "photoUrl": "https://media.eintracht.de/image/upload/ar_3:2,c_fill,dpr_1.0,f_auto,g_xy_center,q_40,w_1100/sge_standard_logo_rgb-f66c.png",
+        "number": 0
       },
       {
-        "number": 40,
-        "name": "Kaua Santos"
+        "name": "\\1 \\1 Jessic Ngankam",
+        "position": "Sturm",
+        "profileUrl": "https://profis.eintracht.de/kader/jessic-ngankam/",
+        "photoUrl": "https://media.eintracht.de/image/upload/ar_3:2,c_fill,dpr_1.0,f_auto,g_xy_center,q_40,w_1100/sge_standard_logo_rgb-f66c.png",
+        "number": 0
       },
       {
-        "number": 41,
-        "name": "Niklas Scheller"
+        "name": "\\1 \\1 Timmo Hardung",
+        "position": "Sportdirektor",
+        "profileUrl": "https://profis.eintracht.de/kader/timmo-hardung/",
+        "photoUrl": "https://media.eintracht.de/image/upload/ar_3:2,c_fill,dpr_1.0,f_auto,g_xy_center,q_40,w_1100/sge_standard_logo_rgb-f66c.png",
+        "number": 0
       },
       {
-        "number": 42,
-        "name": "Can Uzun"
+        "name": "\\1 \\1 Adi Hütter Cheftrainer",
+        "position": "Trainerteam",
+        "profileUrl": "https://profis.eintracht.de/kader/adi-huetter/",
+        "photoUrl": "https://media.eintracht.de/image/upload/ar_3:2,c_fill,dpr_1.0,f_auto,g_xy_center,q_40,w_1100/sge_standard_logo_rgb-f66c.png",
+        "number": 0
       },
       {
-        "number": 45,
-        "name": "Cherif Cisse"
+        "name": "\\1 \\1 Christian Peintinger Co-Trainer",
+        "position": "Trainerteam",
+        "profileUrl": "https://profis.eintracht.de/kader/christian-peintinger/",
+        "photoUrl": "https://media.eintracht.de/image/upload/ar_3:2,c_fill,dpr_1.0,f_auto,g_xy_center,q_40,w_1100/sge_standard_logo_rgb-f66c.png",
+        "number": 0
       },
       {
-        "number": 46,
-        "name": "Christian Prenaj"
+        "name": "\\1 \\1 Klaus Schmidt Co-Trainer",
+        "position": "Trainerteam",
+        "profileUrl": "https://profis.eintracht.de/kader/klaus-schmidt/",
+        "photoUrl": "https://media.eintracht.de/image/upload/ar_3:2,c_fill,dpr_1.0,f_auto,g_xy_center,q_40,w_1100/sge_standard_logo_rgb-f66c.png",
+        "number": 0
       },
       {
-        "number": 48,
-        "name": "Lawrence Setordjie"
+        "name": "\\1 \\1 Alex Meier Co-Trainer",
+        "position": "Trainerteam",
+        "profileUrl": "https://profis.eintracht.de/kader/alex-meier/",
+        "photoUrl": "https://media.eintracht.de/image/upload/ar_3:2,c_fill,dpr_1.0,f_auto,g_xy_center,q_40,w_1100/sge_standard_logo_rgb-f66c.png",
+        "number": 0
       },
       {
-        "number": 53,
-        "name": "Julian Etse"
-      },
-      {
-        "number": 5,
-        "name": "Otávio Timothy Timothy Timothy"
+        "name": "\\1 \\1 Jan Zimmermann Torwarttrainer",
+        "position": "Trainerteam",
+        "profileUrl": "https://profis.eintracht.de/kader/jan-zimmermann/",
+        "photoUrl": "https://media.eintracht.de/image/upload/ar_3:2,c_fill,dpr_1.0,f_auto,g_xy_center,q_40,w_1100/sge_standard_logo_rgb-f66c.png",
+        "number": 0
       }
     ],
     "source": "https://profis.eintracht.de/kader/"

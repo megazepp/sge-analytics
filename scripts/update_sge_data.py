@@ -23,7 +23,8 @@ SOURCES = {
     "scorers": f"{BASE}/getgoalgetters/bl1/{SEASON}",
     "teams": f"{BASE}/getavailableteams/bl1/{SEASON}",
     "squad": "https://profis.eintracht.de/kader/",
-    "fbref": f"https://fbref.com/en/squads/f0ac8ee6/{SEASON}-{SEASON+1}/c20/Eintracht-Frankfurt-Stats-Bundesliga",
+    "dfb_team": f"https://datencenter.dfb.de/competitions/bundesliga/seasons/{SEASON}-{SEASON+1}/teams/eintracht-frankfurt",
+    "performance": "https://www.myfootballfacts.com/team/eintracht-frankfurt/?sid=75684",
 }
 
 def get_json(url):
@@ -254,6 +255,70 @@ def get_fbref_player_stats():
         raise RuntimeError("FBref table contained no player rows")
     return stats
 
+
+class PerformanceTableParser(HTMLParser):
+    """Extract the player statistics table from a public HTML page."""
+    def __init__(self):
+        super().__init__()
+        self.rows = []
+        self.row = None
+        self.cell = None
+    def handle_starttag(self, tag, attrs):
+        tag = tag.lower()
+        if tag == "tr":
+            self.row = []
+        elif tag in ("td", "th") and self.row is not None:
+            self.cell = []
+    def handle_data(self, data):
+        if self.cell is not None:
+            self.cell.append(data)
+    def handle_endtag(self, tag):
+        tag = tag.lower()
+        if tag in ("td", "th") and self.cell is not None:
+            self.row.append(" ".join(" ".join(self.cell).split()))
+            self.cell = None
+        elif tag == "tr" and self.row is not None:
+            if self.row:
+                self.rows.append(self.row)
+            self.row = None
+
+def get_public_performance():
+    req = Request(SOURCES["performance"], headers={"User-Agent": "Mozilla/5.0 (compatible; SGE-Analytics/1.0)"})
+    with urlopen(req, timeout=30) as response:
+        html = response.read().decode("utf-8", "replace")
+    parser = PerformanceTableParser()
+    parser.feed(html)
+    headers = None
+    result = {}
+    aliases = {
+        "Apps": "appearances", "Starts": "starts", "Mins": "minutes",
+        "Goals": "goals", "Assists": "assists", "Yellow": "yellowCards", "Red": "redCards"
+    }
+    for row in parser.rows:
+        if "Player" in row and "Apps" in row and "Mins" in row:
+            headers = row
+            continue
+        if not headers or len(row) < len(headers):
+            continue
+        values = dict(zip(headers, row))
+        name = values.get("Player", "").strip()
+        if not name or name.casefold() in ("player", "squad total"):
+            continue
+        def integer(value):
+            value = (value or "").strip()
+            if not value:
+                return None
+            try:
+                return int(float(value.replace(",", "")))
+            except ValueError:
+                return None
+        record = {target: integer(values.get(source)) for source, target in aliases.items()}
+        record["source"] = SOURCES["performance"]
+        result[normalize_name(name)] = record
+    if not result:
+        raise RuntimeError("No player performance rows found in public statistics table")
+    return result
+
 def main():
     matches = get_json(SOURCES["matches"])
     table = get_json(SOURCES["table"])
@@ -269,20 +334,20 @@ def main():
         )
     ]
     squad = get_squad()
-    performance_source = {"status": "unavailable", "source": SOURCES["fbref"], "updatedAt": datetime.now(timezone.utc).isoformat(), "playersMatched": 0}
+    performance_source = {"status": "unavailable", "source": SOURCES["performance"], "updatedAt": datetime.now(timezone.utc).isoformat(), "playersMatched": 0}
     try:
-        performance = get_fbref_player_stats()
+        performance = get_public_performance()
         matched = 0
         for player in squad.get("players", []):
             values = performance.get(normalize_name(player.get("name", "")))
             if values:
                 player["performance"] = values
                 matched += 1
-        performance_source = {"status": "ok", "source": SOURCES["fbref"], "updatedAt": datetime.now(timezone.utc).isoformat(), "playersMatched": matched}
         if matched == 0:
-            raise RuntimeError("No FBref players matched the official squad")
+            raise RuntimeError("No public performance rows matched the official squad")
+        performance_source = {"status": "ok", "source": SOURCES["performance"], "updatedAt": datetime.now(timezone.utc).isoformat(), "playersMatched": matched}
     except Exception as error:
-        print(f"FBref performance import unavailable: {error}")
+        print(f"Public performance import unavailable: {error}")
         performance_source["error"] = str(error)
     payload = {
         "meta": {

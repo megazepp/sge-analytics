@@ -100,12 +100,12 @@ def shirt_number_from_card(raw, canonical_name):
     # The official roster card repeats the accessible player label and places
     # the shirt number immediately before the second occurrence of the name.
     escaped = re.escape(canonical_name)
-    match = re.search(r"\\b(\\d{1,2})\\s+" + escaped + r"\\b", raw, re.IGNORECASE)
+    match = re.search(r"\b(\d{1,2})\s+" + escaped + r"\b", raw, re.IGNORECASE)
     if match:
         number = int(match.group(1))
         return number if 1 <= number <= 99 else None
     # Fallback for cards whose accessible label begins with the number.
-    match = re.match(r"\\s*(\\d{1,2})\\s+", raw)
+    match = re.match(r"\s*(\d{1,2})\s+", raw)
     if match:
         number = int(match.group(1))
         return number if 1 <= number <= 99 else None

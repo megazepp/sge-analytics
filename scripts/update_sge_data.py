@@ -34,29 +34,101 @@ class TextExtractor(HTMLParser):
         if value:
             self.parts.append(value)
 
+class ProfileParser(HTMLParser):
+    def __init__(self):
+        super().__init__()
+        self.parts = []
+        self.meta = {}
+    def handle_starttag(self, tag, attrs):
+        if tag.lower() == "meta":
+            item = dict(attrs)
+            key = item.get("property") or item.get("name")
+            if key:
+                self.meta[key.lower()] = item.get("content", "")
+    def handle_data(self, data):
+        value = " ".join(data.split())
+        if value:
+            self.parts.append(value)
+
+class SquadLinksParser(HTMLParser):
+    def __init__(self):
+        super().__init__()
+        self.in_heading = False
+        self.section = ""
+        self.anchor = None
+        self.players = []
+    def handle_starttag(self, tag, attrs):
+        attrs = dict(attrs)
+        if tag.lower() in ("h2", "h3"):
+            self.in_heading = True
+        if tag.lower() == "a":
+            href = attrs.get("href", "")
+            if re.match(r"^/kader/[^/]+/?$", href):
+                self.anchor = {"profileUrl": "https://profis.eintracht.de" + href, "text": ""}
+    def handle_endtag(self, tag):
+        if tag.lower() in ("h2", "h3"):
+            self.in_heading = False
+        if tag.lower() == "a" and self.anchor:
+            self.players.append({**self.anchor, "position": self.section})
+            self.anchor = None
+    def handle_data(self, data):
+        value = " ".join(data.split())
+        if not value:
+            return
+        if self.in_heading:
+            self.section = value
+        if self.anchor is not None:
+            self.anchor["text"] += " " + value
+
 def get_squad():
-    """Best-effort extraction from the official public squad page; never fabricate."""
+    """Read only player links from the official squad page, then enrich from official profiles."""
     try:
         req = Request(SOURCES["squad"], headers={"User-Agent": "Mozilla/5.0 (compatible; SGE-Analytics/1.0)"})
         with urlopen(req, timeout=30) as response:
             html = response.read().decode("utf-8", "replace")
-        parser = TextExtractor()
-        parser.feed(html)
-        text = " ".join(parser.parts)
-        # Restrict parsing to the player section and keep only the first player
-        # card for each shirt number; the page repeats names in accessibility text.
-        text = re.split(r"Sportdirektor|Sporting director|Trainerteam", text, maxsplit=1)[0]
-        matches = re.findall(r"(?<!\d)(\d{1,2})\s+([A-ZÀ-Ý][A-Za-zÀ-ÿ'’.-]+(?:\s+[A-ZÀ-Ý][A-Za-zÀ-ÿ'’.-]+){1,3})", text)
-        players, seen_numbers = [], set()
-        for number, name in matches:
-            number = int(number)
-            if number in seen_numbers or number > 99:
-                continue
-            seen_numbers.add(number)
-            players.append({"number": number, "name": name.strip()})
-        return {"status": "ok" if players else "unparsed", "players": players, "source": SOURCES["squad"]}
+        links = SquadLinksParser()
+        links.feed(html)
+        unique, seen = [], set()
+        for item in links.players:
+            key = item["profileUrl"].rstrip("/")
+            if key not in seen:
+                seen.add(key)
+                unique.append(item)
+        players = []
+        for item in unique:
+            name = re.sub(r"\\s+", " ", item["text"]).strip()
+            name = re.sub(r"\\b\\d{1,2}\\b", "", name).strip()
+            name = re.sub(r"(\\b[A-ZÀ-Ý][a-zà-ÿ'’.-]+)(?:\\s+\\1){1,}", r"\\1", name)
+            slug_name = item["profileUrl"].rstrip("/").split("/")[-1].replace("-", " ").title()
+            player = {"name": name or slug_name, "position": item["position"], "profileUrl": item["profileUrl"]}
+            try:
+                profile_req = Request(item["profileUrl"], headers={"User-Agent": "Mozilla/5.0 (compatible; SGE-Analytics/1.0)"})
+                with urlopen(profile_req, timeout=20) as response:
+                    profile_html = response.read().decode("utf-8", "replace")
+                profile = ProfileParser()
+                profile.feed(profile_html)
+                body = " ".join(profile.parts)
+                image = profile.meta.get("og:image") or profile.meta.get("twitter:image")
+                if image:
+                    player["photoUrl"] = image
+                number_match = re.search(r"#\\s*(\\d{1,2})", body)
+                if number_match:
+                    player["number"] = int(number_match.group(1))
+                nationality = re.search(r"Nationalität:\\s*([A-Za-zÀ-ÿ -]+)", body)
+                if nationality:
+                    player["nationality"] = nationality.group(1).strip()
+                height = re.search(r"Größe:\\s*(\\d[.,]\\d{2})\\s*m", body)
+                if height:
+                    player["height"] = height.group(1).replace(",", ".") + " m"
+            except Exception as profile_error:
+                player["profileNote"] = str(profile_error)
+            if player["name"]:
+                players.append(player)
+        if not players:
+            raise RuntimeError("Keine Spielerprofile auf der offiziellen Kaderseite gefunden")
+        return {"status": "ok", "count": len(players), "players": players, "source": SOURCES["squad"]}
     except Exception as exc:
-        return {"status": "unavailable", "players": [], "source": SOURCES["squad"], "note": str(exc)}
+        return {"status": "unavailable", "count": 0, "players": [], "source": SOURCES["squad"], "note": str(exc)}
 
 def main():
     matches = get_json(SOURCES["matches"])

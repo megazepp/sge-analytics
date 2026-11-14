@@ -158,7 +158,7 @@ def get_squad():
             # Some official profile fields are rendered inside structured/embedded HTML.
             # Normalize both visible text and raw HTML before matching labels.
             raw_text = unescape(re.sub(r"<[^>]+>", " ", profile_html))
-            raw_text = re.sub(r"\\s+", " ", raw_text)
+            raw_text = re.sub(r"\s+", " ", raw_text)
             body = re.sub(r"\\s+", " ", body + " " + raw_text)
             if "photoUrl" not in player:
                 profile_images = re.findall(r'<img[^>]+(?:src|data-src)="(https://[^"]+)"', profile_html, re.IGNORECASE)

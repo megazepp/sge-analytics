@@ -159,7 +159,7 @@ def get_squad():
             # Normalize both visible text and raw HTML before matching labels.
             raw_text = unescape(re.sub(r"<[^>]+>", " ", profile_html))
             raw_text = re.sub(r"\s+", " ", raw_text)
-            body = re.sub(r"\\s+", " ", body + " " + raw_text)
+            body = re.sub(r"\s+", " ", body + " " + raw_text)
             if "photoUrl" not in player:
                 profile_images = re.findall(r'<img[^>]+(?:src|data-src)="(https://[^"]+)"', profile_html, re.IGNORECASE)
                 image = next((url for url in profile_images if valid_player_image(url)), None)
@@ -173,22 +173,22 @@ def get_squad():
                 if 1 <= number <= 99:
                     player["number"] = number
 
-            nationality = re.search(r"Nationalität:\s*([A-Za-zÀ-ÿ-]+)", body, re.IGNORECASE)
+            nationality = re.search(r"Nationalität\s*:?\s*([A-Za-zÀ-ÿ-]+)", body, re.IGNORECASE)
             if nationality:
                 player["nationality"] = nationality.group(1).strip()
 
-            birthday = re.search(r"Geburtstag:\s*(\d{2})\.(\d{2})\.(\d{4})", body)
+            birthday = re.search(r"Geburtstag\s*:?\s*(\d{2})\.(\d{2})\.(\d{4})", body, re.IGNORECASE)
             if birthday:
                 day, month, year = map(int, birthday.groups())
                 player["birthDate"] = f"{year:04d}-{month:02d}-{day:02d}"
                 today = date.today()
                 player["age"] = today.year - year - ((today.month, today.day) < (month, day))
 
-            height = re.search(r"Größe:\s*(\d[.,]\d{2})\s*m", body, re.IGNORECASE)
+            height = re.search(r"Größe\s*:?\s*(\d[.,]\d{2})\s*m", body, re.IGNORECASE)
             if height:
                 player["height"] = height.group(1).replace(",", ".") + " m"
 
-            since = re.search(r"Adlerträger seit:\s*(\d{2}\.\d{2}\.\d{4})", body)
+            since = re.search(r"(?:Adlerträger|Bei Eintracht) seit\s*:?\s*(\d{2}\.\d{2}\.\d{4})", body, re.IGNORECASE)
             if since:
                 player["since"] = since.group(1)
         except Exception as profile_error:

@@ -124,9 +124,25 @@ export default function App() {
       <div className="content">
         {selectedPlayer ? <section className="player-profile panel">
           <button className="back-button" onClick={()=>setSelectedPlayer(null)}><ArrowLeft size={16}/> ZURÜCK ZUM KADER</button>
-          <div className="profile-hero">{selectedPlayer.photoUrl ? <img className="profile-photo" src={selectedPlayer.photoUrl} alt={selectedPlayer.name}/> : <PortraitFallback name={selectedPlayer.name}/>}<div><span className="eyebrow">EINTRACHT FRANKFURT // SPIELERPROFIL</span><h1>{selectedPlayer.name}</h1><p>{selectedPlayer.position || selectedPlayer.statistics?.[0]?.games?.position || 'Position offen'} · Rückennummer {selectedPlayer.number ?? '—'}</p><span className="profile-nationality">{selectedPlayer.nationality || '—'} · {selectedPlayer.age ? selectedPlayer.age + ' Jahre' : 'Alter —'} · {selectedPlayer.height || 'Größe —'}</span></div></div>
-          <div className="metric-grid"><Metric label="EINSÄTZE" value={selectedPlayer.statistics?.[0]?.games?.appearences ?? '—'} note="Saison" icon={Activity}/><Metric label="TORE" value={selectedPlayer.statistics?.[0]?.goals?.total ?? '—'} note="Erzielte Tore" icon={Crosshair}/><Metric label="VORLAGEN" value={selectedPlayer.statistics?.[0]?.goals?.assists ?? '—'} note="Assists" icon={Zap}/><Metric label="FORMWERT" value={Number(selectedPlayer.statistics?.[0]?.games?.rating || 0).toFixed(2)} note="Anbieterbewertung" icon={Star}/></div>
-          <div className="panel profile-note"><h3>SPIELER-DOSSIER</h3><p>Stammdaten und Porträt stammen aus dem offiziellen Eintracht-Spielerprofil. Saison-Leistungswerte werden ergänzt, sobald eine frei zugängliche Quelle sie bereitstellt.</p>{selectedPlayer.profileUrl && <a href={selectedPlayer.profileUrl} target="_blank" rel="noreferrer">Offizielles Spielerprofil öffnen ↗</a>}</div>
+          <div className="profile-hero">
+            {selectedPlayer.photoUrl ? <img className="profile-photo" src={selectedPlayer.photoUrl} alt={selectedPlayer.name}/> : <PortraitFallback name={selectedPlayer.name}/>}
+            <div className="profile-identity">
+              <span className="eyebrow">EINTRACHT FRANKFURT // PROFIKADER</span>
+              <h1>{selectedPlayer.name}</h1>
+              <div className="profile-tags"><span>{selectedPlayer.position || 'Position offen'}</span><span>{selectedPlayer.number > 0 ? '№ ' + selectedPlayer.number : 'Nummer nicht verfügbar'}</span></div>
+              <p>{[selectedPlayer.nationality, selectedPlayer.age ? selectedPlayer.age + ' Jahre' : null, selectedPlayer.height].filter(Boolean).join(' · ') || 'Weitere Stammdaten werden noch ergänzt.'}</p>
+              {selectedPlayer.profileUrl && <a className="profile-source-link" href={selectedPlayer.profileUrl} target="_blank" rel="noreferrer">Offizielles Spielerprofil ↗</a>}
+            </div>
+          </div>
+          <section className="profile-data-panel">
+            <div><span className="eyebrow">SAISON 2026/27</span><h3>Leistungsdaten</h3></div>
+            {selectedPlayer.statistics?.[0] ? <div className="profile-stat-grid">
+              <div><strong>{selectedPlayer.statistics[0].games?.appearences ?? '—'}</strong><span>Einsätze</span></div>
+              <div><strong>{selectedPlayer.statistics[0].goals?.total ?? '—'}</strong><span>Tore</span></div>
+              <div><strong>{selectedPlayer.statistics[0].goals?.assists ?? '—'}</strong><span>Vorlagen</span></div>
+              <div><strong>{Number(selectedPlayer.statistics[0].games?.rating) > 0 ? Number(selectedPlayer.statistics[0].games.rating).toFixed(2) : '—'}</strong><span>Bewertung</span></div>
+            </div> : <p className="profile-no-stats">Für diesen Spieler liegen in unserer aktuellen frei zugänglichen Datenquelle noch keine verlässlichen Saison-Leistungswerte vor. Wir zeigen bewusst keine erfundenen Nullen.</p>}
+          </section>
         </section> : <>
           <section className="page-heading"><div><div className="eyebrow"><span className="red-line"/> THE EAGLES PIXEL WORLD</div><h1>{active==='overview'?'Adler im Fokus.':title+'.'}</h1><p>Eintracht Frankfurt als spielbare Pixel-Art-Fußballwelt.</p></div><div className="heading-date"><span>DATENSTATUS</span><strong>{players.length?'KADER GELADEN':'DATEN WERDEN GELADEN'}</strong><small>{(players.length || sgeData?.squad?.count || 0)+' Spieler im Kader'}</small></div></section>
 

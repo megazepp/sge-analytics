@@ -279,3 +279,18 @@ footer{color:#999}footer b,.footer-cross{color:#ff3545}
 .match-list .rank-row{margin:0;min-width:0}
 .match-list .rank-row strong{min-width:0;overflow-wrap:anywhere}
 @media(max-width:900px){.dashboard-grid{grid-template-columns:1fr}.metric-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* Official player portraits and completed player cards */
+.player-card{display:flex;flex-direction:column;align-items:center;gap:8px;min-width:0;padding:12px 10px 14px;background:#17171c;border:2px solid #45454d;color:#fff;cursor:pointer;text-align:center;transition:transform .15s,border-color .15s}
+.player-card:hover{transform:translateY(-3px);border-color:#e12632}
+.player-card-top{width:100%;display:flex;justify-content:space-between;align-items:center;font:9px 'Press Start 2P',monospace;color:#ff5965}
+.player-portrait{width:100%;height:160px;display:flex;justify-content:center;align-items:flex-end;overflow:hidden;background:linear-gradient(180deg,#28242a,#111116);border-bottom:3px solid #e12632}
+.player-portrait img{width:100%;height:100%;object-fit:cover;object-position:center 20%}
+.player-portrait .pixel-player-sprite{width:92px;height:138px}
+.player-card>strong{font:12px 'Press Start 2P',monospace;line-height:1.7;overflow-wrap:anywhere}
+.player-position{font:16px 'VT323',monospace;color:#ff9ca4}
+.player-mini-stats{display:flex;justify-content:space-between;gap:6px;width:100%;font:14px 'VT323',monospace;color:#aaa}
+.profile-photo{width:150px;height:180px;object-fit:cover;object-position:center 20%;border:3px solid #e12632;box-shadow:4px 4px 0 #650d19}
+.profile-hero{display:flex;align-items:center;gap:24px}
+.profile-note a{color:#ff9ca4;font:14px 'VT323',monospace}
+@media(max-width:700px){.player-portrait{height:145px}.player-card>strong{font-size:9px}.profile-hero{align-items:flex-start;gap:14px}.profile-photo{width:112px;height:145px}}

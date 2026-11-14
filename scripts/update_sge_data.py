@@ -96,9 +96,9 @@ def get_squad():
                 unique.append(item)
         players = []
         for item in unique:
-            name = re.sub(r"\\s+", " ", item["text"]).strip()
-            name = re.sub(r"\\b\\d{1,2}\\b", "", name).strip()
-            name = re.sub(r"(\\b[A-ZÀ-Ý][a-zà-ÿ'’.-]+)(?:\\s+\\1){1,}", r"\\1", name)
+            name = re.sub(r"\s+", " ", item["text"]).strip()
+            name = re.sub(r"\b\d{1,2}\b", "", name).strip()
+            name = re.sub(r"(\b[A-ZÀ-Ý][a-zà-ÿ'’.-]+)(?:\s+\1){1,}", r"\\1", name)
             slug_name = item["profileUrl"].rstrip("/").split("/")[-1].replace("-", " ").title()
             player = {"name": name or slug_name, "position": item["position"], "profileUrl": item["profileUrl"]}
             try:
@@ -111,13 +111,13 @@ def get_squad():
                 image = profile.meta.get("og:image") or profile.meta.get("twitter:image")
                 if image:
                     player["photoUrl"] = image
-                number_match = re.search(r"#\\s*(\\d{1,2})", body)
+                number_match = re.search(r"#\s*(\d{1,2})", body)
                 if number_match:
                     player["number"] = int(number_match.group(1))
-                nationality = re.search(r"Nationalität:\\s*([A-Za-zÀ-ÿ -]+)", body)
+                nationality = re.search(r"Nationalität:\s*([A-Za-zÀ-ÿ -]+)", body)
                 if nationality:
                     player["nationality"] = nationality.group(1).strip()
-                height = re.search(r"Größe:\\s*(\\d[.,]\\d{2})\\s*m", body)
+                height = re.search(r"Größe:\s*(\d[.,]\d{2})\s*m", body)
                 if height:
                     player["height"] = height.group(1).replace(",", ".") + " m"
             except Exception as profile_error:

@@ -92,21 +92,24 @@ class SquadLinksParser(HTMLParser):
             self.anchor["text"] += " " + value
 
 def clean_player_name(raw, profile_url):
-    tokens = re.sub(r"\s+", " ", raw).strip().split()
-    cleaned = []
-    for token in tokens:
-        if not cleaned or token.casefold() != cleaned[-1].casefold():
-            cleaned.append(token)
-    # Some responsive cards repeat the complete accessible label more than once.
-    for width in range(1, len(cleaned) // 2 + 1):
-        if len(cleaned) % width == 0 and all(cleaned[i].casefold() == cleaned[i % width].casefold() for i in range(len(cleaned))):
-            cleaned = cleaned[:width]
-            break
-    name = " ".join(cleaned)
-    if len(name) < 3:
-        slug = profile_url.rstrip("/").split("/")[-1]
-        name = " ".join(part.capitalize() for part in slug.split("-"))
-    return name
+    # The official profile slug is the stable canonical player name.
+    slug = profile_url.rstrip("/").split("/")[-1]
+    return " ".join(part.capitalize() for part in slug.split("-"))
+
+def shirt_number_from_card(raw, canonical_name):
+    # The official roster card repeats the accessible player label and places
+    # the shirt number immediately before the second occurrence of the name.
+    escaped = re.escape(canonical_name)
+    match = re.search(r"\\b(\\d{1,2})\\s+" + escaped + r"\\b", raw, re.IGNORECASE)
+    if match:
+        number = int(match.group(1))
+        return number if 1 <= number <= 99 else None
+    # Fallback for cards whose accessible label begins with the number.
+    match = re.match(r"\\s*(\\d{1,2})\\s+", raw)
+    if match:
+        number = int(match.group(1))
+        return number if 1 <= number <= 99 else None
+    return None
 
 def valid_player_image(url):
     lower = url.lower()
@@ -131,11 +134,15 @@ def get_squad():
             unique.append(item)
     players = []
     for item in unique:
+        canonical_name = clean_player_name(item["text"], item["profileUrl"])
         player = {
-            "name": clean_player_name(item["text"], item["profileUrl"]),
+            "name": canonical_name,
             "position": item["position"],
             "profileUrl": item["profileUrl"]
         }
+        card_number = shirt_number_from_card(item["text"], canonical_name)
+        if card_number is not None:
+            player["number"] = card_number
         images = [url for url in item["images"] if valid_player_image(url)]
         if images:
             player["photoUrl"] = images[0]

@@ -35,7 +35,7 @@ function normalizeSquad(data) {
     unique.set(key, {
       id: key, name: player.name, number: Number.isInteger(player.number) && player.number > 0 ? player.number : null,
       position: player.position || '', nationality: player.nationality || '', age: player.age || null,
-      height: player.height || '', birthDate: player.birthDate || '', since: player.since || '', photoUrl: player.photoUrl || '', profileUrl: player.profileUrl || '', statistics: []
+      height: player.height || '', birthDate: player.birthDate || '', since: player.since || '', photoUrl: player.photoUrl || '', profileUrl: player.profileUrl || '', performance: player.performance || null, statistics: []
     })
   }
   return [...unique.values()]
@@ -136,12 +136,18 @@ export default function App() {
           </div>
           <section className="profile-data-panel">
             <div><span className="eyebrow">SAISON 2026/27</span><h3>Leistungsdaten</h3></div>
-            {selectedPlayer.statistics?.[0] ? <div className="profile-stat-grid">
-              <div><strong>{selectedPlayer.statistics[0].games?.appearences ?? '—'}</strong><span>Einsätze</span></div>
-              <div><strong>{selectedPlayer.statistics[0].goals?.total ?? '—'}</strong><span>Tore</span></div>
-              <div><strong>{selectedPlayer.statistics[0].goals?.assists ?? '—'}</strong><span>Vorlagen</span></div>
-              <div><strong>{Number(selectedPlayer.statistics[0].games?.rating) > 0 ? Number(selectedPlayer.statistics[0].games.rating).toFixed(2) : '—'}</strong><span>Bewertung</span></div>
-            </div> : <p className="profile-no-stats">Für diesen Spieler liegen in unserer aktuellen frei zugänglichen Datenquelle noch keine verlässlichen Saison-Leistungswerte vor. Wir zeigen bewusst keine erfundenen Nullen.</p>}
+            {selectedPlayer.performance ? <>
+              <div className="profile-stat-grid">
+                <div><strong>{selectedPlayer.performance.appearances ?? '—'}</strong><span>Einsätze</span></div>
+                <div><strong>{selectedPlayer.performance.starts ?? '—'}</strong><span>Startelf</span></div>
+                <div><strong>{selectedPlayer.performance.minutes != null ? Number(selectedPlayer.performance.minutes).toLocaleString('de-DE') : '—'}</strong><span>Minuten</span></div>
+                <div><strong>{selectedPlayer.performance.goals ?? '—'}</strong><span>Tore</span></div>
+                <div><strong>{selectedPlayer.performance.assists ?? '—'}</strong><span>Vorlagen</span></div>
+                <div><strong>{selectedPlayer.performance.yellowCards ?? '—'}</strong><span>Gelbe Karten</span></div>
+                <div><strong>{selectedPlayer.performance.redCards ?? '—'}</strong><span>Rote Karten</span></div>
+              </div>
+              <p className="profile-source-note">Quelle: <a href={selectedPlayer.performance.source} target="_blank" rel="noreferrer">öffentliche Saisonstatistik ↗</a> · Datenstand: {sgeData?.performance?.updatedAt ? new Date(sgeData.performance.updatedAt).toLocaleString('de-DE') : 'nicht angegeben'}</p>
+            </> : <p className="profile-no-stats">Für diesen Spieler liegen aktuell keine zugeordneten Leistungsdaten vor. Wir zeigen bewusst keine erfundenen Nullen.</p>}
           </section>
         </section> : <>
           <section className="page-heading"><div><div className="eyebrow"><span className="red-line"/> THE EAGLES PIXEL WORLD</div><h1>{active==='overview'?'Adler im Fokus.':title+'.'}</h1><p>Eintracht Frankfurt als spielbare Pixel-Art-Fußballwelt.</p></div><div className="heading-date"><span>DATENSTATUS</span><strong>{players.length?'KADER GELADEN':'DATEN WERDEN GELADEN'}</strong><small>{(players.length || sgeData?.squad?.count || 0)+' Spieler im Kader'}</small></div></section>

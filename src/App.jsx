@@ -35,9 +35,9 @@ function PlayerCard({ player, onClick, rank }) {
   const rating = Number(stats.games?.rating || 0)
   return <button className="player-card" onClick={onClick}>
     <div className="player-card-top"><span>#{player.number ?? '—'}</span>{rank && <b>{rank}</b>}</div>
-    <PixelPlayer number={player.number || 0}/>
-    <strong>{player.name}</strong><span className="player-position">{stats.games?.position || 'Kader'}</span>
-    <div className="player-mini-stats"><span>TORE <b>{stats.goals?.total ?? 0}</b></span><span>ASSISTS <b>{stats.goals?.assists ?? 0}</b></span></div>
+    <div className="player-portrait">{player.photoUrl ? <img src={player.photoUrl} alt={player.name} loading="lazy"/> : <PixelPlayer number={player.number || 0}/>}</div>
+    <strong>{player.name}</strong><span className="player-position">{player.position || stats.games?.position || 'Position laut Vereinsprofil'}</span>
+    <div className="player-mini-stats"><span>{player.nationality || 'Eintracht Frankfurt'}</span><span>{player.height || 'Profi-Kader'}</span></div>
     {rating > 0 && <span className="player-rating">★ {rating.toFixed(2)}</span>}
   </button>
 }
@@ -63,9 +63,10 @@ export default function App() {
       if (!response.ok) throw new Error(`Datendokument nicht erreichbar (${response.status})`)
       const data = await response.json()
       setSgeData(data)
-      const incoming = (data.squad?.players || []).map((p, i) => ({
-        id: `${p.number}-${i}`, name: p.name, number: p.number,
-        nationality: p.nationality || '', age: p.age || null, statistics: []
+      const incoming = Array.from(new Map((data.squad?.players || []).map(p => [p.profileUrl || p.name.toLowerCase(), p])).values()).map((p, i) => ({
+        id: p.profileUrl || `${p.number ?? 'ohne-nummer'}-${i}`, name: p.name, number: p.number ?? null,
+        position: p.position || '', nationality: p.nationality || '', age: p.age || null,
+        height: p.height || '', photoUrl: p.photoUrl || '', profileUrl: p.profileUrl || '', statistics: []
       }))
       setPlayers(incoming)
       setApiStatus('Lokale Datendatei geladen')
@@ -75,7 +76,7 @@ export default function App() {
     } finally { setLoadingPlayers(false) }
   }
   useEffect(() => {
-    fetch(`${import.meta.env.BASE_URL}data/sge.json`)
+    fetch(`${import.meta.env.BASE_URL}data/sge.json?v=${Date.now()}`, { cache: 'no-store' })
       .then(r => r.ok ? r.json() : Promise.reject(new Error('Snapshot fehlt')))
       .then(data => {
         setSgeData(data)
@@ -113,11 +114,11 @@ export default function App() {
       <div className="content">
         {selectedPlayer ? <section className="player-profile panel">
           <button className="back-button" onClick={()=>setSelectedPlayer(null)}><ArrowLeft size={16}/> ZURÜCK ZUM KADER</button>
-          <div className="profile-hero"><PixelPlayer number={selectedPlayer.number || 0}/><div><span className="eyebrow">EINTRACHT FRANKFURT // SPIELERPROFIL</span><h1>{selectedPlayer.name}</h1><p>{selectedPlayer.statistics?.[0]?.games?.position || 'Position offen'} · Rückennummer {selectedPlayer.number ?? '—'}</p><span className="profile-nationality">{selectedPlayer.nationality || '—'} · {selectedPlayer.age ? selectedPlayer.age + ' Jahre' : 'Alter —'}</span></div></div>
+          <div className="profile-hero">{selectedPlayer.photoUrl ? <img className="profile-photo" src={selectedPlayer.photoUrl} alt={selectedPlayer.name}/> : <PixelPlayer number={selectedPlayer.number || 0}/>}<div><span className="eyebrow">EINTRACHT FRANKFURT // SPIELERPROFIL</span><h1>{selectedPlayer.name}</h1><p>{selectedPlayer.position || selectedPlayer.statistics?.[0]?.games?.position || 'Position offen'} · Rückennummer {selectedPlayer.number ?? '—'}</p><span className="profile-nationality">{selectedPlayer.nationality || '—'} · {selectedPlayer.age ? selectedPlayer.age + ' Jahre' : 'Alter —'} · {selectedPlayer.height || 'Größe —'}</span></div></div>
           <div className="metric-grid"><Metric label="EINSÄTZE" value={selectedPlayer.statistics?.[0]?.games?.appearences ?? '—'} note="Saison" icon={Activity}/><Metric label="TORE" value={selectedPlayer.statistics?.[0]?.goals?.total ?? '—'} note="Erzielte Tore" icon={Crosshair}/><Metric label="VORLAGEN" value={selectedPlayer.statistics?.[0]?.goals?.assists ?? '—'} note="Assists" icon={Zap}/><Metric label="FORMWERT" value={Number(selectedPlayer.statistics?.[0]?.games?.rating || 0).toFixed(2)} note="Anbieterbewertung" icon={Star}/></div>
-          <div className="panel profile-note"><h3>SPIELER-DOSSIER</h3><p>Die Spielerkarte wird mit offiziellen Saisonwerten befüllt, sobald die Fußball-API verbunden ist. Pixel-Porträts sind stilisierte Fan-Art und keine originalen Spielerfotos.</p></div>
+          <div className="panel profile-note"><h3>SPIELER-DOSSIER</h3><p>Stammdaten und Porträt stammen aus dem offiziellen Eintracht-Spielerprofil. Saison-Leistungswerte werden ergänzt, sobald eine frei zugängliche Quelle sie bereitstellt.</p>{selectedPlayer.profileUrl && <a href={selectedPlayer.profileUrl} target="_blank" rel="noreferrer">Offizielles Spielerprofil öffnen ↗</a>}</div>
         </section> : <>
-          <section className="page-heading"><div><div className="eyebrow"><span className="red-line"/> THE EAGLES PIXEL WORLD</div><h1>{active==='overview'?'Adler im Fokus.':title+'.'}</h1><p>Eintracht Frankfurt als spielbare Pixel-Art-Fußballwelt.</p></div><div className="heading-date"><span>DATENSTATUS</span><strong>{players.length?'KADER GELADEN':'API BEREITSTELLEN'}</strong><small>{players.length+' Spieler im Speicher'}</small></div></section>
+          <section className="page-heading"><div><div className="eyebrow"><span className="red-line"/> THE EAGLES PIXEL WORLD</div><h1>{active==='overview'?'Adler im Fokus.':title+'.'}</h1><p>Eintracht Frankfurt als spielbare Pixel-Art-Fußballwelt.</p></div><div className="heading-date"><span>DATENSTATUS</span><strong>{players.length?'KADER GELADEN':'DATEN WERDEN GELADEN'}</strong><small>{players.length+' Spieler im Kader'}</small></div></section>
 
           {active==='overview' && <>
             <section className="hero-card"><div className="hero-copy"><div className="pixel-kicker">PIXEL ART EDITION // SGE 1899</div><div className="live-label"><i/> CLUB OVERVIEW</div><h2>Eintracht.<br/><em>Alles im Blick.</em></h2><p>Dein Pixel-Art-Fußballmanager rund um die Eintracht.</p><button className="primary-button" onClick={()=>openSection('squad')}>Kader entdecken <ArrowUpRight size={16}/></button></div><div className="hero-art"><img className="stadium-art" src={`${import.meta.env.BASE_URL}stadium-pixel.svg`} alt="Pixel-Art-Stadion in Frankfurt"/><div className="hero-caption">DEUTSCHE BANK PARK <span>·</span> FRANKFURT</div></div></section>

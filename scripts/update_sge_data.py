@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
-"""Build the public SGE data snapshot from OpenLigaDB and the club's public squad page."""
+"""Build the public SGE data snapshot from OpenLigaDB and the club's public squad page.
+
+The snapshot is deployed to Pages after this workflow completes.
+"""
 import json
 import os
 import re

@@ -97,6 +97,11 @@ def clean_player_name(raw, profile_url):
     for token in tokens:
         if not cleaned or token.casefold() != cleaned[-1].casefold():
             cleaned.append(token)
+    # Some responsive cards repeat the complete accessible label more than once.
+    for width in range(1, len(cleaned) // 2 + 1):
+        if len(cleaned) % width == 0 and all(cleaned[i].casefold() == cleaned[i % width].casefold() for i in range(len(cleaned))):
+            cleaned = cleaned[:width]
+            break
     name = " ".join(cleaned)
     if len(name) < 3:
         slug = profile_url.rstrip("/").split("/")[-1]

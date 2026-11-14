@@ -7,6 +7,7 @@ from datetime import datetime, timezone, date
 from pathlib import Path
 from urllib.request import Request, urlopen
 from html.parser import HTMLParser
+from html import unescape
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "public" / "data" / "sge.json"
@@ -154,6 +155,11 @@ def get_squad():
             profile = ProfileParser()
             profile.feed(profile_html)
             body = " ".join(profile.parts)
+            # Some official profile fields are rendered inside structured/embedded HTML.
+            # Normalize both visible text and raw HTML before matching labels.
+            raw_text = unescape(re.sub(r"<[^>]+>", " ", profile_html))
+            raw_text = re.sub(r"\\s+", " ", raw_text)
+            body = re.sub(r"\\s+", " ", body + " " + raw_text)
             if "photoUrl" not in player:
                 profile_images = re.findall(r'<img[^>]+(?:src|data-src)="(https://[^"]+)"', profile_html, re.IGNORECASE)
                 image = next((url for url in profile_images if valid_player_image(url)), None)
@@ -187,6 +193,8 @@ def get_squad():
                 player["since"] = since.group(1)
         except Exception as profile_error:
             player["profileNote"] = str(profile_error)
+        if not all(player.get(key) for key in ("nationality", "birthDate", "height")):
+            player["profileDataStatus"] = "partial"
         players.append(player)
     if not players:
         raise RuntimeError("Keine Spielerprofile aus den vier offiziellen Kadergruppen gefunden")

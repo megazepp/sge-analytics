@@ -23,7 +23,7 @@ SOURCES = {
     "scorers": f"{BASE}/getgoalgetters/bl1/{SEASON}",
     "teams": f"{BASE}/getavailableteams/bl1/{SEASON}",
     "squad": "https://profis.eintracht.de/kader/",
-    "fbref": f"https://fbref.com/en/squads/f0ac8ee6/{SEASON}-{SEASON+1}/all_comps/Eintracht-Frankfurt-Stats-All-Competitions",
+    "fbref": f"https://fbref.com/en/squads/f0ac8ee6/{SEASON}-{SEASON+1}/c20/Eintracht-Frankfurt-Stats-Bundesliga",
 }
 
 def get_json(url):

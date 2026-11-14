@@ -37,7 +37,19 @@ jobs:
             # Other workflows may update main while the data is being fetched.
             # Rebase the generated snapshot on the newest main before pushing.
             for attempt in 1 2 3; do
-              git pull --rebase origin main
+              if ! git pull --rebase origin main; then
+                # Both the website workflow and the data agent can update the
+                # snapshot. Keep the freshly generated snapshot for this file.
+                if git diff --name-only --diff-filter=U | grep -qx "public/data/sge.json"; then
+                  git checkout --theirs -- public/data/sge.json
+                  git add public/data/sge.json
+                  GIT_EDITOR=true git rebase --continue
+                else
+                  git rebase --abort || true
+                  echo "Rebase failed for a file other than the generated snapshot."
+                  exit 1
+                fi
+              fi
               if git push; then
                 break
               fi

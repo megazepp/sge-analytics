@@ -318,3 +318,8 @@ footer{color:#999}footer b,.footer-cross{color:#ff3545}
 .profile-no-stats{max-width:760px;margin:0;color:#b8b8bd;font:18px 'VT323',monospace;line-height:1.5}
 .profile-note{margin-top:14px}
 @media(max-width:600px){.profile-hero{grid-template-columns:112px minmax(0,1fr);gap:14px;padding:18px 0 22px}.profile-photo{width:112px;height:150px}.profile-identity h1{font-size:15px}.profile-identity .eyebrow{font-size:8px}.profile-stat-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.profile-data-panel{padding:14px}.profile-stat-grid>div{padding:12px 9px}}
+
+
+/* Attribution for imported player performance data */
+.profile-source-note{margin:14px 0 0;color:#92929a;font:14px 'VT323',monospace;line-height:1.5}
+.profile-source-note a{color:#ff9ca4;text-decoration:underline}

@@ -43,16 +43,17 @@ def get_squad():
         parser = TextExtractor()
         parser.feed(html)
         text = " ".join(parser.parts)
-        # Player cards expose shirt number and name in the page text. Only retain
-        # candidates that occur in the official page and keep the raw source URL.
+        # Restrict parsing to the player section and keep only the first player
+        # card for each shirt number; the page repeats names in accessibility text.
+        text = re.split(r"Sportdirektor|Sporting director|Trainerteam", text, maxsplit=1)[0]
         matches = re.findall(r"(?<!\d)(\d{1,2})\s+([A-ZÀ-Ý][A-Za-zÀ-ÿ'’.-]+(?:\s+[A-ZÀ-Ý][A-Za-zÀ-ÿ'’.-]+){1,3})", text)
-        players, seen = [], set()
+        players, seen_numbers = [], set()
         for number, name in matches:
-            key = (int(number), name.casefold())
-            if key in seen or int(number) > 99:
+            number = int(number)
+            if number in seen_numbers or number > 99:
                 continue
-            seen.add(key)
-            players.append({"number": int(number), "name": name.strip()})
+            seen_numbers.add(number)
+            players.append({"number": number, "name": name.strip()})
         return {"status": "ok" if players else "unparsed", "players": players, "source": SOURCES["squad"]}
     except Exception as exc:
         return {"status": "unavailable", "players": [], "source": SOURCES["squad"], "note": str(exc)}

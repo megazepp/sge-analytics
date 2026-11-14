@@ -3,7 +3,7 @@
     "club": "Eintracht Frankfurt",
     "league": "Bundesliga",
     "season": 2026,
-    "generatedAt": "2026-11-14T14:46:30.463401+00:00",
+    "generatedAt": "2026-11-14T14:48:17.300775+00:00",
     "agent": "sge-public-data-agent",
     "sources": {
       "matches": "https://api.openligadb.de/getmatchdata/bl1/2026",
@@ -11,7 +11,8 @@
       "scorers": "https://api.openligadb.de/getgoalgetters/bl1/2026",
       "teams": "https://api.openligadb.de/getavailableteams/bl1/2026",
       "squad": "https://profis.eintracht.de/kader/",
-      "fbref": "https://fbref.com/en/squads/f0ac8ee6/2026-2027/c20/Eintracht-Frankfurt-Stats-Bundesliga"
+      "dfb_team": "https://datencenter.dfb.de/competitions/bundesliga/seasons/2026-2027/teams/eintracht-frankfurt",
+      "performance": "https://www.myfootballfacts.com/team/eintracht-frankfurt/?sid=75684"
     },
     "notice": "Community and official public sources; starting lineups are only available when officially published."
   },
@@ -28,7 +29,17 @@
         "nationality": "Deutschland",
         "birthDate": "2002-05-25",
         "age": 24,
-        "height": "1.91 m"
+        "height": "1.91 m",
+        "performance": {
+          "appearances": 9,
+          "starts": 9,
+          "minutes": 810,
+          "goals": 0,
+          "assists": 0,
+          "yellowCards": 0,
+          "redCards": 0,
+          "source": "https://www.myfootballfacts.com/team/eintracht-frankfurt/?sid=75684"
+        }
       },
       {
         "name": "Jens Grahl",
@@ -76,7 +87,17 @@
         "birthDate": "2005-10-26",
         "age": 21,
         "since": "30.06.2015",
-        "profileDataStatus": "partial"
+        "profileDataStatus": "partial",
+        "performance": {
+          "appearances": 9,
+          "starts": 7,
+          "minutes": 614,
+          "goals": 0,
+          "assists": 1,
+          "yellowCards": 3,
+          "redCards": 1,
+          "source": "https://www.myfootballfacts.com/team/eintracht-frankfurt/?sid=75684"
+        }
       },
       {
         "name": "Lilian Brassier",
@@ -87,7 +108,17 @@
         "nationality": "Frankreich",
         "birthDate": "1999-11-02",
         "age": 27,
-        "height": "1.86 m"
+        "height": "1.86 m",
+        "performance": {
+          "appearances": 8,
+          "starts": 8,
+          "minutes": 720,
+          "goals": 0,
+          "assists": 0,
+          "yellowCards": 1,
+          "redCards": 0,
+          "source": "https://www.myfootballfacts.com/team/eintracht-frankfurt/?sid=75684"
+        }
       },
       {
         "name": "Robin Koch",
@@ -99,7 +130,17 @@
         "birthDate": "1996-07-17",
         "age": 30,
         "height": "1.92 m",
-        "since": "19.07.2023"
+        "since": "19.07.2023",
+        "performance": {
+          "appearances": 9,
+          "starts": 9,
+          "minutes": 766,
+          "goals": 0,
+          "assists": 1,
+          "yellowCards": 1,
+          "redCards": 0,
+          "source": "https://www.myfootballfacts.com/team/eintracht-frankfurt/?sid=75684"
+        }
       },
       {
         "name": "Otavio",
@@ -110,7 +151,17 @@
         "birthDate": "2005-11-25",
         "age": 20,
         "height": "1.93 m",
-        "since": "27.07.2026"
+        "since": "27.07.2026",
+        "performance": {
+          "appearances": 1,
+          "starts": 0,
+          "minutes": 5,
+          "goals": 0,
+          "assists": 0,
+          "yellowCards": 1,
+          "redCards": 0,
+          "source": "https://www.myfootballfacts.com/team/eintracht-frankfurt/?sid=75684"
+        }
       },
       {
         "name": "Timothy Chandler",
@@ -122,7 +173,17 @@
         "birthDate": "1990-03-29",
         "age": 36,
         "height": "1.87 m",
-        "since": "23.07.2014"
+        "since": "23.07.2014",
+        "performance": {
+          "appearances": 2,
+          "starts": 0,
+          "minutes": 24,
+          "goals": 0,
+          "assists": 0,
+          "yellowCards": 0,
+          "redCards": 0,
+          "source": "https://www.myfootballfacts.com/team/eintracht-frankfurt/?sid=75684"
+        }
       },
       {
         "name": "Keita Kosugi",
@@ -134,7 +195,17 @@
         "birthDate": "2006-03-18",
         "age": 20,
         "height": "1.72 m",
-        "since": "31.12.2025"
+        "since": "31.12.2025",
+        "performance": {
+          "appearances": 7,
+          "starts": 7,
+          "minutes": 542,
+          "goals": 0,
+          "assists": 0,
+          "yellowCards": 1,
+          "redCards": 0,
+          "source": "https://www.myfootballfacts.com/team/eintracht-frankfurt/?sid=75684"
+        }
       },
       {
         "name": "Nnamdi Collins",
@@ -146,7 +217,17 @@
         "birthDate": "2004-01-10",
         "age": 22,
         "height": "1.88 m",
-        "since": "08.08.2023"
+        "since": "08.08.2023",
+        "performance": {
+          "appearances": 5,
+          "starts": 3,
+          "minutes": 324,
+          "goals": 0,
+          "assists": 0,
+          "yellowCards": 2,
+          "redCards": 0,
+          "source": "https://www.myfootballfacts.com/team/eintracht-frankfurt/?sid=75684"
+        }
       },
       {
         "name": "Jeremiaha Maluze",
@@ -157,7 +238,17 @@
         "nationality": "Deutschland",
         "birthDate": "2004-11-11",
         "age": 22,
-        "height": "1.93 m"
+        "height": "1.93 m",
+        "performance": {
+          "appearances": 2,
+          "starts": 2,
+          "minutes": 180,
+          "goals": 0,
+          "assists": 1,
+          "yellowCards": 1,
+          "redCards": 0,
+          "source": "https://www.myfootballfacts.com/team/eintracht-frankfurt/?sid=75684"
+        }
       },
       {
         "name": "Oscar Hojlund",
@@ -168,7 +259,17 @@
         "birthDate": "2005-01-04",
         "age": 21,
         "height": "1.84 m",
-        "since": "24.07.2024"
+        "since": "24.07.2024",
+        "performance": {
+          "appearances": 3,
+          "starts": 0,
+          "minutes": 98,
+          "goals": 0,
+          "assists": 0,
+          "yellowCards": 1,
+          "redCards": 0,
+          "source": "https://www.myfootballfacts.com/team/eintracht-frankfurt/?sid=75684"
+        }
       },
       {
         "name": "Fares Chaibi",
@@ -179,7 +280,17 @@
         "birthDate": "2002-11-28",
         "age": 23,
         "height": "1.83 m",
-        "since": "29.08.2023"
+        "since": "29.08.2023",
+        "performance": {
+          "appearances": 7,
+          "starts": 5,
+          "minutes": 482,
+          "goals": 0,
+          "assists": 1,
+          "yellowCards": 1,
+          "redCards": 0,
+          "source": "https://www.myfootballfacts.com/team/eintracht-frankfurt/?sid=75684"
+        }
       },
       {
         "name": "Noel Aseko",
@@ -191,7 +302,17 @@
         "birthDate": "2005-11-22",
         "age": 20,
         "height": "1.78 m",
-        "since": "17.07.2026"
+        "since": "17.07.2026",
+        "performance": {
+          "appearances": 7,
+          "starts": 6,
+          "minutes": 417,
+          "goals": 0,
+          "assists": 1,
+          "yellowCards": 0,
+          "redCards": 0,
+          "source": "https://www.myfootballfacts.com/team/eintracht-frankfurt/?sid=75684"
+        }
       },
       {
         "name": "Ritsu Doan",
@@ -203,7 +324,17 @@
         "birthDate": "1998-06-16",
         "age": 28,
         "height": "1.72 m",
-        "since": "06.08.2025"
+        "since": "06.08.2025",
+        "performance": {
+          "appearances": 8,
+          "starts": 8,
+          "minutes": 642,
+          "goals": 0,
+          "assists": 1,
+          "yellowCards": 0,
+          "redCards": 0,
+          "source": "https://www.myfootballfacts.com/team/eintracht-frankfurt/?sid=75684"
+        }
       },
       {
         "name": "Niko Ilicevic",
@@ -214,7 +345,17 @@
         "nationality": "Deutschland",
         "birthDate": "2010-10-31",
         "age": 16,
-        "profileDataStatus": "partial"
+        "profileDataStatus": "partial",
+        "performance": {
+          "appearances": 2,
+          "starts": 0,
+          "minutes": 26,
+          "goals": 0,
+          "assists": 0,
+          "yellowCards": 0,
+          "redCards": 0,
+          "source": "https://www.myfootballfacts.com/team/eintracht-frankfurt/?sid=75684"
+        }
       },
       {
         "name": "Raphael Onyedika",
@@ -226,7 +367,17 @@
         "birthDate": "2001-04-19",
         "age": 25,
         "height": "1.84 m",
-        "since": "01.08.2026"
+        "since": "01.08.2026",
+        "performance": {
+          "appearances": 9,
+          "starts": 9,
+          "minutes": 805,
+          "goals": 1,
+          "assists": 0,
+          "yellowCards": 4,
+          "redCards": 0,
+          "source": "https://www.myfootballfacts.com/team/eintracht-frankfurt/?sid=75684"
+        }
       },
       {
         "name": "Mario Goetze",
@@ -249,7 +400,17 @@
         "birthDate": "2008-05-17",
         "age": 18,
         "height": "1.78 m",
-        "since": "31.12.2025"
+        "since": "31.12.2025",
+        "performance": {
+          "appearances": 4,
+          "starts": 0,
+          "minutes": 38,
+          "goals": 0,
+          "assists": 0,
+          "yellowCards": 0,
+          "redCards": 0,
+          "source": "https://www.myfootballfacts.com/team/eintracht-frankfurt/?sid=75684"
+        }
       },
       {
         "name": "Can Uzun",
@@ -261,7 +422,17 @@
         "birthDate": "2005-11-11",
         "age": 21,
         "height": "1.86 m",
-        "since": "01.07.2024"
+        "since": "01.07.2024",
+        "performance": {
+          "appearances": 8,
+          "starts": 7,
+          "minutes": 582,
+          "goals": 2,
+          "assists": 1,
+          "yellowCards": 0,
+          "redCards": 0,
+          "source": "https://www.myfootballfacts.com/team/eintracht-frankfurt/?sid=75684"
+        }
       },
       {
         "name": "Ansgar Knauff",
@@ -273,7 +444,17 @@
         "birthDate": "2002-01-10",
         "age": 24,
         "since": "19.01.2022",
-        "profileDataStatus": "partial"
+        "profileDataStatus": "partial",
+        "performance": {
+          "appearances": 6,
+          "starts": 2,
+          "minutes": 241,
+          "goals": 0,
+          "assists": 0,
+          "yellowCards": 1,
+          "redCards": 0,
+          "source": "https://www.myfootballfacts.com/team/eintracht-frankfurt/?sid=75684"
+        }
       },
       {
         "name": "Jonathan Burkardt",
@@ -285,7 +466,17 @@
         "birthDate": "2000-07-11",
         "age": 26,
         "height": "1.81 m",
-        "since": "03.07.2025"
+        "since": "03.07.2025",
+        "performance": {
+          "appearances": 9,
+          "starts": 8,
+          "minutes": 674,
+          "goals": 5,
+          "assists": 1,
+          "yellowCards": 0,
+          "redCards": 0,
+          "source": "https://www.myfootballfacts.com/team/eintracht-frankfurt/?sid=75684"
+        }
       },
       {
         "name": "Younes Ebnoutalib",
@@ -297,7 +488,17 @@
         "birthDate": "2003-09-13",
         "age": 23,
         "height": "1.91 m",
-        "since": "31.12.2025"
+        "since": "31.12.2025",
+        "performance": {
+          "appearances": 9,
+          "starts": 6,
+          "minutes": 592,
+          "goals": 6,
+          "assists": 1,
+          "yellowCards": 1,
+          "redCards": 0,
+          "source": "https://www.myfootballfacts.com/team/eintracht-frankfurt/?sid=75684"
+        }
       },
       {
         "name": "Ayoube Amaimouni",
@@ -321,7 +522,17 @@
         "birthDate": "2008-01-01",
         "age": 18,
         "since": "29.06.2026",
-        "profileDataStatus": "partial"
+        "profileDataStatus": "partial",
+        "performance": {
+          "appearances": 2,
+          "starts": 0,
+          "minutes": 27,
+          "goals": 0,
+          "assists": 0,
+          "yellowCards": 0,
+          "redCards": 0,
+          "source": "https://www.myfootballfacts.com/team/eintracht-frankfurt/?sid=75684"
+        }
       },
       {
         "name": "Jessic Ngankam",
@@ -338,11 +549,10 @@
     "source": "https://profis.eintracht.de/kader/"
   },
   "performance": {
-    "status": "unavailable",
-    "source": "https://fbref.com/en/squads/f0ac8ee6/2026-2027/c20/Eintracht-Frankfurt-Stats-Bundesliga",
-    "updatedAt": "2026-11-14T14:46:30.347978+00:00",
-    "playersMatched": 0,
-    "error": "HTTP Error 403: Forbidden"
+    "status": "ok",
+    "source": "https://www.myfootballfacts.com/team/eintracht-frankfurt/?sid=75684",
+    "updatedAt": "2026-11-14T14:48:17.300759+00:00",
+    "playersMatched": 21
   },
   "matches": [
     {

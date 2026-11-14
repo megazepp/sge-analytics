@@ -109,9 +109,9 @@ def get_squad():
                 profile.feed(profile_html)
                 body = " ".join(profile.parts)
                 image = profile.meta.get("og:image") or profile.meta.get("twitter:image")
-                if image:
+                if image and "sge_standard_logo" not in image.lower() and "logo" not in image.lower():
                     player["photoUrl"] = image
-                number_match = re.search(r"#\s*(\d{1,2})", body)
+                number_match = re.search(r"(?:Rückennummer|Trikotnummer|#)\s*(\d{1,2})", body, re.IGNORECASE)
                 if number_match:
                     player["number"] = int(number_match.group(1))
                 nationality = re.search(r"Nationalität:\s*([A-Za-zÀ-ÿ -]+?)\s+Geburtstag:", body)

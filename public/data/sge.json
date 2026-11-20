@@ -3,7 +3,7 @@
     "club": "Eintracht Frankfurt",
     "league": "Bundesliga",
     "season": 2026,
-    "generatedAt": "2026-11-20T07:35:54.886607+00:00",
+    "generatedAt": "2026-11-20T13:29:56.966819+00:00",
     "agent": "sge-public-data-agent",
     "sources": {
       "matches": "https://api.openligadb.de/getmatchdata/bl1/2026",
@@ -547,7 +547,7 @@
   "performance": {
     "status": "ok",
     "source": "https://www.myfootballfacts.com/team/eintracht-frankfurt/?sid=75684",
-    "updatedAt": "2026-11-20T07:35:54.886588+00:00",
+    "updatedAt": "2026-11-20T13:29:56.966788+00:00",
     "playersMatched": 21
   },
   "matches": [
@@ -1591,11 +1591,15 @@
         "tla": null,
         "wikidataId": null
       },
-      "lastUpdateDateTime": "2026-07-03T08:16:02.887",
+      "lastUpdateDateTime": "2026-11-20T11:51:14.787",
       "matchIsFinished": false,
       "matchResults": [],
       "goals": [],
-      "location": null,
+      "location": {
+        "locationID": 1346,
+        "locationCity": "Frankfurt",
+        "locationStadium": "Deutsche Bank Park"
+      },
       "numberOfViewers": null
     },
     {
@@ -1630,11 +1634,15 @@
         "tla": null,
         "wikidataId": "Q38245"
       },
-      "lastUpdateDateTime": "2026-09-10T17:31:08.303",
+      "lastUpdateDateTime": "2026-11-20T11:58:53.153",
       "matchIsFinished": false,
       "matchResults": [],
       "goals": [],
-      "location": null,
+      "location": {
+        "locationID": 1493,
+        "locationCity": "Stuttgart",
+        "locationStadium": "MHP-Arena"
+      },
       "numberOfViewers": null
     },
     {
@@ -1669,11 +1677,15 @@
         "tla": null,
         "wikidataId": null
       },
-      "lastUpdateDateTime": "2026-11-05T13:12:47.55",
+      "lastUpdateDateTime": "2026-11-20T12:06:32.693",
       "matchIsFinished": false,
       "matchResults": [],
       "goals": [],
-      "location": null,
+      "location": {
+        "locationID": 1346,
+        "locationCity": "Frankfurt",
+        "locationStadium": "Deutsche Bank Park"
+      },
       "numberOfViewers": null
     },
     {
@@ -11205,11 +11217,15 @@
         "tla": null,
         "wikidataId": "Q104770"
       },
-      "lastUpdateDateTime": "2026-09-10T17:29:43.763",
+      "lastUpdateDateTime": "2026-11-20T11:50:26.41",
       "matchIsFinished": false,
       "matchResults": [],
       "goals": [],
-      "location": null,
+      "location": {
+        "locationID": 34,
+        "locationCity": "München",
+        "locationStadium": "Allianz Arena"
+      },
       "numberOfViewers": null
     },
     {
@@ -11244,11 +11260,15 @@
         "tla": null,
         "wikidataId": "Q160532"
       },
-      "lastUpdateDateTime": "2026-07-03T08:15:41.453",
+      "lastUpdateDateTime": "2026-11-20T11:50:53.58",
       "matchIsFinished": false,
       "matchResults": [],
       "goals": [],
-      "location": null,
+      "location": {
+        "locationID": 28,
+        "locationCity": "Leverkusen",
+        "locationStadium": "BayArena"
+      },
       "numberOfViewers": null
     },
     {
@@ -11283,11 +11303,15 @@
         "tla": null,
         "wikidataId": null
       },
-      "lastUpdateDateTime": "2026-07-03T08:16:02.887",
+      "lastUpdateDateTime": "2026-11-20T11:51:14.787",
       "matchIsFinished": false,
       "matchResults": [],
       "goals": [],
-      "location": null,
+      "location": {
+        "locationID": 1346,
+        "locationCity": "Frankfurt",
+        "locationStadium": "Deutsche Bank Park"
+      },
       "numberOfViewers": null
     },
     {
@@ -11322,11 +11346,15 @@
         "tla": null,
         "wikidataId": null
       },
-      "lastUpdateDateTime": "2026-07-03T08:16:26.903",
+      "lastUpdateDateTime": "2026-11-20T11:51:50.597",
       "matchIsFinished": false,
       "matchResults": [],
       "goals": [],
-      "location": null,
+      "location": {
+        "locationID": 82,
+        "locationCity": "Berlin",
+        "locationStadium": "Alte Försterei"
+      },
       "numberOfViewers": null
     },
     {
@@ -11361,11 +11389,15 @@
         "tla": null,
         "wikidataId": "Q41420"
       },
-      "lastUpdateDateTime": "2026-07-03T08:16:35.227",
+      "lastUpdateDateTime": "2026-11-20T11:52:27.313",
       "matchIsFinished": false,
       "matchResults": [],
       "goals": [],
-      "location": null,
+      "location": {
+        "locationID": 32,
+        "locationCity": "Mönchengladbach",
+        "locationStadium": "Borussia Park"
+      },
       "numberOfViewers": null
     },
     {
@@ -11400,11 +11432,15 @@
         "tla": null,
         "wikidataId": "Q106394"
       },
-      "lastUpdateDateTime": "2026-07-03T08:17:04.54",
+      "lastUpdateDateTime": "2026-11-20T11:52:52.843",
       "matchIsFinished": false,
       "matchResults": [],
       "goals": [],
-      "location": null,
+      "location": {
+        "locationID": 1002,
+        "locationCity": "Elversberg",
+        "locationStadium": "Ursapharm-Arena an der Kaiserlinde"
+      },
       "numberOfViewers": null
     },
     {
@@ -11439,11 +11475,15 @@
         "tla": null,
         "wikidataId": "Q4512"
       },
-      "lastUpdateDateTime": "2026-09-10T17:29:58.837",
+      "lastUpdateDateTime": "2026-11-20T11:53:22.503",
       "matchIsFinished": false,
       "matchResults": [],
       "goals": [],
-      "location": null,
+      "location": {
+        "locationID": 33,
+        "locationCity": "Gelsenkirchen",
+        "locationStadium": "Veltins Arena"
+      },
       "numberOfViewers": null
     },
     {
@@ -11478,11 +11518,15 @@
         "tla": null,
         "wikidataId": "Q105254"
       },
-      "lastUpdateDateTime": "2026-09-10T17:30:08.693",
+      "lastUpdateDateTime": "2026-11-20T11:53:53.98",
       "matchIsFinished": false,
       "matchResults": [],
       "goals": [],
-      "location": null,
+      "location": {
+        "locationID": 1029,
+        "locationCity": "Augsburg",
+        "locationStadium": "WWK Arena"
+      },
       "numberOfViewers": null
     },
     {
@@ -11517,11 +11561,15 @@
         "tla": null,
         "wikidataId": "Q51974"
       },
-      "lastUpdateDateTime": "2026-09-10T17:30:25.293",
+      "lastUpdateDateTime": "2026-11-20T11:54:16.897",
       "matchIsFinished": false,
       "matchResults": [],
       "goals": [],
-      "location": null,
+      "location": {
+        "locationID": 36,
+        "locationCity": "Bremen",
+        "locationStadium": "Weserstadion"
+      },
       "numberOfViewers": null
     },
     {
@@ -11556,11 +11604,15 @@
         "tla": null,
         "wikidataId": null
       },
-      "lastUpdateDateTime": "2026-09-10T17:30:53.893",
+      "lastUpdateDateTime": "2026-11-20T11:56:25.813",
       "matchIsFinished": false,
       "matchResults": [],
       "goals": [],
-      "location": null,
+      "location": {
+        "locationID": 36,
+        "locationCity": "Bremen",
+        "locationStadium": "Weserstadion"
+      },
       "numberOfViewers": null
     },
     {
@@ -11595,11 +11647,15 @@
         "tla": null,
         "wikidataId": "Q141971"
       },
-      "lastUpdateDateTime": "2026-07-03T08:18:52.687",
+      "lastUpdateDateTime": "2026-11-20T11:58:22.52",
       "matchIsFinished": false,
       "matchResults": [],
       "goals": [],
-      "location": null,
+      "location": {
+        "locationID": 1533,
+        "locationCity": "Mainz",
+        "locationStadium": "Mewa Arena"
+      },
       "numberOfViewers": null
     },
     {
@@ -11634,11 +11690,15 @@
         "tla": null,
         "wikidataId": "Q15789"
       },
-      "lastUpdateDateTime": "2026-07-03T08:19:07.307",
+      "lastUpdateDateTime": "2026-11-20T11:57:14.017",
       "matchIsFinished": false,
       "matchResults": [],
       "goals": [],
-      "location": null,
+      "location": {
+        "locationID": 1030,
+        "locationCity": "Hamburg",
+        "locationStadium": "Volksparkstadion"
+      },
       "numberOfViewers": null
     },
     {
@@ -11673,11 +11733,15 @@
         "tla": null,
         "wikidataId": null
       },
-      "lastUpdateDateTime": "2026-07-03T08:19:17.767",
+      "lastUpdateDateTime": "2026-11-20T11:56:51.85",
       "matchIsFinished": false,
       "matchResults": [],
       "goals": [],
-      "location": null,
+      "location": {
+        "locationID": 509,
+        "locationCity": "Köln",
+        "locationStadium": "RheinEnergieStadion "
+      },
       "numberOfViewers": null
     },
     {
@@ -11712,11 +11776,15 @@
         "tla": null,
         "wikidataId": "Q32494"
       },
-      "lastUpdateDateTime": "2026-07-03T08:19:37.04",
+      "lastUpdateDateTime": "2026-11-20T11:57:33.83",
       "matchIsFinished": false,
       "matchResults": [],
       "goals": [],
-      "location": null,
+      "location": {
+        "locationID": 1482,
+        "locationCity": "Paderborn",
+        "locationStadium": "Home Deluxe Arena"
+      },
       "numberOfViewers": null
     },
     {
@@ -11751,11 +11819,15 @@
         "tla": null,
         "wikidataId": "Q38245"
       },
-      "lastUpdateDateTime": "2026-09-10T17:31:08.303",
+      "lastUpdateDateTime": "2026-11-20T11:58:53.153",
       "matchIsFinished": false,
       "matchResults": [],
       "goals": [],
-      "location": null,
+      "location": {
+        "locationID": 1493,
+        "locationCity": "Stuttgart",
+        "locationStadium": "MHP-Arena"
+      },
       "numberOfViewers": null
     },
     {
@@ -11790,11 +11862,15 @@
         "tla": null,
         "wikidataId": null
       },
-      "lastUpdateDateTime": "2026-09-10T17:31:20.403",
+      "lastUpdateDateTime": "2026-11-20T11:59:24.427",
       "matchIsFinished": false,
       "matchResults": [],
       "goals": [],
-      "location": null,
+      "location": {
+        "locationID": 1484,
+        "locationCity": "Freiburg",
+        "locationStadium": "Europa-Park Stadion"
+      },
       "numberOfViewers": null
     },
     {
@@ -11868,11 +11944,15 @@
         "tla": null,
         "wikidataId": "Q104761"
       },
-      "lastUpdateDateTime": "2026-09-10T17:31:47.757",
+      "lastUpdateDateTime": "2026-11-20T12:00:17.863",
       "matchIsFinished": false,
       "matchResults": [],
       "goals": [],
-      "location": null,
+      "location": {
+        "locationID": 35,
+        "locationCity": "Dortmund",
+        "locationStadium": "Signal Iduna Park"
+      },
       "numberOfViewers": null
     },
     {
@@ -11907,11 +11987,15 @@
         "tla": null,
         "wikidataId": "Q160532"
       },
-      "lastUpdateDateTime": "2026-11-05T13:12:35.417",
+      "lastUpdateDateTime": "2026-11-20T12:03:48.8",
       "matchIsFinished": false,
       "matchResults": [],
       "goals": [],
-      "location": null,
+      "location": {
+        "locationID": 34,
+        "locationCity": "München",
+        "locationStadium": "Allianz Arena"
+      },
       "numberOfViewers": null
     },
     {
@@ -11946,11 +12030,15 @@
         "tla": null,
         "wikidataId": "Q105254"
       },
-      "lastUpdateDateTime": "2026-07-03T08:20:23.57",
+      "lastUpdateDateTime": "2026-11-20T12:04:13.88",
       "matchIsFinished": false,
       "matchResults": [],
       "goals": [],
-      "location": null,
+      "location": {
+        "locationID": 478,
+        "locationCity": "Leipzig",
+        "locationStadium": "Red Bull Arena"
+      },
       "numberOfViewers": null
     },
     {
@@ -11985,11 +12073,15 @@
         "tla": null,
         "wikidataId": null
       },
-      "lastUpdateDateTime": "2026-07-03T08:20:32.613",
+      "lastUpdateDateTime": "2026-11-20T12:04:31.213",
       "matchIsFinished": false,
       "matchResults": [],
       "goals": [],
-      "location": null,
+      "location": {
+        "locationID": 28,
+        "locationCity": "Leverkusen",
+        "locationStadium": "BayArena"
+      },
       "numberOfViewers": null
     },
     {
@@ -12024,11 +12116,15 @@
         "tla": null,
         "wikidataId": null
       },
-      "lastUpdateDateTime": "2026-07-03T08:20:43.72",
+      "lastUpdateDateTime": "2026-11-20T12:05:20.56",
       "matchIsFinished": false,
       "matchResults": [],
       "goals": [],
-      "location": null,
+      "location": {
+        "locationID": 1484,
+        "locationCity": "Freiburg",
+        "locationStadium": "Europa-Park Stadion"
+      },
       "numberOfViewers": null
     },
     {
@@ -12063,11 +12159,15 @@
         "tla": null,
         "wikidataId": "Q104770"
       },
-      "lastUpdateDateTime": "2026-07-03T08:21:08.453",
+      "lastUpdateDateTime": "2026-11-20T12:05:37.03",
       "matchIsFinished": false,
       "matchResults": [],
       "goals": [],
-      "location": null,
+      "location": {
+        "locationID": 1029,
+        "locationCity": "Augsburg",
+        "locationStadium": "WWK Arena"
+      },
       "numberOfViewers": null
     },
     {
@@ -12102,11 +12202,15 @@
         "tla": null,
         "wikidataId": "Q51974"
       },
-      "lastUpdateDateTime": "2026-07-03T08:21:28.403",
+      "lastUpdateDateTime": "2026-11-20T12:06:07.02",
       "matchIsFinished": false,
       "matchResults": [],
       "goals": [],
-      "location": null,
+      "location": {
+        "locationID": 82,
+        "locationCity": "Berlin",
+        "locationStadium": "Alte Försterei"
+      },
       "numberOfViewers": null
     },
     {
@@ -12141,11 +12245,15 @@
         "tla": null,
         "wikidataId": null
       },
-      "lastUpdateDateTime": "2026-11-05T13:12:47.55",
+      "lastUpdateDateTime": "2026-11-20T12:06:32.693",
       "matchIsFinished": false,
       "matchResults": [],
       "goals": [],
-      "location": null,
+      "location": {
+        "locationID": 1346,
+        "locationCity": "Frankfurt",
+        "locationStadium": "Deutsche Bank Park"
+      },
       "numberOfViewers": null
     },
     {
@@ -12180,11 +12288,15 @@
         "tla": null,
         "wikidataId": "Q41420"
       },
-      "lastUpdateDateTime": "2026-11-05T13:13:00.303",
+      "lastUpdateDateTime": "2026-11-20T12:06:44.767",
       "matchIsFinished": false,
       "matchResults": [],
       "goals": [],
-      "location": null,
+      "location": {
+        "locationID": 33,
+        "locationCity": "Gelsenkirchen",
+        "locationStadium": "Veltins Arena"
+      },
       "numberOfViewers": null
     },
     {
@@ -12219,11 +12331,15 @@
         "tla": null,
         "wikidataId": "Q4512"
       },
-      "lastUpdateDateTime": "2026-11-05T13:13:26.317",
+      "lastUpdateDateTime": "2026-11-20T12:07:02.16",
       "matchIsFinished": false,
       "matchResults": [],
       "goals": [],
-      "location": null,
+      "location": {
+        "locationID": 1002,
+        "locationCity": "Elversberg",
+        "locationStadium": "Ursapharm-Arena an der Kaiserlinde"
+      },
       "numberOfViewers": null
     },
     {

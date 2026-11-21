@@ -3,7 +3,7 @@
     "club": "Eintracht Frankfurt",
     "league": "Bundesliga",
     "season": 2026,
-    "generatedAt": "2026-11-20T19:18:17.873165+00:00",
+    "generatedAt": "2026-11-21T01:29:58.149402+00:00",
     "agent": "sge-public-data-agent",
     "sources": {
       "matches": "https://api.openligadb.de/getmatchdata/bl1/2026",
@@ -547,7 +547,7 @@
   "performance": {
     "status": "ok",
     "source": "https://www.myfootballfacts.com/team/eintracht-frankfurt/?sid=75684",
-    "updatedAt": "2026-11-20T19:18:17.873148+00:00",
+    "updatedAt": "2026-11-21T01:29:58.149382+00:00",
     "playersMatched": 21
   },
   "matches": [
@@ -11217,10 +11217,58 @@
         "tla": null,
         "wikidataId": "Q104770"
       },
-      "lastUpdateDateTime": "2026-11-20T11:50:26.41",
-      "matchIsFinished": false,
-      "matchResults": [],
-      "goals": [],
+      "lastUpdateDateTime": "2026-11-20T22:23:56.397",
+      "matchIsFinished": true,
+      "matchResults": [
+        {
+          "resultID": 131533,
+          "resultName": "Halbzeit",
+          "pointsTeam1": 1,
+          "pointsTeam2": 1,
+          "resultOrderID": 1,
+          "resultTypeID": 1,
+          "resultTypeKind": "HalfTime",
+          "resultDescription": "Ergebnis nach Ende der ersten Halbzeit"
+        },
+        {
+          "resultID": 131534,
+          "resultName": "Endergebnis",
+          "pointsTeam1": 1,
+          "pointsTeam2": 1,
+          "resultOrderID": 2,
+          "resultTypeID": 2,
+          "resultTypeKind": "After90Minutes",
+          "resultDescription": "Ergebnis nach Ende der offiziellen Spielzeit"
+        }
+      ],
+      "goals": [
+        {
+          "goalID": 153601,
+          "scoreTeam1": 0,
+          "scoreTeam2": 1,
+          "matchMinute": 12,
+          "goalGetterID": 28260,
+          "goalGetterName": "M. Moore",
+          "scoringTeamId": 65,
+          "isPenalty": false,
+          "isOwnGoal": false,
+          "isOvertime": false,
+          "comment": null
+        },
+        {
+          "goalID": 153606,
+          "scoreTeam1": 1,
+          "scoreTeam2": 1,
+          "matchMinute": 37,
+          "goalGetterID": 826,
+          "goalGetterName": "N. Brown",
+          "scoringTeamId": 40,
+          "isPenalty": false,
+          "isOwnGoal": false,
+          "isOvertime": false,
+          "comment": null
+        }
+      ],
       "location": {
         "locationID": 34,
         "locationCity": "München",
@@ -20071,13 +20119,13 @@
       "teamName": "FC Bayern München",
       "shortName": "Bayern",
       "teamIconUrl": "https://upload.wikimedia.org/wikipedia/commons/1/1f/Logo_FC_Bayern_M%C3%BCnchen_%282002%E2%80%932017%29.svg",
-      "points": 21,
-      "opponentGoals": 9,
-      "goals": 29,
-      "matches": 9,
+      "points": 22,
+      "opponentGoals": 10,
+      "goals": 30,
+      "matches": 10,
       "won": 6,
       "lost": 0,
-      "draw": 3,
+      "draw": 4,
       "goalDiff": 20,
       "teamId": 40,
       "tla": null,
@@ -20288,6 +20336,23 @@
       "wikidataId": "Q160532"
     },
     {
+      "teamInfoId": 65,
+      "teamName": "1. FC Köln",
+      "shortName": "Köln",
+      "teamIconUrl": "https://upload.wikimedia.org/wikipedia/commons/0/01/1._FC_Koeln_Logo_2014%E2%80%93.svg",
+      "points": 10,
+      "opponentGoals": 15,
+      "goals": 11,
+      "matches": 10,
+      "won": 2,
+      "lost": 4,
+      "draw": 4,
+      "goalDiff": -4,
+      "teamId": 65,
+      "tla": null,
+      "wikidataId": "Q104770"
+    },
+    {
       "teamInfoId": 95,
       "teamName": "FC Augsburg",
       "shortName": "Augsburg",
@@ -20303,23 +20368,6 @@
       "teamId": 95,
       "tla": null,
       "wikidataId": "Q15755"
-    },
-    {
-      "teamInfoId": 65,
-      "teamName": "1. FC Köln",
-      "shortName": "Köln",
-      "teamIconUrl": "https://upload.wikimedia.org/wikipedia/commons/0/01/1._FC_Koeln_Logo_2014%E2%80%93.svg",
-      "points": 9,
-      "opponentGoals": 14,
-      "goals": 10,
-      "matches": 9,
-      "won": 2,
-      "lost": 4,
-      "draw": 3,
-      "goalDiff": -4,
-      "teamId": 65,
-      "tla": null,
-      "wikidataId": "Q104770"
     },
     {
       "teamInfoId": 80,
@@ -20560,13 +20608,13 @@
       "goalCount": 2
     },
     {
-      "goalGetterId": 24260,
-      "goalGetterName": "A. Kade",
+      "goalGetterId": 24870,
+      "goalGetterName": "Rodrigo Ribeiro",
       "goalCount": 2
     },
     {
-      "goalGetterId": 24870,
-      "goalGetterName": "Rodrigo Ribeiro",
+      "goalGetterId": 24260,
+      "goalGetterName": "A. Kade",
       "goalCount": 2
     },
     {
@@ -20685,6 +20733,11 @@
       "goalCount": 2
     },
     {
+      "goalGetterId": 826,
+      "goalGetterName": "N. Brown",
+      "goalCount": 2
+    },
+    {
       "goalGetterId": 23137,
       "goalGetterName": "B. Hollerbach",
       "goalCount": 2
@@ -20775,13 +20828,13 @@
       "goalCount": 1
     },
     {
-      "goalGetterId": 18742,
-      "goalGetterName": "P. Mwene",
+      "goalGetterId": 19187,
+      "goalGetterName": "R. Königsdörffer",
       "goalCount": 1
     },
     {
-      "goalGetterId": 19187,
-      "goalGetterName": "R. Königsdörffer",
+      "goalGetterId": 18742,
+      "goalGetterName": "P. Mwene",
       "goalCount": 1
     },
     {
@@ -20830,8 +20883,8 @@
       "goalCount": 1
     },
     {
-      "goalGetterId": 24258,
-      "goalGetterName": "Danny da Costa",
+      "goalGetterId": 23412,
+      "goalGetterName": "Isac Lidberg",
       "goalCount": 1
     },
     {
@@ -20840,8 +20893,8 @@
       "goalCount": 1
     },
     {
-      "goalGetterId": 23412,
-      "goalGetterName": "Isac Lidberg",
+      "goalGetterId": 24258,
+      "goalGetterName": "Danny da Costa",
       "goalCount": 1
     },
     {
@@ -20882,11 +20935,6 @@
     {
       "goalGetterId": 23377,
       "goalGetterName": "Daniel Svensson",
-      "goalCount": 1
-    },
-    {
-      "goalGetterId": 826,
-      "goalGetterName": "N. Brown",
       "goalCount": 1
     },
     {
@@ -21072,6 +21120,11 @@
     {
       "goalGetterId": 22890,
       "goalGetterName": "J. Adamu",
+      "goalCount": 1
+    },
+    {
+      "goalGetterId": 28260,
+      "goalGetterName": "M. Moore",
       "goalCount": 1
     }
   ],

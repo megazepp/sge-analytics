@@ -3,7 +3,7 @@
     "club": "Eintracht Frankfurt",
     "league": "Bundesliga",
     "season": 2026,
-    "generatedAt": "2026-11-21T13:16:05.622846+00:00",
+    "generatedAt": "2026-11-21T19:04:35.762165+00:00",
     "agent": "sge-public-data-agent",
     "sources": {
       "matches": "https://api.openligadb.de/getmatchdata/bl1/2026",
@@ -547,7 +547,7 @@
   "performance": {
     "status": "ok",
     "source": "https://www.myfootballfacts.com/team/eintracht-frankfurt/?sid=75684",
-    "updatedAt": "2026-11-21T13:16:05.622818+00:00",
+    "updatedAt": "2026-11-21T19:04:35.762141+00:00",
     "playersMatched": 21
   },
   "matches": [
@@ -1591,16 +1591,51 @@
         "tla": null,
         "wikidataId": null
       },
-      "lastUpdateDateTime": "2026-11-20T11:51:14.787",
-      "matchIsFinished": false,
-      "matchResults": [],
-      "goals": [],
+      "lastUpdateDateTime": "2026-11-21T17:24:50.76",
+      "matchIsFinished": true,
+      "matchResults": [
+        {
+          "resultID": 131560,
+          "resultName": "Halbzeit",
+          "pointsTeam1": 1,
+          "pointsTeam2": 0,
+          "resultOrderID": 1,
+          "resultTypeID": 1,
+          "resultTypeKind": "HalfTime",
+          "resultDescription": "Ergebnis nach Ende der ersten Halbzeit"
+        },
+        {
+          "resultID": 131561,
+          "resultName": "Endergebnis",
+          "pointsTeam1": 1,
+          "pointsTeam2": 0,
+          "resultOrderID": 2,
+          "resultTypeID": 2,
+          "resultTypeKind": "After90Minutes",
+          "resultDescription": "Ergebnis nach Ende der offiziellen Spielzeit"
+        }
+      ],
+      "goals": [
+        {
+          "goalID": 153661,
+          "scoreTeam1": 1,
+          "scoreTeam2": 0,
+          "matchMinute": 25,
+          "goalGetterID": 19126,
+          "goalGetterName": "J. Burkardt",
+          "scoringTeamId": 91,
+          "isPenalty": false,
+          "isOwnGoal": false,
+          "isOvertime": false,
+          "comment": null
+        }
+      ],
       "location": {
         "locationID": 1346,
         "locationCity": "Frankfurt",
         "locationStadium": "Deutsche Bank Park"
       },
-      "numberOfViewers": null
+      "numberOfViewers": 59100
     },
     {
       "matchID": 83247,
@@ -11217,7 +11252,7 @@
         "tla": null,
         "wikidataId": "Q104770"
       },
-      "lastUpdateDateTime": "2026-11-20T22:23:56.397",
+      "lastUpdateDateTime": "2026-11-21T18:21:38.077",
       "matchIsFinished": true,
       "matchResults": [
         {
@@ -11274,7 +11309,7 @@
         "locationCity": "München",
         "locationStadium": "Allianz Arena"
       },
-      "numberOfViewers": null
+      "numberOfViewers": 75024
     },
     {
       "matchID": 83238,
@@ -11308,16 +11343,90 @@
         "tla": null,
         "wikidataId": "Q160532"
       },
-      "lastUpdateDateTime": "2026-11-20T11:50:53.58",
-      "matchIsFinished": false,
-      "matchResults": [],
-      "goals": [],
+      "lastUpdateDateTime": "2026-11-21T17:22:45.207",
+      "matchIsFinished": true,
+      "matchResults": [
+        {
+          "resultID": 131562,
+          "resultName": "Halbzeit",
+          "pointsTeam1": 1,
+          "pointsTeam2": 0,
+          "resultOrderID": 1,
+          "resultTypeID": 1,
+          "resultTypeKind": "HalfTime",
+          "resultDescription": "Ergebnis nach Ende der ersten Halbzeit"
+        },
+        {
+          "resultID": 131563,
+          "resultName": "Endergebnis",
+          "pointsTeam1": 4,
+          "pointsTeam2": 0,
+          "resultOrderID": 2,
+          "resultTypeID": 2,
+          "resultTypeKind": "After90Minutes",
+          "resultDescription": "Ergebnis nach Ende der offiziellen Spielzeit"
+        }
+      ],
+      "goals": [
+        {
+          "goalID": 153657,
+          "scoreTeam1": 1,
+          "scoreTeam2": 0,
+          "matchMinute": 14,
+          "goalGetterID": 28268,
+          "goalGetterName": "A. Moreira",
+          "scoringTeamId": 6,
+          "isPenalty": false,
+          "isOwnGoal": false,
+          "isOvertime": false,
+          "comment": null
+        },
+        {
+          "goalID": 153675,
+          "scoreTeam1": 2,
+          "scoreTeam2": 0,
+          "matchMinute": 47,
+          "goalGetterID": 28268,
+          "goalGetterName": "A. Moreira",
+          "scoringTeamId": 6,
+          "isPenalty": false,
+          "isOwnGoal": false,
+          "isOvertime": false,
+          "comment": null
+        },
+        {
+          "goalID": 153676,
+          "scoreTeam1": 3,
+          "scoreTeam2": 0,
+          "matchMinute": 51,
+          "goalGetterID": 18331,
+          "goalGetterName": "P. Schick",
+          "scoringTeamId": 6,
+          "isPenalty": false,
+          "isOwnGoal": false,
+          "isOvertime": false,
+          "comment": null
+        },
+        {
+          "goalID": 153678,
+          "scoreTeam1": 4,
+          "scoreTeam2": 0,
+          "matchMinute": 59,
+          "goalGetterID": 19677,
+          "goalGetterName": "E. Fernández",
+          "scoringTeamId": 6,
+          "isPenalty": false,
+          "isOwnGoal": false,
+          "isOvertime": false,
+          "comment": null
+        }
+      ],
       "location": {
         "locationID": 28,
         "locationCity": "Leverkusen",
         "locationStadium": "BayArena"
       },
-      "numberOfViewers": null
+      "numberOfViewers": 29873
     },
     {
       "matchID": 83239,
@@ -11351,16 +11460,51 @@
         "tla": null,
         "wikidataId": null
       },
-      "lastUpdateDateTime": "2026-11-20T11:51:14.787",
-      "matchIsFinished": false,
-      "matchResults": [],
-      "goals": [],
+      "lastUpdateDateTime": "2026-11-21T17:24:50.76",
+      "matchIsFinished": true,
+      "matchResults": [
+        {
+          "resultID": 131560,
+          "resultName": "Halbzeit",
+          "pointsTeam1": 1,
+          "pointsTeam2": 0,
+          "resultOrderID": 1,
+          "resultTypeID": 1,
+          "resultTypeKind": "HalfTime",
+          "resultDescription": "Ergebnis nach Ende der ersten Halbzeit"
+        },
+        {
+          "resultID": 131561,
+          "resultName": "Endergebnis",
+          "pointsTeam1": 1,
+          "pointsTeam2": 0,
+          "resultOrderID": 2,
+          "resultTypeID": 2,
+          "resultTypeKind": "After90Minutes",
+          "resultDescription": "Ergebnis nach Ende der offiziellen Spielzeit"
+        }
+      ],
+      "goals": [
+        {
+          "goalID": 153661,
+          "scoreTeam1": 1,
+          "scoreTeam2": 0,
+          "matchMinute": 25,
+          "goalGetterID": 19126,
+          "goalGetterName": "J. Burkardt",
+          "scoringTeamId": 91,
+          "isPenalty": false,
+          "isOwnGoal": false,
+          "isOvertime": false,
+          "comment": null
+        }
+      ],
       "location": {
         "locationID": 1346,
         "locationCity": "Frankfurt",
         "locationStadium": "Deutsche Bank Park"
       },
-      "numberOfViewers": null
+      "numberOfViewers": 59100
     },
     {
       "matchID": 83241,
@@ -11394,16 +11538,116 @@
         "tla": null,
         "wikidataId": null
       },
-      "lastUpdateDateTime": "2026-11-20T11:51:50.597",
-      "matchIsFinished": false,
-      "matchResults": [],
-      "goals": [],
+      "lastUpdateDateTime": "2026-11-21T17:25:48.093",
+      "matchIsFinished": true,
+      "matchResults": [
+        {
+          "resultID": 131564,
+          "resultName": "Halbzeit",
+          "pointsTeam1": 1,
+          "pointsTeam2": 1,
+          "resultOrderID": 1,
+          "resultTypeID": 1,
+          "resultTypeKind": "HalfTime",
+          "resultDescription": "Ergebnis nach Ende der ersten Halbzeit"
+        },
+        {
+          "resultID": 131565,
+          "resultName": "Endergebnis",
+          "pointsTeam1": 1,
+          "pointsTeam2": 5,
+          "resultOrderID": 2,
+          "resultTypeID": 2,
+          "resultTypeKind": "After90Minutes",
+          "resultDescription": "Ergebnis nach Ende der offiziellen Spielzeit"
+        }
+      ],
+      "goals": [
+        {
+          "goalID": 153660,
+          "scoreTeam1": 0,
+          "scoreTeam2": 1,
+          "matchMinute": 18,
+          "goalGetterID": 22891,
+          "goalGetterName": "A. Nusa",
+          "scoringTeamId": 1635,
+          "isPenalty": true,
+          "isOwnGoal": false,
+          "isOvertime": false,
+          "comment": null
+        },
+        {
+          "goalID": 153662,
+          "scoreTeam1": 1,
+          "scoreTeam2": 1,
+          "matchMinute": 41,
+          "goalGetterID": 22667,
+          "goalGetterName": "M. Aebischer",
+          "scoringTeamId": 80,
+          "isPenalty": false,
+          "isOwnGoal": false,
+          "isOvertime": false,
+          "comment": null
+        },
+        {
+          "goalID": 153677,
+          "scoreTeam1": 1,
+          "scoreTeam2": 2,
+          "matchMinute": 50,
+          "goalGetterID": 7906,
+          "goalGetterName": "Romulo",
+          "scoringTeamId": 1635,
+          "isPenalty": false,
+          "isOwnGoal": false,
+          "isOvertime": false,
+          "comment": null
+        },
+        {
+          "goalID": 153680,
+          "scoreTeam1": 1,
+          "scoreTeam2": 3,
+          "matchMinute": 72,
+          "goalGetterID": 20646,
+          "goalGetterName": "B. Gruda",
+          "scoringTeamId": 1635,
+          "isPenalty": false,
+          "isOwnGoal": false,
+          "isOvertime": false,
+          "comment": null
+        },
+        {
+          "goalID": 153681,
+          "scoreTeam1": 1,
+          "scoreTeam2": 4,
+          "matchMinute": 76,
+          "goalGetterID": 20828,
+          "goalGetterName": "R. Reitz",
+          "scoringTeamId": 1635,
+          "isPenalty": false,
+          "isOwnGoal": false,
+          "isOvertime": false,
+          "comment": null
+        },
+        {
+          "goalID": 153683,
+          "scoreTeam1": 1,
+          "scoreTeam2": 5,
+          "matchMinute": 89,
+          "goalGetterID": 18516,
+          "goalGetterName": "R. Baku",
+          "scoringTeamId": 1635,
+          "isPenalty": false,
+          "isOwnGoal": false,
+          "isOvertime": false,
+          "comment": null
+        }
+      ],
       "location": {
         "locationID": 82,
         "locationCity": "Berlin",
         "locationStadium": "Alte Försterei"
       },
-      "numberOfViewers": null
+      "numberOfViewers": 22012
     },
     {
       "matchID": 83242,
@@ -11437,16 +11681,51 @@
         "tla": null,
         "wikidataId": "Q41420"
       },
-      "lastUpdateDateTime": "2026-11-20T11:52:27.313",
-      "matchIsFinished": false,
-      "matchResults": [],
-      "goals": [],
+      "lastUpdateDateTime": "2026-11-21T17:22:13.223",
+      "matchIsFinished": true,
+      "matchResults": [
+        {
+          "resultID": 131566,
+          "resultName": "Halbzeit",
+          "pointsTeam1": 0,
+          "pointsTeam2": 0,
+          "resultOrderID": 1,
+          "resultTypeID": 1,
+          "resultTypeKind": "HalfTime",
+          "resultDescription": "Ergebnis nach Ende der ersten Halbzeit"
+        },
+        {
+          "resultID": 131567,
+          "resultName": "Endergebnis",
+          "pointsTeam1": 0,
+          "pointsTeam2": 1,
+          "resultOrderID": 2,
+          "resultTypeID": 2,
+          "resultTypeKind": "After90Minutes",
+          "resultDescription": "Ergebnis nach Ende der offiziellen Spielzeit"
+        }
+      ],
+      "goals": [
+        {
+          "goalID": 153682,
+          "scoreTeam1": 0,
+          "scoreTeam2": 1,
+          "matchMinute": 80,
+          "goalGetterID": 19605,
+          "goalGetterName": "F. Nmecha",
+          "scoringTeamId": 7,
+          "isPenalty": false,
+          "isOwnGoal": false,
+          "isOvertime": false,
+          "comment": null
+        }
+      ],
       "location": {
         "locationID": 32,
         "locationCity": "Mönchengladbach",
         "locationStadium": "Borussia Park"
       },
-      "numberOfViewers": null
+      "numberOfViewers": 54546
     },
     {
       "matchID": 83245,
@@ -11480,16 +11759,51 @@
         "tla": null,
         "wikidataId": "Q106394"
       },
-      "lastUpdateDateTime": "2026-11-20T11:52:52.843",
-      "matchIsFinished": false,
-      "matchResults": [],
-      "goals": [],
+      "lastUpdateDateTime": "2026-11-21T17:21:32.747",
+      "matchIsFinished": true,
+      "matchResults": [
+        {
+          "resultID": 131568,
+          "resultName": "Halbzeit",
+          "pointsTeam1": 0,
+          "pointsTeam2": 0,
+          "resultOrderID": 1,
+          "resultTypeID": 1,
+          "resultTypeKind": "HalfTime",
+          "resultDescription": "Ergebnis nach Ende der ersten Halbzeit"
+        },
+        {
+          "resultID": 131569,
+          "resultName": "Endergebnis",
+          "pointsTeam1": 0,
+          "pointsTeam2": 1,
+          "resultOrderID": 2,
+          "resultTypeID": 2,
+          "resultTypeKind": "After90Minutes",
+          "resultDescription": "Ergebnis nach Ende der offiziellen Spielzeit"
+        }
+      ],
+      "goals": [
+        {
+          "goalID": 153679,
+          "scoreTeam1": 0,
+          "scoreTeam2": 1,
+          "matchMinute": 68,
+          "goalGetterID": 18472,
+          "goalGetterName": "I. Matanovic",
+          "scoringTeamId": 112,
+          "isPenalty": false,
+          "isOwnGoal": false,
+          "isOvertime": false,
+          "comment": null
+        }
+      ],
       "location": {
         "locationID": 1002,
         "locationCity": "Elversberg",
         "locationStadium": "Ursapharm-Arena an der Kaiserlinde"
       },
-      "numberOfViewers": null
+      "numberOfViewers": 9307
     },
     {
       "matchID": 83244,
@@ -11523,9 +11837,30 @@
         "tla": null,
         "wikidataId": "Q4512"
       },
-      "lastUpdateDateTime": "2026-11-20T11:53:22.503",
+      "lastUpdateDateTime": "2026-11-21T19:16:19.357",
       "matchIsFinished": false,
-      "matchResults": [],
+      "matchResults": [
+        {
+          "resultID": 131576,
+          "resultName": "Halbzeit",
+          "pointsTeam1": 0,
+          "pointsTeam2": 0,
+          "resultOrderID": 1,
+          "resultTypeID": 1,
+          "resultTypeKind": "HalfTime",
+          "resultDescription": "Ergebnis nach Ende der ersten Halbzeit"
+        },
+        {
+          "resultID": 131577,
+          "resultName": "Endergebnis",
+          "pointsTeam1": 0,
+          "pointsTeam2": 0,
+          "resultOrderID": 2,
+          "resultTypeID": 2,
+          "resultTypeKind": "After90Minutes",
+          "resultDescription": "Ergebnis nach Ende der offiziellen Spielzeit"
+        }
+      ],
       "goals": [],
       "location": {
         "locationID": 33,
@@ -20115,6 +20450,23 @@
   ],
   "table": [
     {
+      "teamInfoId": 7,
+      "teamName": "Borussia Dortmund",
+      "shortName": "Dortmund",
+      "teamIconUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Borussia_Dortmund_logo.svg/960px-Borussia_Dortmund_logo.svg.png",
+      "points": 24,
+      "opponentGoals": 7,
+      "goals": 17,
+      "matches": 10,
+      "won": 7,
+      "lost": 0,
+      "draw": 3,
+      "goalDiff": 10,
+      "teamId": 7,
+      "tla": null,
+      "wikidataId": "Q41420"
+    },
+    {
       "teamInfoId": 40,
       "teamName": "FC Bayern München",
       "shortName": "Bayern",
@@ -20132,35 +20484,18 @@
       "wikidataId": "Q15789"
     },
     {
-      "teamInfoId": 7,
-      "teamName": "Borussia Dortmund",
-      "shortName": "Dortmund",
-      "teamIconUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Borussia_Dortmund_logo.svg/960px-Borussia_Dortmund_logo.svg.png",
-      "points": 21,
-      "opponentGoals": 7,
-      "goals": 16,
-      "matches": 9,
-      "won": 6,
-      "lost": 0,
-      "draw": 3,
-      "goalDiff": 9,
-      "teamId": 7,
-      "tla": null,
-      "wikidataId": "Q41420"
-    },
-    {
       "teamInfoId": 112,
       "teamName": "SC Freiburg",
       "shortName": "Freiburg",
       "teamIconUrl": "https://i.imgur.com/r3mvi0h.png",
-      "points": 19,
+      "points": 22,
       "opponentGoals": 10,
-      "goals": 20,
-      "matches": 9,
-      "won": 6,
+      "goals": 21,
+      "matches": 10,
+      "won": 7,
       "lost": 2,
       "draw": 1,
-      "goalDiff": 10,
+      "goalDiff": 11,
       "teamId": 112,
       "tla": null,
       "wikidataId": "Q106394"
@@ -20170,14 +20505,14 @@
       "teamName": "RB Leipzig",
       "shortName": "Leipzig",
       "teamIconUrl": "https://i.imgur.com/Rpwsjz1.png",
-      "points": 18,
-      "opponentGoals": 13,
-      "goals": 27,
-      "matches": 9,
-      "won": 6,
+      "points": 21,
+      "opponentGoals": 14,
+      "goals": 32,
+      "matches": 10,
+      "won": 7,
       "lost": 3,
       "draw": 0,
-      "goalDiff": 14,
+      "goalDiff": 18,
       "teamId": 1635,
       "tla": null,
       "wikidataId": null
@@ -20187,14 +20522,14 @@
       "teamName": "Bayer 04 Leverkusen",
       "shortName": "Leverkusen",
       "teamIconUrl": "https://upload.wikimedia.org/wikipedia/de/f/f7/Bayer_Leverkusen_Logo.svg",
-      "points": 16,
+      "points": 19,
       "opponentGoals": 17,
-      "goals": 20,
-      "matches": 9,
-      "won": 5,
+      "goals": 24,
+      "matches": 10,
+      "won": 6,
       "lost": 3,
       "draw": 1,
-      "goalDiff": 3,
+      "goalDiff": 7,
       "teamId": 6,
       "tla": null,
       "wikidataId": "Q104761"
@@ -20217,38 +20552,55 @@
       "wikidataId": null
     },
     {
-      "teamInfoId": 198,
-      "teamName": "SV 07 Elversberg",
-      "shortName": "Elversberg",
-      "teamIconUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/SV_Elversberg_Logo.svg/500px-SV_Elversberg_Logo.svg.png",
-      "points": 13,
-      "opponentGoals": 18,
-      "goals": 17,
-      "matches": 9,
+      "teamInfoId": 91,
+      "teamName": "Eintracht Frankfurt",
+      "shortName": "Frankfurt",
+      "teamIconUrl": "https://i.imgur.com/X8NFkOb.png",
+      "points": 15,
+      "opponentGoals": 20,
+      "goals": 16,
+      "matches": 10,
       "won": 4,
-      "lost": 4,
-      "draw": 1,
-      "goalDiff": -1,
-      "teamId": 198,
+      "lost": 3,
+      "draw": 3,
+      "goalDiff": -4,
+      "teamId": 91,
       "tla": null,
-      "wikidataId": null
+      "wikidataId": "Q38245"
     },
     {
       "teamInfoId": 16,
       "teamName": "VfB Stuttgart",
       "shortName": "Stuttgart",
       "teamIconUrl": "https://i.imgur.com/v0tkpNx.png",
-      "points": 12,
+      "points": 13,
       "opponentGoals": 15,
       "goals": 15,
-      "matches": 9,
+      "matches": 10,
       "won": 4,
       "lost": 5,
-      "draw": 0,
+      "draw": 1,
       "goalDiff": 0,
       "teamId": 16,
       "tla": null,
       "wikidataId": "Q4512"
+    },
+    {
+      "teamInfoId": 198,
+      "teamName": "SV 07 Elversberg",
+      "shortName": "Elversberg",
+      "teamIconUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/SV_Elversberg_Logo.svg/500px-SV_Elversberg_Logo.svg.png",
+      "points": 13,
+      "opponentGoals": 19,
+      "goals": 17,
+      "matches": 10,
+      "won": 4,
+      "lost": 5,
+      "draw": 1,
+      "goalDiff": -2,
+      "teamId": 198,
+      "tla": null,
+      "wikidataId": null
     },
     {
       "teamInfoId": 175,
@@ -20256,33 +20608,16 @@
       "shortName": "Hoffenheim",
       "teamIconUrl": "https://i.imgur.com/gF0PfEl.png",
       "points": 12,
-      "opponentGoals": 17,
+      "opponentGoals": 18,
       "goals": 16,
-      "matches": 9,
+      "matches": 10,
       "won": 4,
-      "lost": 5,
+      "lost": 6,
       "draw": 0,
-      "goalDiff": -1,
+      "goalDiff": -2,
       "teamId": 175,
       "tla": null,
       "wikidataId": null
-    },
-    {
-      "teamInfoId": 91,
-      "teamName": "Eintracht Frankfurt",
-      "shortName": "Frankfurt",
-      "teamIconUrl": "https://i.imgur.com/X8NFkOb.png",
-      "points": 12,
-      "opponentGoals": 20,
-      "goals": 15,
-      "matches": 9,
-      "won": 3,
-      "lost": 3,
-      "draw": 3,
-      "goalDiff": -5,
-      "teamId": 91,
-      "tla": null,
-      "wikidataId": "Q38245"
     },
     {
       "teamInfoId": 100,
@@ -20319,23 +20654,6 @@
       "wikidataId": "Q105254"
     },
     {
-      "teamInfoId": 31,
-      "teamName": "SC Paderborn 07",
-      "shortName": "Paderborn",
-      "teamIconUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e3/SC_Paderborn_07_Logo.svg",
-      "points": 10,
-      "opponentGoals": 11,
-      "goals": 8,
-      "matches": 9,
-      "won": 2,
-      "lost": 3,
-      "draw": 4,
-      "goalDiff": -3,
-      "teamId": 31,
-      "tla": null,
-      "wikidataId": "Q160532"
-    },
-    {
       "teamInfoId": 65,
       "teamName": "1. FC Köln",
       "shortName": "Köln",
@@ -20351,6 +20669,23 @@
       "teamId": 65,
       "tla": null,
       "wikidataId": "Q104770"
+    },
+    {
+      "teamInfoId": 31,
+      "teamName": "SC Paderborn 07",
+      "shortName": "Paderborn",
+      "teamIconUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e3/SC_Paderborn_07_Logo.svg",
+      "points": 10,
+      "opponentGoals": 15,
+      "goals": 8,
+      "matches": 10,
+      "won": 2,
+      "lost": 4,
+      "draw": 4,
+      "goalDiff": -7,
+      "teamId": 31,
+      "tla": null,
+      "wikidataId": "Q160532"
     },
     {
       "teamInfoId": 95,
@@ -20370,38 +20705,38 @@
       "wikidataId": "Q15755"
     },
     {
+      "teamInfoId": 9,
+      "teamName": "FC Schalke 04",
+      "shortName": "S04",
+      "teamIconUrl": "https://upload.wikimedia.org/wikipedia/commons/9/97/FC_Schalke_04_Logo.png",
+      "points": 7,
+      "opponentGoals": 11,
+      "goals": 5,
+      "matches": 10,
+      "won": 1,
+      "lost": 5,
+      "draw": 4,
+      "goalDiff": -6,
+      "teamId": 9,
+      "tla": null,
+      "wikidataId": "Q32494"
+    },
+    {
       "teamInfoId": 80,
       "teamName": "1. FC Union Berlin",
       "shortName": "Union Berlin",
       "teamIconUrl": "https://assets.dfb.de/uploads/000/018/232/small_union-Berlin.jpg",
       "points": 7,
-      "opponentGoals": 21,
-      "goals": 7,
-      "matches": 9,
+      "opponentGoals": 26,
+      "goals": 8,
+      "matches": 10,
       "won": 1,
-      "lost": 4,
+      "lost": 5,
       "draw": 4,
-      "goalDiff": -14,
+      "goalDiff": -18,
       "teamId": 80,
       "tla": null,
       "wikidataId": "Q141971"
-    },
-    {
-      "teamInfoId": 9,
-      "teamName": "FC Schalke 04",
-      "shortName": "S04",
-      "teamIconUrl": "https://upload.wikimedia.org/wikipedia/commons/9/97/FC_Schalke_04_Logo.png",
-      "points": 6,
-      "opponentGoals": 11,
-      "goals": 5,
-      "matches": 9,
-      "won": 1,
-      "lost": 5,
-      "draw": 3,
-      "goalDiff": -6,
-      "teamId": 9,
-      "tla": null,
-      "wikidataId": "Q32494"
     },
     {
       "teamInfoId": 87,
@@ -20409,13 +20744,13 @@
       "shortName": "Gladbach",
       "teamIconUrl": "https://i.imgur.com/KSIk0Eu.png",
       "points": 4,
-      "opponentGoals": 25,
+      "opponentGoals": 26,
       "goals": 12,
-      "matches": 9,
+      "matches": 10,
       "won": 1,
-      "lost": 7,
+      "lost": 8,
       "draw": 1,
-      "goalDiff": -13,
+      "goalDiff": -14,
       "teamId": 87,
       "tla": null,
       "wikidataId": null
@@ -20423,14 +20758,14 @@
   ],
   "scorers": [
     {
-      "goalGetterId": 18661,
-      "goalGetterName": "N. Füllkrug",
+      "goalGetterId": 18331,
+      "goalGetterName": "P. Schick",
       "goalCount": 9
     },
     {
-      "goalGetterId": 18331,
-      "goalGetterName": "P. Schick",
-      "goalCount": 8
+      "goalGetterId": 18661,
+      "goalGetterName": "N. Füllkrug",
+      "goalCount": 9
     },
     {
       "goalGetterId": 23135,
@@ -20448,8 +20783,28 @@
       "goalCount": 6
     },
     {
+      "goalGetterId": 19126,
+      "goalGetterName": "J. Burkardt",
+      "goalCount": 6
+    },
+    {
+      "goalGetterId": 7906,
+      "goalGetterName": "Romulo",
+      "goalCount": 6
+    },
+    {
+      "goalGetterId": 22891,
+      "goalGetterName": "A. Nusa",
+      "goalCount": 5
+    },
+    {
       "goalGetterId": 24246,
       "goalGetterName": "Y. Suzuki",
+      "goalCount": 5
+    },
+    {
+      "goalGetterId": 18472,
+      "goalGetterName": "I. Matanovic",
       "goalCount": 5
     },
     {
@@ -20463,13 +20818,8 @@
       "goalCount": 5
     },
     {
-      "goalGetterId": 19126,
-      "goalGetterName": "J. Burkardt",
-      "goalCount": 5
-    },
-    {
-      "goalGetterId": 7906,
-      "goalGetterName": "Romulo",
+      "goalGetterId": 19605,
+      "goalGetterName": "F. Nmecha",
       "goalCount": 5
     },
     {
@@ -20483,28 +20833,13 @@
       "goalCount": 4
     },
     {
-      "goalGetterId": 22891,
-      "goalGetterName": "A. Nusa",
-      "goalCount": 4
-    },
-    {
-      "goalGetterId": 18472,
-      "goalGetterName": "I. Matanovic",
-      "goalCount": 4
-    },
-    {
-      "goalGetterId": 22975,
-      "goalGetterName": "M. Krattenmacher",
-      "goalCount": 4
-    },
-    {
       "goalGetterId": 19101,
       "goalGetterName": "J. Scally",
       "goalCount": 4
     },
     {
-      "goalGetterId": 19605,
-      "goalGetterName": "F. Nmecha",
+      "goalGetterId": 22975,
+      "goalGetterName": "M. Krattenmacher",
       "goalCount": 4
     },
     {
@@ -20515,6 +20850,11 @@
     {
       "goalGetterId": 19198,
       "goalGetterName": "D. Upamecano",
+      "goalCount": 3
+    },
+    {
+      "goalGetterId": 18516,
+      "goalGetterName": "R. Baku",
       "goalCount": 3
     },
     {
@@ -20573,8 +20913,8 @@
       "goalCount": 2
     },
     {
-      "goalGetterId": 18516,
-      "goalGetterName": "R. Baku",
+      "goalGetterId": 20828,
+      "goalGetterName": "R. Reitz",
       "goalCount": 2
     },
     {
@@ -20583,13 +20923,13 @@
       "goalCount": 2
     },
     {
-      "goalGetterId": 27267,
-      "goalGetterName": "Thijs Dallinga",
+      "goalGetterId": 23997,
+      "goalGetterName": "A. Daghim",
       "goalCount": 2
     },
     {
-      "goalGetterId": 23997,
-      "goalGetterName": "A. Daghim",
+      "goalGetterId": 27267,
+      "goalGetterName": "Thijs Dallinga",
       "goalCount": 2
     },
     {
@@ -20608,13 +20948,13 @@
       "goalCount": 2
     },
     {
-      "goalGetterId": 24870,
-      "goalGetterName": "Rodrigo Ribeiro",
+      "goalGetterId": 24260,
+      "goalGetterName": "A. Kade",
       "goalCount": 2
     },
     {
-      "goalGetterId": 24260,
-      "goalGetterName": "A. Kade",
+      "goalGetterId": 24870,
+      "goalGetterName": "Rodrigo Ribeiro",
       "goalCount": 2
     },
     {
@@ -20625,6 +20965,11 @@
     {
       "goalGetterId": 19004,
       "goalGetterName": "T. Lemperle",
+      "goalCount": 2
+    },
+    {
+      "goalGetterId": 19677,
+      "goalGetterName": "E. Fernández",
       "goalCount": 2
     },
     {
@@ -20708,13 +21053,13 @@
       "goalCount": 2
     },
     {
-      "goalGetterId": 24968,
-      "goalGetterName": "S. Marino",
+      "goalGetterId": 19135,
+      "goalGetterName": "S. Tigges",
       "goalCount": 2
     },
     {
-      "goalGetterId": 19135,
-      "goalGetterName": "S. Tigges",
+      "goalGetterId": 24968,
+      "goalGetterName": "S. Marino",
       "goalCount": 2
     },
     {
@@ -20768,9 +21113,9 @@
       "goalCount": 2
     },
     {
-      "goalGetterId": 20828,
-      "goalGetterName": "R. Reitz",
-      "goalCount": 1
+      "goalGetterId": 28268,
+      "goalGetterName": "A. Moreira",
+      "goalCount": 2
     },
     {
       "goalGetterId": 23572,
@@ -20818,23 +21163,18 @@
       "goalCount": 1
     },
     {
-      "goalGetterId": 19677,
-      "goalGetterName": "E. Fernández",
-      "goalCount": 1
-    },
-    {
       "goalGetterId": 24256,
       "goalGetterName": "D. Mokwa",
       "goalCount": 1
     },
     {
-      "goalGetterId": 19187,
-      "goalGetterName": "R. Königsdörffer",
+      "goalGetterId": 18742,
+      "goalGetterName": "P. Mwene",
       "goalCount": 1
     },
     {
-      "goalGetterId": 18742,
-      "goalGetterName": "P. Mwene",
+      "goalGetterId": 19187,
+      "goalGetterName": "R. Königsdörffer",
       "goalCount": 1
     },
     {
@@ -20883,6 +21223,11 @@
       "goalCount": 1
     },
     {
+      "goalGetterId": 24258,
+      "goalGetterName": "Danny da Costa",
+      "goalCount": 1
+    },
+    {
       "goalGetterId": 23412,
       "goalGetterName": "Isac Lidberg",
       "goalCount": 1
@@ -20890,11 +21235,6 @@
     {
       "goalGetterId": 20035,
       "goalGetterName": "E. Martel",
-      "goalCount": 1
-    },
-    {
-      "goalGetterId": 24258,
-      "goalGetterName": "Danny da Costa",
       "goalCount": 1
     },
     {
@@ -20928,18 +21268,18 @@
       "goalCount": 1
     },
     {
-      "goalGetterId": 18640,
-      "goalGetterName": "N. Schlotterbeck",
-      "goalCount": 1
-    },
-    {
       "goalGetterId": 23377,
       "goalGetterName": "Daniel Svensson",
       "goalCount": 1
     },
     {
-      "goalGetterId": 23648,
-      "goalGetterName": "J. Quansah",
+      "goalGetterId": 18640,
+      "goalGetterName": "N. Schlotterbeck",
+      "goalCount": 1
+    },
+    {
+      "goalGetterId": 18460,
+      "goalGetterName": "M. Diaby",
       "goalCount": 1
     },
     {
@@ -20948,8 +21288,8 @@
       "goalCount": 1
     },
     {
-      "goalGetterId": 18460,
-      "goalGetterName": "M. Diaby",
+      "goalGetterId": 23648,
+      "goalGetterName": "J. Quansah",
       "goalCount": 1
     },
     {
@@ -21068,13 +21408,13 @@
       "goalCount": 1
     },
     {
-      "goalGetterId": 23262,
-      "goalGetterName": "A. Grønbæk",
+      "goalGetterId": 28144,
+      "goalGetterName": "Shafiq Nandja",
       "goalCount": 1
     },
     {
-      "goalGetterId": 28144,
-      "goalGetterName": "Shafiq Nandja",
+      "goalGetterId": 23262,
+      "goalGetterName": "A. Grønbæk",
       "goalCount": 1
     },
     {
@@ -21125,6 +21465,16 @@
     {
       "goalGetterId": 28260,
       "goalGetterName": "M. Moore",
+      "goalCount": 1
+    },
+    {
+      "goalGetterId": 20646,
+      "goalGetterName": "B. Gruda",
+      "goalCount": 1
+    },
+    {
+      "goalGetterId": 22667,
+      "goalGetterName": "M. Aebischer",
       "goalCount": 1
     }
   ],
@@ -21293,11 +21643,11 @@
     }
   ],
   "statistics": {
-    "matchesPlayed": 9,
-    "wins": 3,
+    "matchesPlayed": 10,
+    "wins": 4,
     "draws": 3,
     "losses": 3,
-    "goalsFor": 15,
+    "goalsFor": 16,
     "goalsAgainst": 20
   },
   "lineup": {

@@ -3,7 +3,7 @@
     "club": "Eintracht Frankfurt",
     "league": "Bundesliga",
     "season": 2026,
-    "generatedAt": "2026-11-21T19:04:35.762165+00:00",
+    "generatedAt": "2026-11-22T01:27:26.312731+00:00",
     "agent": "sge-public-data-agent",
     "sources": {
       "matches": "https://api.openligadb.de/getmatchdata/bl1/2026",
@@ -298,7 +298,7 @@
         "photoUrl": "https://media.eintracht.de/image/upload/ar_3:4,c_fill,dpr_1.0,f_auto,g_xy_center,q_60,w_auto,x_w_mul_0.5,y_h_mul_0/thumbnail_spieler_noel-aseko-12f0.png",
         "number": 15,
         "birthDate": "2005-11-22",
-        "age": 20,
+        "age": 21,
         "height": "1.78 m",
         "since": "17.07.2026",
         "profileDataStatus": "partial",
@@ -547,7 +547,7 @@
   "performance": {
     "status": "ok",
     "source": "https://www.myfootballfacts.com/team/eintracht-frankfurt/?sid=75684",
-    "updatedAt": "2026-11-21T19:04:35.762141+00:00",
+    "updatedAt": "2026-11-22T01:27:26.312718+00:00",
     "playersMatched": 21
   },
   "matches": [
@@ -11837,8 +11837,8 @@
         "tla": null,
         "wikidataId": "Q4512"
       },
-      "lastUpdateDateTime": "2026-11-21T19:16:19.357",
-      "matchIsFinished": false,
+      "lastUpdateDateTime": "2026-11-21T20:22:10.937",
+      "matchIsFinished": true,
       "matchResults": [
         {
           "resultID": 131576,
@@ -11867,7 +11867,7 @@
         "locationCity": "Gelsenkirchen",
         "locationStadium": "Veltins Arena"
       },
-      "numberOfViewers": null
+      "numberOfViewers": 62094
     },
     {
       "matchID": 83240,

@@ -3,7 +3,7 @@
     "club": "Eintracht Frankfurt",
     "league": "Bundesliga",
     "season": 2026,
-    "generatedAt": "2026-11-22T13:14:34.955241+00:00",
+    "generatedAt": "2026-11-22T19:06:07.073631+00:00",
     "agent": "sge-public-data-agent",
     "sources": {
       "matches": "https://api.openligadb.de/getmatchdata/bl1/2026",
@@ -547,7 +547,7 @@
   "performance": {
     "status": "ok",
     "source": "https://www.myfootballfacts.com/team/eintracht-frankfurt/?sid=75684",
-    "updatedAt": "2026-11-22T13:14:34.955224+00:00",
+    "updatedAt": "2026-11-22T19:06:07.073616+00:00",
     "playersMatched": 21
   },
   "matches": [
@@ -11901,16 +11901,90 @@
         "tla": null,
         "wikidataId": "Q105254"
       },
-      "lastUpdateDateTime": "2026-11-20T11:53:53.98",
-      "matchIsFinished": false,
-      "matchResults": [],
-      "goals": [],
+      "lastUpdateDateTime": "2026-11-22T17:25:18.087",
+      "matchIsFinished": true,
+      "matchResults": [
+        {
+          "resultID": 131593,
+          "resultName": "Halbzeit",
+          "pointsTeam1": 2,
+          "pointsTeam2": 0,
+          "resultOrderID": 1,
+          "resultTypeID": 1,
+          "resultTypeKind": "HalfTime",
+          "resultDescription": "Ergebnis nach Ende der ersten Halbzeit"
+        },
+        {
+          "resultID": 131594,
+          "resultName": "Endergebnis",
+          "pointsTeam1": 3,
+          "pointsTeam2": 1,
+          "resultOrderID": 2,
+          "resultTypeID": 2,
+          "resultTypeKind": "After90Minutes",
+          "resultDescription": "Ergebnis nach Ende der offiziellen Spielzeit"
+        }
+      ],
+      "goals": [
+        {
+          "goalID": 153709,
+          "scoreTeam1": 1,
+          "scoreTeam2": 0,
+          "matchMinute": 19,
+          "goalGetterID": 18815,
+          "goalGetterName": "M. Gregoritsch",
+          "scoringTeamId": 95,
+          "isPenalty": false,
+          "isOwnGoal": false,
+          "isOvertime": false,
+          "comment": null
+        },
+        {
+          "goalID": 153711,
+          "scoreTeam1": 2,
+          "scoreTeam2": 0,
+          "matchMinute": 35,
+          "goalGetterID": 28272,
+          "goalGetterName": "J. Bah",
+          "scoringTeamId": 95,
+          "isPenalty": false,
+          "isOwnGoal": false,
+          "isOvertime": false,
+          "comment": null
+        },
+        {
+          "goalID": 153713,
+          "scoreTeam1": 3,
+          "scoreTeam2": 0,
+          "matchMinute": 48,
+          "goalGetterID": 18815,
+          "goalGetterName": "M. Gregoritsch",
+          "scoringTeamId": 95,
+          "isPenalty": false,
+          "isOwnGoal": false,
+          "isOvertime": false,
+          "comment": null
+        },
+        {
+          "goalID": 153714,
+          "scoreTeam1": 3,
+          "scoreTeam2": 1,
+          "matchMinute": 51,
+          "goalGetterID": 19187,
+          "goalGetterName": "R. Königsdörffer",
+          "scoringTeamId": 81,
+          "isPenalty": false,
+          "isOwnGoal": false,
+          "isOvertime": false,
+          "comment": null
+        }
+      ],
       "location": {
         "locationID": 1029,
         "locationCity": "Augsburg",
         "locationStadium": "WWK Arena"
       },
-      "numberOfViewers": null
+      "numberOfViewers": 29680
     },
     {
       "matchID": 83243,
@@ -11944,16 +12018,90 @@
         "tla": null,
         "wikidataId": "Q51974"
       },
-      "lastUpdateDateTime": "2026-11-20T11:54:16.897",
-      "matchIsFinished": false,
-      "matchResults": [],
-      "goals": [],
+      "lastUpdateDateTime": "2026-11-22T19:30:39.223",
+      "matchIsFinished": true,
+      "matchResults": [
+        {
+          "resultID": 131620,
+          "resultName": "Halbzeit",
+          "pointsTeam1": 0,
+          "pointsTeam2": 0,
+          "resultOrderID": 1,
+          "resultTypeID": 1,
+          "resultTypeKind": "HalfTime",
+          "resultDescription": "Ergebnis nach Ende der ersten Halbzeit"
+        },
+        {
+          "resultID": 131621,
+          "resultName": "Endergebnis",
+          "pointsTeam1": 4,
+          "pointsTeam2": 0,
+          "resultOrderID": 2,
+          "resultTypeID": 2,
+          "resultTypeKind": "After90Minutes",
+          "resultDescription": "Ergebnis nach Ende der offiziellen Spielzeit"
+        }
+      ],
+      "goals": [
+        {
+          "goalID": 153785,
+          "scoreTeam1": 1,
+          "scoreTeam2": 0,
+          "matchMinute": 55,
+          "goalGetterID": 19203,
+          "goalGetterName": "M. Friedl",
+          "scoringTeamId": 134,
+          "isPenalty": false,
+          "isOwnGoal": false,
+          "isOvertime": false,
+          "comment": null
+        },
+        {
+          "goalID": 153788,
+          "scoreTeam1": 2,
+          "scoreTeam2": 0,
+          "matchMinute": 66,
+          "goalGetterID": 22922,
+          "goalGetterName": "J. Njinmah",
+          "scoringTeamId": 134,
+          "isPenalty": false,
+          "isOwnGoal": false,
+          "isOvertime": false,
+          "comment": null
+        },
+        {
+          "goalID": 153790,
+          "scoreTeam1": 3,
+          "scoreTeam2": 0,
+          "matchMinute": 70,
+          "goalGetterID": 22922,
+          "goalGetterName": "J. Njinmah",
+          "scoringTeamId": 134,
+          "isPenalty": false,
+          "isOwnGoal": false,
+          "isOvertime": false,
+          "comment": null
+        },
+        {
+          "goalID": 153794,
+          "scoreTeam1": 4,
+          "scoreTeam2": 0,
+          "matchMinute": 92,
+          "goalGetterID": 18661,
+          "goalGetterName": "N. Füllkrug",
+          "scoringTeamId": 134,
+          "isPenalty": false,
+          "isOwnGoal": false,
+          "isOvertime": true,
+          "comment": null
+        }
+      ],
       "location": {
         "locationID": 36,
         "locationCity": "Bremen",
         "locationStadium": "Weserstadion"
       },
-      "numberOfViewers": null
+      "numberOfViewers": 42100
     },
     {
       "matchID": 83253,
@@ -20539,14 +20687,14 @@
       "teamName": "SV Werder Bremen",
       "shortName": "Bremen",
       "teamIconUrl": "https://upload.wikimedia.org/wikipedia/commons/b/be/SV-Werder-Bremen-Logo.svg",
-      "points": 15,
+      "points": 18,
       "opponentGoals": 15,
-      "goals": 17,
-      "matches": 9,
-      "won": 4,
+      "goals": 21,
+      "matches": 10,
+      "won": 5,
       "lost": 2,
       "draw": 3,
-      "goalDiff": 2,
+      "goalDiff": 6,
       "teamId": 134,
       "tla": null,
       "wikidataId": null
@@ -20603,6 +20751,23 @@
       "wikidataId": null
     },
     {
+      "teamInfoId": 95,
+      "teamName": "FC Augsburg",
+      "shortName": "Augsburg",
+      "teamIconUrl": "https://i.imgur.com/sdE62e2.png",
+      "points": 12,
+      "opponentGoals": 21,
+      "goals": 23,
+      "matches": 10,
+      "won": 3,
+      "lost": 4,
+      "draw": 3,
+      "goalDiff": 2,
+      "teamId": 95,
+      "tla": null,
+      "wikidataId": "Q15755"
+    },
+    {
       "teamInfoId": 175,
       "teamName": "TSG Hoffenheim",
       "shortName": "Hoffenheim",
@@ -20625,13 +20790,13 @@
       "shortName": "HSV",
       "teamIconUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f7/Hamburger_SV_logo.svg",
       "points": 12,
-      "opponentGoals": 20,
+      "opponentGoals": 24,
       "goals": 10,
-      "matches": 9,
+      "matches": 10,
       "won": 4,
-      "lost": 5,
+      "lost": 6,
       "draw": 0,
-      "goalDiff": -10,
+      "goalDiff": -14,
       "teamId": 100,
       "tla": null,
       "wikidataId": "Q51974"
@@ -20642,13 +20807,13 @@
       "shortName": "Mainz",
       "teamIconUrl": "https://upload.wikimedia.org/wikipedia/commons/9/9e/Logo_Mainz_05.svg",
       "points": 10,
-      "opponentGoals": 19,
-      "goals": 18,
-      "matches": 9,
+      "opponentGoals": 22,
+      "goals": 19,
+      "matches": 10,
       "won": 3,
-      "lost": 5,
+      "lost": 6,
       "draw": 1,
-      "goalDiff": -1,
+      "goalDiff": -3,
       "teamId": 81,
       "tla": null,
       "wikidataId": "Q105254"
@@ -20686,23 +20851,6 @@
       "teamId": 31,
       "tla": null,
       "wikidataId": "Q160532"
-    },
-    {
-      "teamInfoId": 95,
-      "teamName": "FC Augsburg",
-      "shortName": "Augsburg",
-      "teamIconUrl": "https://i.imgur.com/sdE62e2.png",
-      "points": 9,
-      "opponentGoals": 20,
-      "goals": 20,
-      "matches": 9,
-      "won": 2,
-      "lost": 4,
-      "draw": 3,
-      "goalDiff": 0,
-      "teamId": 95,
-      "tla": null,
-      "wikidataId": "Q15755"
     },
     {
       "teamInfoId": 9,
@@ -20758,14 +20906,19 @@
   ],
   "scorers": [
     {
+      "goalGetterId": 18661,
+      "goalGetterName": "N. Füllkrug",
+      "goalCount": 10
+    },
+    {
       "goalGetterId": 18331,
       "goalGetterName": "P. Schick",
       "goalCount": 9
     },
     {
-      "goalGetterId": 18661,
-      "goalGetterName": "N. Füllkrug",
-      "goalCount": 9
+      "goalGetterId": 18815,
+      "goalGetterName": "M. Gregoritsch",
+      "goalCount": 7
     },
     {
       "goalGetterId": 23135,
@@ -20805,11 +20958,6 @@
     {
       "goalGetterId": 18472,
       "goalGetterName": "I. Matanovic",
-      "goalCount": 5
-    },
-    {
-      "goalGetterId": 18815,
-      "goalGetterName": "M. Gregoritsch",
       "goalCount": 5
     },
     {
@@ -20938,13 +21086,13 @@
       "goalCount": 2
     },
     {
-      "goalGetterId": 23576,
-      "goalGetterName": "C. Kofane",
+      "goalGetterId": 27263,
+      "goalGetterName": "Cole Campbell",
       "goalCount": 2
     },
     {
-      "goalGetterId": 27263,
-      "goalGetterName": "Cole Campbell",
+      "goalGetterId": 23576,
+      "goalGetterName": "C. Kofane",
       "goalCount": 2
     },
     {
@@ -20973,13 +21121,13 @@
       "goalCount": 2
     },
     {
-      "goalGetterId": 23632,
-      "goalGetterName": "F. Keidel",
+      "goalGetterId": 25011,
+      "goalGetterName": "H. Bolin",
       "goalCount": 2
     },
     {
-      "goalGetterId": 25011,
-      "goalGetterName": "H. Bolin",
+      "goalGetterId": 23632,
+      "goalGetterName": "F. Keidel",
       "goalCount": 2
     },
     {
@@ -20995,6 +21143,11 @@
     {
       "goalGetterId": 18409,
       "goalGetterName": "S. Becker",
+      "goalCount": 2
+    },
+    {
+      "goalGetterId": 19187,
+      "goalGetterName": "R. Königsdörffer",
       "goalCount": 2
     },
     {
@@ -21053,13 +21206,13 @@
       "goalCount": 2
     },
     {
-      "goalGetterId": 19135,
-      "goalGetterName": "S. Tigges",
+      "goalGetterId": 24968,
+      "goalGetterName": "S. Marino",
       "goalCount": 2
     },
     {
-      "goalGetterId": 24968,
-      "goalGetterName": "S. Marino",
+      "goalGetterId": 19135,
+      "goalGetterName": "S. Tigges",
       "goalCount": 2
     },
     {
@@ -21118,13 +21271,18 @@
       "goalCount": 2
     },
     {
-      "goalGetterId": 23572,
-      "goalGetterName": "L. Querfeld",
-      "goalCount": 1
+      "goalGetterId": 22922,
+      "goalGetterName": "J. Njinmah",
+      "goalCount": 2
     },
     {
       "goalGetterId": 27262,
       "goalGetterName": "Emmanuel Latte Lath",
+      "goalCount": 1
+    },
+    {
+      "goalGetterId": 23572,
+      "goalGetterName": "L. Querfeld",
       "goalCount": 1
     },
     {
@@ -21173,11 +21331,6 @@
       "goalCount": 1
     },
     {
-      "goalGetterId": 19187,
-      "goalGetterName": "R. Königsdörffer",
-      "goalCount": 1
-    },
-    {
       "goalGetterId": 22999,
       "goalGetterName": "Alexis Claude-Maurice",
       "goalCount": 1
@@ -21223,8 +21376,8 @@
       "goalCount": 1
     },
     {
-      "goalGetterId": 24258,
-      "goalGetterName": "Danny da Costa",
+      "goalGetterId": 20035,
+      "goalGetterName": "E. Martel",
       "goalCount": 1
     },
     {
@@ -21233,8 +21386,8 @@
       "goalCount": 1
     },
     {
-      "goalGetterId": 20035,
-      "goalGetterName": "E. Martel",
+      "goalGetterId": 24258,
+      "goalGetterName": "Danny da Costa",
       "goalCount": 1
     },
     {
@@ -21268,13 +21421,18 @@
       "goalCount": 1
     },
     {
+      "goalGetterId": 18640,
+      "goalGetterName": "N. Schlotterbeck",
+      "goalCount": 1
+    },
+    {
       "goalGetterId": 23377,
       "goalGetterName": "Daniel Svensson",
       "goalCount": 1
     },
     {
-      "goalGetterId": 18640,
-      "goalGetterName": "N. Schlotterbeck",
+      "goalGetterId": 23648,
+      "goalGetterName": "J. Quansah",
       "goalCount": 1
     },
     {
@@ -21285,11 +21443,6 @@
     {
       "goalGetterId": 18670,
       "goalGetterName": "R. Andrich",
-      "goalCount": 1
-    },
-    {
-      "goalGetterId": 23648,
-      "goalGetterName": "J. Quansah",
       "goalCount": 1
     },
     {
@@ -21328,11 +21481,6 @@
       "goalCount": 1
     },
     {
-      "goalGetterId": 27924,
-      "goalGetterName": "Lasse Günther",
-      "goalCount": 1
-    },
-    {
       "goalGetterId": 23643,
       "goalGetterName": "Frederik Schmahl",
       "goalCount": 1
@@ -21340,6 +21488,11 @@
     {
       "goalGetterId": 23242,
       "goalGetterName": "Mert Kömür",
+      "goalCount": 1
+    },
+    {
+      "goalGetterId": 27924,
+      "goalGetterName": "Lasse Günther",
       "goalCount": 1
     },
     {
@@ -21408,13 +21561,13 @@
       "goalCount": 1
     },
     {
-      "goalGetterId": 28144,
-      "goalGetterName": "Shafiq Nandja",
+      "goalGetterId": 23262,
+      "goalGetterName": "A. Grønbæk",
       "goalCount": 1
     },
     {
-      "goalGetterId": 23262,
-      "goalGetterName": "A. Grønbæk",
+      "goalGetterId": 28144,
+      "goalGetterName": "Shafiq Nandja",
       "goalCount": 1
     },
     {
@@ -21423,13 +21576,13 @@
       "goalCount": 1
     },
     {
-      "goalGetterId": 28147,
-      "goalGetterName": "Uchenna Ogundu",
+      "goalGetterId": 18358,
+      "goalGetterName": "D. Raum",
       "goalCount": 1
     },
     {
-      "goalGetterId": 18358,
-      "goalGetterName": "D. Raum",
+      "goalGetterId": 28147,
+      "goalGetterName": "Uchenna Ogundu",
       "goalCount": 1
     },
     {
@@ -21453,13 +21606,13 @@
       "goalCount": 1
     },
     {
-      "goalGetterId": 20687,
-      "goalGetterName": "F. Asllani",
+      "goalGetterId": 22890,
+      "goalGetterName": "J. Adamu",
       "goalCount": 1
     },
     {
-      "goalGetterId": 22890,
-      "goalGetterName": "J. Adamu",
+      "goalGetterId": 20687,
+      "goalGetterName": "F. Asllani",
       "goalCount": 1
     },
     {
@@ -21475,6 +21628,16 @@
     {
       "goalGetterId": 22667,
       "goalGetterName": "M. Aebischer",
+      "goalCount": 1
+    },
+    {
+      "goalGetterId": 28272,
+      "goalGetterName": "J. Bah",
+      "goalCount": 1
+    },
+    {
+      "goalGetterId": 19203,
+      "goalGetterName": "M. Friedl",
       "goalCount": 1
     }
   ],

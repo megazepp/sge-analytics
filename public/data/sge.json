@@ -3,7 +3,7 @@
     "club": "Eintracht Frankfurt",
     "league": "Bundesliga",
     "season": 2026,
-    "generatedAt": "2026-11-24T19:17:52.314185+00:00",
+    "generatedAt": "2026-11-25T01:36:54.048454+00:00",
     "agent": "sge-public-data-agent",
     "sources": {
       "matches": "https://api.openligadb.de/getmatchdata/bl1/2026",
@@ -147,7 +147,7 @@
         "profileUrl": "https://profis.eintracht.de/kader/otavio/",
         "photoUrl": "https://media.eintracht.de/image/upload/ar_3:4,c_fill,dpr_1.0,f_auto,g_xy_center,q_60,w_auto,x_w_mul_0.5,y_h_mul_0/thumbnail_spieler_otavio-1db2.png",
         "birthDate": "2005-11-25",
-        "age": 20,
+        "age": 21,
         "height": "1.93 m",
         "since": "27.07.2026",
         "profileDataStatus": "partial",
@@ -547,7 +547,7 @@
   "performance": {
     "status": "ok",
     "source": "https://www.myfootballfacts.com/team/eintracht-frankfurt/?sid=75684",
-    "updatedAt": "2026-11-24T19:17:52.314169+00:00",
+    "updatedAt": "2026-11-25T01:36:54.048444+00:00",
     "playersMatched": 21
   },
   "matches": [

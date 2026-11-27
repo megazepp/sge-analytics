@@ -3,7 +3,7 @@
     "club": "Eintracht Frankfurt",
     "league": "Bundesliga",
     "season": 2026,
-    "generatedAt": "2026-11-26T19:18:26.613058+00:00",
+    "generatedAt": "2026-11-27T01:39:02.967471+00:00",
     "agent": "sge-public-data-agent",
     "sources": {
       "matches": "https://api.openligadb.de/getmatchdata/bl1/2026",
@@ -547,7 +547,7 @@
   "performance": {
     "status": "ok",
     "source": "https://www.myfootballfacts.com/team/eintracht-frankfurt/?sid=75684",
-    "updatedAt": "2026-11-26T19:18:26.613044+00:00",
+    "updatedAt": "2026-11-27T01:39:02.967454+00:00",
     "playersMatched": 21
   },
   "matches": [

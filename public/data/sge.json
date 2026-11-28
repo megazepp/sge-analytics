@@ -3,7 +3,7 @@
     "club": "Eintracht Frankfurt",
     "league": "Bundesliga",
     "season": 2026,
-    "generatedAt": "2026-11-27T19:15:33.569852+00:00",
+    "generatedAt": "2026-11-28T01:34:12.856864+00:00",
     "agent": "sge-public-data-agent",
     "sources": {
       "matches": "https://api.openligadb.de/getmatchdata/bl1/2026",
@@ -276,7 +276,7 @@
         "profileUrl": "https://profis.eintracht.de/kader/fares-chaibi/",
         "photoUrl": "https://media.eintracht.de/image/upload/ar_3:4,c_fill,dpr_1.0,f_auto,g_xy_center,q_60,w_auto,x_w_mul_0.5,y_h_mul_0/thumbnail_spieler_fares-chaibi-8407.png",
         "birthDate": "2002-11-28",
-        "age": 23,
+        "age": 24,
         "height": "1.83 m",
         "since": "29.08.2023",
         "profileDataStatus": "partial",
@@ -547,7 +547,7 @@
   "performance": {
     "status": "ok",
     "source": "https://www.myfootballfacts.com/team/eintracht-frankfurt/?sid=75684",
-    "updatedAt": "2026-11-27T19:15:33.569834+00:00",
+    "updatedAt": "2026-11-28T01:34:12.856846+00:00",
     "playersMatched": 21
   },
   "matches": [
@@ -12135,10 +12135,110 @@
         "tla": null,
         "wikidataId": null
       },
-      "lastUpdateDateTime": "2026-11-20T11:56:25.813",
-      "matchIsFinished": false,
-      "matchResults": [],
-      "goals": [],
+      "lastUpdateDateTime": "2026-11-27T22:27:06.373",
+      "matchIsFinished": true,
+      "matchResults": [
+        {
+          "resultID": 131823,
+          "resultName": "Halbzeit",
+          "pointsTeam1": 1,
+          "pointsTeam2": 1,
+          "resultOrderID": 1,
+          "resultTypeID": 1,
+          "resultTypeKind": "HalfTime",
+          "resultDescription": "Ergebnis nach Ende der ersten Halbzeit"
+        },
+        {
+          "resultID": 131824,
+          "resultName": "Endergebnis",
+          "pointsTeam1": 3,
+          "pointsTeam2": 3,
+          "resultOrderID": 2,
+          "resultTypeID": 2,
+          "resultTypeKind": "After90Minutes",
+          "resultDescription": "Ergebnis nach Ende der offiziellen Spielzeit"
+        }
+      ],
+      "goals": [
+        {
+          "goalID": 154072,
+          "scoreTeam1": 0,
+          "scoreTeam2": 1,
+          "matchMinute": 27,
+          "goalGetterID": 24242,
+          "goalGetterName": "K. Diks",
+          "scoringTeamId": 87,
+          "isPenalty": true,
+          "isOwnGoal": false,
+          "isOvertime": false,
+          "comment": null
+        },
+        {
+          "goalID": 154074,
+          "scoreTeam1": 1,
+          "scoreTeam2": 1,
+          "matchMinute": 38,
+          "goalGetterID": 23615,
+          "goalGetterName": "E. Dinkçi",
+          "scoringTeamId": 134,
+          "isPenalty": false,
+          "isOwnGoal": false,
+          "isOvertime": false,
+          "comment": null
+        },
+        {
+          "goalID": 154081,
+          "scoreTeam1": 1,
+          "scoreTeam2": 2,
+          "matchMinute": 46,
+          "goalGetterID": 20147,
+          "goalGetterName": "F. Honorat",
+          "scoringTeamId": 87,
+          "isPenalty": false,
+          "isOwnGoal": false,
+          "isOvertime": false,
+          "comment": null
+        },
+        {
+          "goalID": 154091,
+          "scoreTeam1": 1,
+          "scoreTeam2": 3,
+          "matchMinute": 78,
+          "goalGetterID": 20147,
+          "goalGetterName": "F. Honorat",
+          "scoringTeamId": 87,
+          "isPenalty": false,
+          "isOwnGoal": false,
+          "isOvertime": false,
+          "comment": null
+        },
+        {
+          "goalID": 154092,
+          "scoreTeam1": 2,
+          "scoreTeam2": 3,
+          "matchMinute": 85,
+          "goalGetterID": 23615,
+          "goalGetterName": "E. Dinkçi",
+          "scoringTeamId": 134,
+          "isPenalty": false,
+          "isOwnGoal": false,
+          "isOvertime": false,
+          "comment": null
+        },
+        {
+          "goalID": 154093,
+          "scoreTeam1": 3,
+          "scoreTeam2": 3,
+          "matchMinute": 92,
+          "goalGetterID": 18661,
+          "goalGetterName": "N. Füllkrug",
+          "scoringTeamId": 134,
+          "isPenalty": false,
+          "isOwnGoal": false,
+          "isOvertime": true,
+          "comment": null
+        }
+      ],
       "location": {
         "locationID": 36,
         "locationCity": "Bremen",
@@ -20687,13 +20787,13 @@
       "teamName": "SV Werder Bremen",
       "shortName": "Bremen",
       "teamIconUrl": "https://upload.wikimedia.org/wikipedia/commons/b/be/SV-Werder-Bremen-Logo.svg",
-      "points": 18,
-      "opponentGoals": 15,
-      "goals": 21,
-      "matches": 10,
+      "points": 19,
+      "opponentGoals": 18,
+      "goals": 24,
+      "matches": 11,
       "won": 5,
       "lost": 2,
-      "draw": 3,
+      "draw": 4,
       "goalDiff": 6,
       "teamId": 134,
       "tla": null,
@@ -20891,13 +20991,13 @@
       "teamName": "Borussia Mönchengladbach",
       "shortName": "Gladbach",
       "teamIconUrl": "https://i.imgur.com/KSIk0Eu.png",
-      "points": 4,
-      "opponentGoals": 26,
-      "goals": 12,
-      "matches": 10,
+      "points": 5,
+      "opponentGoals": 29,
+      "goals": 15,
+      "matches": 11,
       "won": 1,
       "lost": 8,
-      "draw": 1,
+      "draw": 2,
       "goalDiff": -14,
       "teamId": 87,
       "tla": null,
@@ -20908,7 +21008,7 @@
     {
       "goalGetterId": 18661,
       "goalGetterName": "N. Füllkrug",
-      "goalCount": 10
+      "goalCount": 11
     },
     {
       "goalGetterId": 18331,
@@ -20988,6 +21088,11 @@
     {
       "goalGetterId": 22975,
       "goalGetterName": "M. Krattenmacher",
+      "goalCount": 4
+    },
+    {
+      "goalGetterId": 23615,
+      "goalGetterName": "E. Dinkçi",
       "goalCount": 4
     },
     {
@@ -21096,13 +21201,13 @@
       "goalCount": 2
     },
     {
-      "goalGetterId": 24260,
-      "goalGetterName": "A. Kade",
+      "goalGetterId": 24870,
+      "goalGetterName": "Rodrigo Ribeiro",
       "goalCount": 2
     },
     {
-      "goalGetterId": 24870,
-      "goalGetterName": "Rodrigo Ribeiro",
+      "goalGetterId": 24260,
+      "goalGetterName": "A. Kade",
       "goalCount": 2
     },
     {
@@ -21131,11 +21236,6 @@
       "goalCount": 2
     },
     {
-      "goalGetterId": 23615,
-      "goalGetterName": "E. Dinkçi",
-      "goalCount": 2
-    },
-    {
       "goalGetterId": 20688,
       "goalGetterName": "M. Grüll",
       "goalCount": 2
@@ -21156,13 +21256,13 @@
       "goalCount": 2
     },
     {
-      "goalGetterId": 24990,
-      "goalGetterName": "M. Mittelstädt",
+      "goalGetterId": 23151,
+      "goalGetterName": "A. Hložek",
       "goalCount": 2
     },
     {
-      "goalGetterId": 23151,
-      "goalGetterName": "A. Hložek",
+      "goalGetterId": 24990,
+      "goalGetterName": "M. Mittelstädt",
       "goalCount": 2
     },
     {
@@ -21206,13 +21306,13 @@
       "goalCount": 2
     },
     {
-      "goalGetterId": 24968,
-      "goalGetterName": "S. Marino",
+      "goalGetterId": 19135,
+      "goalGetterName": "S. Tigges",
       "goalCount": 2
     },
     {
-      "goalGetterId": 19135,
-      "goalGetterName": "S. Tigges",
+      "goalGetterId": 24968,
+      "goalGetterName": "S. Marino",
       "goalCount": 2
     },
     {
@@ -21273,6 +21373,11 @@
     {
       "goalGetterId": 22922,
       "goalGetterName": "J. Njinmah",
+      "goalCount": 2
+    },
+    {
+      "goalGetterId": 20147,
+      "goalGetterName": "F. Honorat",
       "goalCount": 2
     },
     {
@@ -21341,13 +21446,13 @@
       "goalCount": 1
     },
     {
-      "goalGetterId": 24981,
-      "goalGetterName": "A. Aouchiche",
+      "goalGetterId": 22697,
+      "goalGetterName": "M. Wöber",
       "goalCount": 1
     },
     {
-      "goalGetterId": 22697,
-      "goalGetterName": "M. Wöber",
+      "goalGetterId": 24981,
+      "goalGetterName": "A. Aouchiche",
       "goalCount": 1
     },
     {
@@ -21376,8 +21481,8 @@
       "goalCount": 1
     },
     {
-      "goalGetterId": 20035,
-      "goalGetterName": "E. Martel",
+      "goalGetterId": 24258,
+      "goalGetterName": "Danny da Costa",
       "goalCount": 1
     },
     {
@@ -21386,8 +21491,8 @@
       "goalCount": 1
     },
     {
-      "goalGetterId": 24258,
-      "goalGetterName": "Danny da Costa",
+      "goalGetterId": 20035,
+      "goalGetterName": "E. Martel",
       "goalCount": 1
     },
     {
@@ -21421,18 +21526,13 @@
       "goalCount": 1
     },
     {
-      "goalGetterId": 18640,
-      "goalGetterName": "N. Schlotterbeck",
-      "goalCount": 1
-    },
-    {
       "goalGetterId": 23377,
       "goalGetterName": "Daniel Svensson",
       "goalCount": 1
     },
     {
-      "goalGetterId": 23648,
-      "goalGetterName": "J. Quansah",
+      "goalGetterId": 18640,
+      "goalGetterName": "N. Schlotterbeck",
       "goalCount": 1
     },
     {
@@ -21443,6 +21543,11 @@
     {
       "goalGetterId": 18670,
       "goalGetterName": "R. Andrich",
+      "goalCount": 1
+    },
+    {
+      "goalGetterId": 23648,
+      "goalGetterName": "J. Quansah",
       "goalCount": 1
     },
     {
@@ -21606,13 +21711,13 @@
       "goalCount": 1
     },
     {
-      "goalGetterId": 22890,
-      "goalGetterName": "J. Adamu",
+      "goalGetterId": 20687,
+      "goalGetterName": "F. Asllani",
       "goalCount": 1
     },
     {
-      "goalGetterId": 20687,
-      "goalGetterName": "F. Asllani",
+      "goalGetterId": 22890,
+      "goalGetterName": "J. Adamu",
       "goalCount": 1
     },
     {
@@ -21638,6 +21743,11 @@
     {
       "goalGetterId": 19203,
       "goalGetterName": "M. Friedl",
+      "goalCount": 1
+    },
+    {
+      "goalGetterId": 24242,
+      "goalGetterName": "K. Diks",
       "goalCount": 1
     }
   ],
